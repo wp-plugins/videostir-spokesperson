@@ -12,22 +12,26 @@ With this plugin you can easily adjust and embed VideoStir clip into your websit
 
 == Description ==
 
-VideoStir transforms your basic video into a "video spokesperson" that can run on top of any website.
+[VideoStir](http://videostir.com/) transforms your basic video into a "video spokesperson" that can run on top of any website.
 "Do It Yourself" and automatically make a free "walk on video".
 With this plugin you can easily adjust and embed the transparent background video into your website pages/posts.
+
+[See our demo!](http://videostir.com/demo)
 
 == Installation ==
 
 Manual install goes this way:
+
 1. Download ZIP archive with plugin to you server
-2. Installing
-2.1. Go to admin panel
-2.2. Open "Plugins" section
-2.3. Press "Add New"
-2.4. Select "Upload"
-2.5. Choose ZIP-file and press "Install Now"
-2.6. After success, press "Activate Plugin"
-3. Now you should see new menu item in left column.
+1. Installing
+1.1. Go to admin panel
+1.1. Open "Plugins" section
+1.1. Press "Add New"
+1.1. Select "Upload"
+1.1. Choose ZIP-file and press "Install Now"
+1.1. After success, press "Activate Plugin"
+1. Now you should see new menu item in left column.
+1. That's it!
 
 == Frequently Asked Questions ==
 
@@ -37,13 +41,18 @@ Visit us at [VideoStir](http://videostir.com)
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1.png` (or jpg, jpeg, gif)
-2. This is the second screen shot
+1. All videos page.
+2. Edit video screen.
 
 == Changelog ==
 
+= 1.0.2.1 =
+* Added plugin banner
+* Better screenshot's text
+* readme.txt fixes
+
 = 1.0.2 =
+* Initial release to public
 * Wider pages boxes
 * Better HTML around pages selection
 * Zeros at position fields
