@@ -27,7 +27,7 @@ if (isset($_POST['apply'])) {
         $playerParams['position'] = $matches[1];
         if ($playerParams['position'][0] != '"') {
             $playerParams['position'] = json_decode($playerParams['position'], true);
-            if (json_last_error() !== JSON_ERROR_NONE) {
+            if ($playerParams['position'] == null) {
                 $errorMessages[] = 'Error parsing position object.';
             }
         }
@@ -39,7 +39,7 @@ if (isset($_POST['apply'])) {
             $errorMessages[] = 'Clip URL is not valid.';
         }
         $playerParams['settings'] = json_decode($matches[5], true);
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if ($playerParams['settings'] == null) {
             $errorMessages[] = 'Error parsing special parameters.';
         }
     }
@@ -182,7 +182,7 @@ $videoRow = array(
     'settings' => serialize(array(
         'auto-play' => true,
         'auto-play-limit' => 5,
-        'disable-player-threshold' => 3,
+        'disable-player-threshold' => 50,
         'playback-delay' => 0,
         'on-finish' => 'remove',
         'on-click-open-url' => "http://videostir.com/?ref=from-wpp",
