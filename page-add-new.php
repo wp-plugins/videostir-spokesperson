@@ -18,7 +18,7 @@ if (isset($_POST['apply'])) {
     if (count($matches)) {
         $settings = $matches[1];
 
-        preg_match('/(".+-.+"|{.+})\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*"(http.+)"\s*,\s*({.+})/s', $settings, $matches);
+        preg_match('/(".+-.+"|{.+})\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*".*(\w{32})"\s*,\s*({.+})/s', $settings, $matches);
 
         if (count($matches) != 6) {
             $errorMessages[] = 'Unknown format for "VideoStir.Player".';
@@ -31,10 +31,11 @@ if (isset($_POST['apply'])) {
                 $errorMessages[] = 'Error parsing position object.';
             }
         }
+        
         $playerParams['width']  = $matches[2];
         $playerParams['height'] = $matches[3];
         $playerParams['url']    = $matches[4];
-        if (!filter_var($playerParams['url'], FILTER_VALIDATE_URL)) {
+        if (!ctype_alnum($playerParams['url'])) {
             $errorMessages[] = 'Clip URL is not valid.';
         }
         $playerParams['settings'] = json_decode($matches[5], true);
@@ -174,16 +175,19 @@ if (isset($_POST['apply'])) {
 <?php
 
 $videoRow = array(
-    'position' => serialize('"bottom-right"'),
-    'width'    => 360,
-    'height'   => 200,
-    'url'      => 'http://videostir.com/go/video/45b8716e84abe7bea8fa6637e7b17b48',
+    'position' => serialize('{"bottom": 0, "right": "350px"}'),
+    'width'    => 440,
+    'height'   => 247,
+    'url'      => 'http://videostir.com/go/video/0ba20ab3a3daa3f5bcceb9c87ff4f886',
     'settings' => serialize(array(
         'auto-play' => true,
         'auto-play-limit' => 5,
-        'disable-player-threshold' => 50,
+        'disable-player-threshold' => 3,
         'playback-delay' => 0,
         'on-finish' => 'remove',
+        'on-click-open-url' => "http://videostir.com/?ref=from-wpp",
+        "clip-fps" => 19,
+        "extrab" => 2,
     )),
 );
 echo VideoStir::createPlayerJs($videoRow).PHP_EOL;

@@ -97,6 +97,13 @@
             }
         }
         
+        id = 'freeze', min = 1, max = 10000;
+        if (document.getElementById(id).value != '') {
+            if (!validate_range_number(document.getElementById(id).value, min, max)) {
+                error += "- The freeze field must contain a \n number between " + min + " and " + max + ". \n";
+            }
+        }
+        
         if (error != '') {
             alert(error);
             return false;

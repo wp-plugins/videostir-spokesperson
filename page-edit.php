@@ -71,6 +71,20 @@ if (isset($_POST['update'])) {
     if ((int) $_POST['zoom'] != 100) {
         $playerParams['zoom'] = round((int) $_POST['zoom'] / 100, 1);
     }
+    
+    if ((int) $_POST['freeze'] > 0) {
+        $playerParams['freeze'] = (int) $_POST['freeze'];
+    }
+    
+    if (!empty($_POST['on-click-open-url']) && strpos($_POST['on-click-open-url'], 'http') === false) {
+        $_POST['on-click-open-url'] = 'http://'.$_POST['on-click-open-url'];
+    }
+    if (filter_var($_POST['on-click-open-url'], FILTER_VALIDATE_URL) !== false && in_array($_POST['on-click-open-url-target'], array('blank', 'self'))) {
+        $playerParams['on-click-open-url'] = $_POST['on-click-open-url'];
+        $playerParams['on-click-open-url-target'] = $_POST['on-click-open-url-target'];
+    }
+    
+    
 
     $sql = $wpdb->prepare('
     UPDATE
@@ -213,7 +227,7 @@ if (!empty($data)) {
                             <option <?php if ($playerPosition == '"top-left"')     echo 'selected="selected"'; ?> value="top-left">Top / Left</option>
                             <option <?php if ($playerPosition == '"top-right"')    echo 'selected="selected"'; ?> value="top-right">Top / Right</option>
                         </select>
-                        <input name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" /><span class="help" title="Player position on page">?</span>
+                        <input name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" /><span class="help" title="Player position on page. Number of pixels from selected corner. Example: Bottom/Right 100x200 - will place clip 100px from bottom and 200px from right">?</span>
                         <div class="spacer-5">&nbsp;</div>
                         
                         
@@ -231,8 +245,8 @@ if (!empty($data)) {
                         
                         
                         
-                        <label for="url">Clip URL</label>
-                        <input style="width: 70%;" id="url" name="url" value="<?php echo $video['url'] ?>" /><span class="help" title="Full URL to the clip">?</span>
+                        <label for="url">Clip ID</label>
+                        <input style="width: 50%;" id="url" name="url" value="<?php echo $video['url'] ?>" /><span class="help" title="Unique clip ID">?</span>
                         <div class="spacer-05">&nbsp;</div>
 
                         
@@ -246,6 +260,20 @@ if (!empty($data)) {
                             <option <?php if (!$playerParams['auto-play']) echo 'selected="selected"'; ?> value="no">No</option>
                         </select><span class="help" title="Will start clip when player is ready">?</span>
                         <div class="spacer-05">&nbsp;</div>
+                        
+                        <label for="freeze">Freeze playback at frame</label>
+                        <input name="freeze" id="freeze" value="<?php echo $playerParams['freeze'] ? $playerParams['freeze'] : '' ?>" /><span class="help" title="Freeze the clip at frame X">?</span>
+                        <div class="spacer-05">&nbsp;</div>
+                        
+                        <label for="on-click-open-url">"Click on me" URL</label>
+                        <input style="width: 70%;" id="on-click-open-url" name="on-click-open-url" value="<?php echo $playerParams['on-click-open-url'] ?>" /><span class="help" title="When viewer clicks on clip player will open this link">?</span>
+                        <br/>
+                        <label>&nbsp;</label>
+                        <select name="on-click-open-url-target" id="on-click-open-url-target">
+                            <option <?php if ($playerParams['on-click-open-url-target'] == 'blank')  echo 'selected="selected"'; ?> value="blank">New window</option>
+                            <option <?php if ($playerParams['on-click-open-url-target'] == 'self') echo 'selected="selected"'; ?> value="self">Same window</option>
+                        </select>
+                        <div class="spacer-10">&nbsp;</div>
                         
                         <label for="playback-delay">Playback delay</label>
                         <input name="playback-delay" id="playback-delay" value="<?php echo $playerParams['playback-delay'] ?>" /><span class="help" title="Will start playing only when X seconds have passed after player loaded">?</span>

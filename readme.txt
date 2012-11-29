@@ -3,7 +3,7 @@ Contributors: alexey_bass
 Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, player, flash, tranparent, greenscreen, chroma, clip, background, conversion, marketing, ad
 Requires at least: 3.0
-Tested up to: 3.4.1
+Tested up to: 3.4.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,12 @@ Visit us at [VideoStir](http://videostir.com)
 2. Edit video screen.
 
 == Changelog ==
+
+= 1.1.0 =
+* New 'playback-freeze-frame' parameter on edit
+* New 'on-click-open-url' parameter on edit
+* VS player updated to 1.2.1
+* YouTube videos changed
 
 = 1.0.2.1 =
 * Added plugin banner

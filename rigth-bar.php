@@ -1,7 +1,7 @@
 <div id="formdiv" class="postbox " >
     <div class="inside">
         <h3 style="cursor: default;">Demo</h3>
-        <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/zmUquUHPRtg" frameborder="0" allowFullScreen></iframe>
+        <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/rvfL37zu28g?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
 
         <div>&nbsp;</div>
 
@@ -25,7 +25,7 @@
 <div id="formdiv" class="postbox " >
     <div class="inside">
         <h3 style="cursor: default;">Filming guidelines</h3>
-        <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/GoVyfxMpHhk" frameborder="0" allowFullScreen></iframe>
+        <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/GoVyfxMpHhk?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
     </div>
 </div>
 

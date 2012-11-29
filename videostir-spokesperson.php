@@ -4,7 +4,7 @@
   Plugin Name: VideoStir Spokesperson
   Plugin URI: http://videostir.com/downloads/wordpress-plugin/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 1.0.2
+  Version: 1.1.0
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */
@@ -34,7 +34,7 @@ class VideoStir {
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
-        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/1.0.3/videostir.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/1.2.1/videostir.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
     }
 
     function vs_wp_footer()
@@ -136,8 +136,9 @@ class VideoStir {
     function config_page()
     {
         add_menu_page('VideoStir', 'VideoStir', 8, 'videostir_options', array(&$this, 'cf_all_video'), $this->icon);
-        add_submenu_page('videostir_options', 'all_video', 'All videos', 8, 'videostir_options', array(&$this, 'cf_all_video'));
-        add_submenu_page('videostir_options', 'new', 'Add new', 8, 'videostir_options_sub', array(&$this, 'cf_actions'));
+        
+        add_submenu_page('videostir_options', 'All Videos', 'All videos', 8, 'videostir_options', array(&$this, 'cf_all_video'));
+        add_submenu_page('videostir_options', 'Add New Video', 'Add new', 8, 'videostir_options_sub', array(&$this, 'cf_actions'));
     }
 
     function cf_all_video()
