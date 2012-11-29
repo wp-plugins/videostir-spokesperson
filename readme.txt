@@ -37,7 +37,7 @@ Manual install goes this way:
 
 = When I can find more information? =
 
-Visit us at [VideoStir](http://videostir.com) 
+Visit us at [VideoStir](http://videostir.com)
 
 == Screenshots ==
 
@@ -45,6 +45,10 @@ Visit us at [VideoStir](http://videostir.com)
 2. Edit video screen.
 
 == Changelog ==
+
+= 1.1.1 =
+* Plugin screenshots optimized
+* Removed PHP 5.3.x dependency when adding a clip
 
 = 1.1.0 =
 * New 'playback-freeze-frame' parameter on edit

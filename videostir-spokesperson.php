@@ -2,9 +2,9 @@
 
 /*
   Plugin Name: VideoStir Spokesperson
-  Plugin URI: http://videostir.com/downloads/wordpress-plugin/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
+  Plugin URI: http://wordpress.org/extend/plugins/videostir-spokesperson/
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 1.1.0
+  Version: 1.1.1
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */

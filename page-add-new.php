@@ -182,7 +182,7 @@ $videoRow = array(
     'settings' => serialize(array(
         'auto-play' => true,
         'auto-play-limit' => 5,
-        'disable-player-threshold' => 50,
+        'disable-player-threshold' => 3,
         'playback-delay' => 0,
         'on-finish' => 'remove',
         'on-click-open-url' => "http://videostir.com/?ref=from-wpp",
