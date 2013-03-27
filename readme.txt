@@ -4,7 +4,7 @@ Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, player, flash, tranparent, greenscreen, chroma, clip, background, conversion, marketing, ad
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: trunk
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,13 +23,12 @@ With this plugin you can easily adjust and embed the transparent background vide
 Manual install goes this way:
 
 1. Download ZIP archive with plugin to you server
-1. Installing
-1.1. Go to admin panel
-1.1. Open "Plugins" section
-1.1. Press "Add New"
-1.1. Select "Upload"
-1.1. Choose ZIP-file and press "Install Now"
-1.1. After success, press "Activate Plugin"
+1. Go to admin panel
+1. Open "Plugins" section
+1. Press "Add New"
+1. Select "Upload"
+1. Choose ZIP-file and press "Install Now"
+1. After success, press "Activate Plugin"
 1. Now you should see new menu item in left column.
 1. That's it!
 
