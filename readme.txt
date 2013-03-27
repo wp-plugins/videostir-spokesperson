@@ -46,6 +46,10 @@ Visit us at [VideoStir](http://videostir.com)
 
 == Changelog ==
 
+= 1.2.0 =
+* VS player updated to 2.1.0
+* Embed code format was changed to latest since VS.Player 2.0.0
+
 = 1.1.1 =
 * Plugin screenshots optimized
 * Removed PHP 5.3.x dependency when adding a clip

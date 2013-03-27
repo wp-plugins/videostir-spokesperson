@@ -34,7 +34,7 @@ class VideoStir {
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
-        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/1.2.1/videostir.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.1.0/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
     }
 
     function vs_wp_footer()
@@ -87,7 +87,7 @@ class VideoStir {
         $js = '';
         
         if (!empty($videoRow)) {
-            $js.= '<script type="text/javascript">VideoStir.Player.show(';
+            $js.= '<script>VS.Player.show(';
             $js.= (is_array(unserialize($videoRow['position']))) ? json_encode(unserialize($videoRow['position'])) : unserialize($videoRow['position']);
             $js.= ', '.$videoRow['width'];
             $js.= ', '.$videoRow['height'];

@@ -12,7 +12,7 @@ if (isset($_POST['apply'])) {
     $errorMessages = array();
     $matches = array();
 
-    preg_match('/\<script.+type\="text\/javascript"\>.*VideoStir\.Player\.show\((.+)\);.*\<\/script\>/s', $embed, $matches);
+    preg_match('/\<script\>VS\.Player\.show\((.+)\);\<\/script\>/s', $embed, $matches);
 
     $playerParams = array();
     if (count($matches)) {
@@ -21,7 +21,7 @@ if (isset($_POST['apply'])) {
         preg_match('/(".+-.+"|{.+})\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*".*(\w{32})"\s*,\s*({.+})/s', $settings, $matches);
 
         if (count($matches) != 6) {
-            $errorMessages[] = 'Unknown format for "VideoStir.Player".';
+            $errorMessages[] = 'Unknown format for "VS.Player".';
         }
 
         $playerParams['position'] = $matches[1];
@@ -128,8 +128,8 @@ if (isset($_POST['apply'])) {
                     <form method="post" action="">
                         <h2 style="margin: 10px 0 0px;">Instructions</h2>
                         <p style="margin-top: 0;">
-                            Paste the 3 lines you got from <a target="_blank" href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">videostir.com</a> in the textbox below (after transforming your clip into a floating clip).<br/>
-                            Click "Next" and adjust the parameters that will appear. Choose the pages/posts that will hold the clip from the list.
+                            Paste the 3 lines you got from <a target="_blank" href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">videostir.com</a> after transforming your clip into a floating clip in the textbox below.<br/>
+                            Click "Next" to adjust the parameters that will appear and choose the pages/posts that will hold the clip from the list.
                         </p>
                         
                         <div class="spacer-10">&nbsp;</div>
