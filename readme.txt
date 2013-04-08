@@ -16,7 +16,7 @@ Embed and adjust your own made floating clip (web spokesperson) into your websit
 Take a few minutes to "Do It Yourself" and automatically make a free "walk on video". VideoStir automatically removes your video's background without the need for a green screen.  Just follow our basic [guidelines]( http://videostir.com/guidelines/?ref=wp) and you will see your floating clip running on top of your selected pages.
 With this plugin you can easily adjust and embed the transparent background video into your website’s pages/posts.  You can embed your clips using the plugin’s check/text  boxes, without needing to handle any HTML files.
 Once you have your video ready, you can use VideoStir’s WordPress plugin to embed the video into your website. You can control the clip’s size, location, behavior and much more.
-You can watch a live demo on your website using our[examples page](http://videostir.com/usages/?ref=wp)
+You can watch a live demo on your website using our [examples page](http://videostir.com/usages/?ref=wp)
 
 [Watch our demo!](http://videostir.com/demo/?ref=wp)
 
