@@ -43,7 +43,7 @@
     {
         var error = '', id, min, max;
         
-        id = 'width', min = 0, max = 3000;
+        id = 'width', min = 50, max = 3000;
         if (!validate_range_number(document.getElementById(id).value, min, max)) {
             error += "- The " + id + " field must contain a \n number between " + min + " and " + max + ". \n";
         }
@@ -58,7 +58,7 @@
             error += "- The top or bottom field must contain a \n number between " + min + " and " + max + ". \n";
         }
         
-        id = 'val2', min = -3000, max = 3000;
+        id = 'val2';
         if (!validate_range_number(document.getElementById(id).value, min, max)) {
             error += "- The left or right field must contain a \n number between " + min + " and " + max + ". \n";
         }

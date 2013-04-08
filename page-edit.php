@@ -5,6 +5,8 @@ $info = '';
 
 if (isset($_POST['update'])) {
 
+    $errorMessages = array();
+    
     $arraypages = array();
     if (isset($_POST["pages"]) && is_array($_POST["pages"]) && count($_POST["pages"]) > 0) {
         foreach ($_POST["pages"] as $selpage) {
@@ -46,6 +48,19 @@ if (isset($_POST['update'])) {
             break;
     }
     
+    $width = (int) $_POST['width'];
+    if ($width < 50 || $width > 3000) {
+        $errorMessages[] = 'Clip width '.$width.' is out of range (50&ndash;3000).';
+    }
+    $height = (int) $_POST['height'];
+    if ($height < 50 || $height > 3000) {
+        $errorMessages[] = 'Clip height '.$height.' is out of range (50&ndash;3000).';
+    }
+    
+    if (!ctype_alnum($_POST['url']) || strlen($_POST['url']) !== 32) {
+        $errorMessages[] = 'Clip ID is not valid. It should be alphanumeric value 32 symbols long that you can only get from VideoStir site.';
+    }
+    
     $playerParams = array();
     
     $playerParams['auto-play'] = ($_POST['auto-play'] == 'yes') ? true : false;
@@ -53,6 +68,10 @@ if (isset($_POST['update'])) {
     $playerParams['playback-delay'] = ($_POST['playback-delay']) ? (int) $_POST['playback-delay'] : 0;
 
     $playerParams['auto-play-limit'] = ($_POST['auto-play-limit']) ? (int) $_POST['auto-play-limit'] : 0;
+    
+    if ((int) $_POST['disable-player-threshold'] > 0) {
+        $playerParams['disable-player-threshold'] = (int) $_POST['disable-player-threshold'];
+    }
     
     if (!empty($_POST['on-finish'])) {
         switch ($_POST['on-finish']) {
@@ -84,36 +103,41 @@ if (isset($_POST['update'])) {
         $playerParams['on-click-open-url-target'] = $_POST['on-click-open-url-target'];
     }
     
-    
+    if (!count($errorMessages)) {
+        
+        $sql = $wpdb->prepare('
+        UPDATE
+            `'.$this->table_name.'`
+        SET
+            `pages` = %s
+        ,   `position` = %s
+        ,   `width` = %d
+        ,   `height` = %d
+        ,   `url` = %s
+        ,   `settings` = %s
+        WHERE
+            `id` = %d
+        LIMIT 1
+        ', 
 
-    $sql = $wpdb->prepare('
-    UPDATE
-        `'.$this->table_name.'`
-    SET
-        `pages` = %s
-    ,   `position` = %s
-    ,   `width` = %d
-    ,   `height` = %d
-    ,   `url` = %s
-    ,   `settings` = %s
-    WHERE
-        `id` = %d
-    LIMIT 1
-    ', 
+            $pages
+        ,   serialize($playerPosition)
+        ,   $_POST['width']
+        ,   $_POST['height']
+        ,   $_POST['url']
+        ,   serialize($playerParams)
+        ,   $_GET['id']
+        );
 
-        $pages
-    ,   serialize($playerPosition)
-    ,   $_POST['width']
-    ,   $_POST['height']
-    ,   $_POST['url']
-    ,   serialize($playerParams)
-    ,   $_GET['id']
-    );
+        $wpdb->query($sql);
 
-    $wpdb->query($sql);
-
-    $info['type'] = 'updated';
-    $info['text'] = 'Floating clip parameters updated.';
+        $info['type'] = 'updated';
+        $info['text'] = 'Floating clip parameters updated.';
+        
+    } else {
+        $info['type'] = 'error';
+        $info['text'] = 'Errors found.<br/>'.implode('<br/>', $errorMessages);
+    }
 }
 
 if (isset($_POST['change-name'])) {
@@ -158,7 +182,7 @@ if (!empty($data)) {
 
     <?php if ($info != '') {
         ?>
-        <div style="margin-bottom: 15px;" class="<?php echo $info['type']; ?>">
+        <div style="margin-bottom: 15px;" class="messages <?php echo $info['type']; ?>">
             <div class="spacer-05">&nbsp;</div>
             <?php echo $info['text']; ?>
             <div class="spacer-05">&nbsp;</div>
@@ -174,8 +198,8 @@ if (!empty($data)) {
                     <form method="post" action="">
                         <div class="spacer-10">&nbsp;</div>
                         <label for="name">Name</label> 
-                        <input id="name" name="name" value="<?php echo $video['name']; ?>" />
-                        <p style="text-align: right;"><input type="submit" name="change-name" value="Update name" /></p>
+                        <input id="name" name="name" value="<?php echo $video['name']; ?>" style="width: 200px;" />
+                        <input type="submit" name="change-name" value="Update" />
                     </form>
                 </div>
             </div> 
@@ -283,6 +307,10 @@ if (!empty($data)) {
                         <input name="auto-play-limit" id="auto-play-limit" value="<?php echo $playerParams['auto-play-limit'] ?>" /><span class="help" title="Disable auto play after X times">?</span>
                         <div class="spacer-05">&nbsp;</div>
                         
+                        <label for="disable-player-threshold">Appearance limit</label>
+                        <input name="disable-player-threshold" id="disable-player-threshold" value="<?php echo $playerParams['disable-player-threshold'] ?>" /><span class="help" title="Do not play or load clip after X times">?</span>
+                        <div class="spacer-05">&nbsp;</div>
+                        
                         <label for="on-finish">When clip ends behavior</label>
                         <select name="on-finish" id="on-finish">
                             <option <?php if ($playerParams['on-finish'] == '') echo 'selected="selected"'; ?> value="">Do nothing</option>
@@ -374,7 +402,7 @@ if (!empty($data)) {
             </div>
             
             <div id="formdiv" class="postbox " >
-                <h3 style="cursor: default;">VideoStir embed code (read-only)</h3>
+                <h3 style="cursor: default;">VideoStir embed code (read-only, no need to copy)</h3>
                 <div class="inside">
                     <textarea style="width: 100%;" id="embed" readonly="readonly" name="embed"><?php echo $embedCode; ?></textarea>
                 </div>

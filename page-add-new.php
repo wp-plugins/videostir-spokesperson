@@ -15,14 +15,14 @@ if (isset($_POST['apply'])) {
     if (strlen($embed) < 16) {
         $errorMessages[] = 'Code is empty.';
     } else {
-        preg_match('/\<script\>VS\.Player\.show\((.+)\);\<\/script\>/s', $embed, $matches);
+        preg_match('/\<script\>\s*VS\.Player\.show\((.+)\);\s*\<\/script\>/s', $embed, $matches);
     }
 
     $playerParams = array();
     if (count($matches)) {
         $settings = $matches[1];
 
-        preg_match('/(".+-.+"|{.+})\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*".*(\w{32})"\s*,\s*({.+})/s', $settings, $matches);
+        preg_match('/(".+-.+"|{.+})\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*"(\w+)"\s*,\s*({.+})/s', $settings, $matches);
 
         if (count($matches) != 6) {
             $errorMessages[] = 'Unknown format for "VS.Player".';
@@ -38,17 +38,16 @@ if (isset($_POST['apply'])) {
         
         $playerParams['width']  = $matches[2];
         $playerParams['height'] = $matches[3];
+        
         $playerParams['url']    = $matches[4];
-        if (!ctype_alnum($playerParams['url'])) {
-            $errorMessages[] = 'Clip URL is not valid.';
+        if (!ctype_alnum($playerParams['url']) || strlen($playerParams['url']) !== 32) {
+            $errorMessages[] = 'Clip ID is not valid.';
         }
         $playerParams['settings'] = json_decode($matches[5], true);
         if ($playerParams['settings'] == null) {
             $errorMessages[] = 'Error parsing special parameters.';
         }
     }
-    
-    
     
     if (!count($errorMessages)) {
         
@@ -116,7 +115,7 @@ if (isset($_POST['apply'])) {
     <h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" /> Add new video</h2>
 
     <?php if ($info != '') { ?>
-        <div style="margin-bottom: 15px; color: #c00;" class="<?php echo $info['type']; ?>">
+        <div style="margin-bottom: 15px; color: #c00;" class="messages <?php echo $info['type']; ?>">
             <div class="spacer-05">&nbsp;</div>
             <?php echo $info['text']; ?>
             <div class="spacer-05">&nbsp;</div>
