@@ -60,15 +60,7 @@ $data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A
                             ?>
                             <tr>
                                 <td style="border-bottom-width: 0;"><?php echo $video['id'] ?></td>
-                                <td style="border-bottom-width: 0;"><?php echo $video['name'] ?></td>
-                                <td style="border-bottom-width: 0;"><?php
-                    $ids = explode(',', $video['pages']);
-
-                    foreach ($ids as $id) {
-                        $p = get_post($id);
-//                        echo $p->post_title . ' - ' . $p->post_type . '<br/>';
-                    }
-                            ?></td>
+                                <td style="border-bottom-width: 0;" colspan="2"><?php echo $video['name'] ?></td>
                                 <td style="border-bottom-width: 0;">
                                     <?php echo '<a href="' . get_bloginfo('url') . '/wp-admin/admin.php?page=videostir_options_sub&action=edit&id=' . $video['id'] . '">edit</a>'; ?> 
                                     - 
@@ -85,12 +77,14 @@ $data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A
                             </tr>
                             <?php
                             
+                            $ids = (strlen($video['pages'])) ? explode(',', $video['pages']) : array();
+                            
                             if (count($ids)) {
                                 echo '<tr>';
                                 echo '<td>&nbsp;</td>';
                                 echo '<td colspan="3">';
                                 foreach ($ids as $id) {
-                                    if ($id == 0) {
+                                    if (intval($id) === 0) {
                                         echo '(Page) Home<br/>';
                                     } else {
                                         $p = get_post($id);
