@@ -27,9 +27,10 @@ In a nutshell:
 1. Follow VideoStir's 3 simple steps - Upload, Tune, Enjoy - Within just a few minutes our VideoStir engine creates a background-less floating clip
 1. Embed your floating clip - Embed the clip in your webpage. It's easy using VideoStir's WordPress plugin.
 
-Here is a short guidelines video that shows you how to make a simple floating clip:
+Here is a short guidelines video that shows you how to make a simple floating clip
 [youtube http://www.youtube.com/watch?v=GoVyfxMpHhk]
-Here is a short video that demonstrates how to use this plugin.
+
+Here is a short video that demonstrates how to use this plugin
 [youtube http://www.youtube.com/watch?v=byWDi50sFGM]
 
 == Installation ==
