@@ -151,7 +151,7 @@ if (isset($_POST['apply'])) {
             </div> 
 
             <div id="formdiv" class="postbox">
-                <h3 style="cursor: default;">Tutorial &mdash; How to embed</h3>
+                <h3 style="cursor: default;">Tutorial &mdash; How to use this plugin</h3>
                 <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/byWDi50sFGM?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
             </div>
 

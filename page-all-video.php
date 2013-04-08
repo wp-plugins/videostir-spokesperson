@@ -8,7 +8,7 @@ $data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A
 
 <div class="wrap">
 
-    <h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" />All videos <a href="admin.php?page=videostir_options_sub" class="add-new-h2" style="margin-left: 5em;">Add new</a></h2>
+    <h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" />All videos <a href="admin.php?page=videostir_options_sub" class="add-new-h2">Add new</a></h2>
 
     <?php if (isset($_GET['info'])) { ?>
         <div style="margin-bottom: 15px;" class="updated">
@@ -35,20 +35,20 @@ $data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A
             <table class="wp-list-table widefat fixed posts" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
+                        <th style="width: 20px;">ID</th>
+                        <th>Video name</th>
                         <th>Pages / Post</th>
-                        <th>Actions</th>
+                        <th style="width: 120px;">Actions</th>
                     </tr>
                 </thead>
 
                 <?php if (count($data) > 5): ?>
                 <tfoot>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
+                        <th style="width: 20px;">ID</th>
+                        <th>Video name</th>
                         <th>Pages / Post</th>
-                        <th>Actions</th>
+                        <th style="width: 120px;">Actions</th>
                     </tr>    
                 </tfoot>
                 <?php endif; ?>
@@ -59,17 +59,17 @@ $data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A
                         foreach ($data as $video) {
                             ?>
                             <tr>
-                                <td><?php echo $video['id'] ?></td>
-                                <td><?php echo $video['name'] ?></td>
-                                <td><?php
+                                <td style="border-bottom-width: 0;"><?php echo $video['id'] ?></td>
+                                <td style="border-bottom-width: 0;"><?php echo $video['name'] ?></td>
+                                <td style="border-bottom-width: 0;"><?php
                     $ids = explode(',', $video['pages']);
 
                     foreach ($ids as $id) {
                         $p = get_post($id);
-                        echo $p->post_name . ' - ' . $p->post_type . '<br/>';
+//                        echo $p->post_title . ' - ' . $p->post_type . '<br/>';
                     }
                             ?></td>
-                                <td>
+                                <td style="border-bottom-width: 0;">
                                     <?php echo '<a href="' . get_bloginfo('url') . '/wp-admin/admin.php?page=videostir_options_sub&action=edit&id=' . $video['id'] . '">edit</a>'; ?> 
                                     - 
                                     <?php echo '<a href="' . get_bloginfo('url') . '/wp-admin/admin.php?page=videostir_options_sub&action=delete&id=' . $video['id'] . '">delete</a>'; ?>
@@ -84,12 +84,29 @@ $data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A
                                 </td>
                             </tr>
                             <?php
+                            
+                            if (count($ids)) {
+                                echo '<tr>';
+                                echo '<td>&nbsp;</td>';
+                                echo '<td colspan="3">';
+                                foreach ($ids as $id) {
+                                    if ($id == 0) {
+                                        echo '(Page) Home<br/>';
+                                    } else {
+                                        $p = get_post($id);
+                                        echo '('.ucfirst($p->post_type).') ';
+                                        echo $p->post_title.'<br/>';
+                                    }
+                                }
+                                echo '</td>';
+                                echo '</tr>';
+                            }
                         }
                     } else {
                         ?>
                             
                         <tr>
-                            <td colspan="4">No VideoStir videos found</td>
+                            <td colspan="4" style="color: #c00;">No videos yet</td>
                         </tr>
                             
                         <?php
@@ -97,7 +114,22 @@ $data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A
                     ?>
                 </tbody>
             </table>
+            
+            <?php if (!count($data)): ?>
+            
+            <br/><br/>
+            
+            <div id="formdiv" class="postbox">
+                <h3 style="cursor: default;">Tutorial &mdash; How to use this plugin</h3>
+                <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/byWDi50sFGM?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
+            </div>
+            
+            <?php endif; ?>
+            
         </div>
+        
+        
+        
     </div>
     <div style="width: 3%;
          float: left;
