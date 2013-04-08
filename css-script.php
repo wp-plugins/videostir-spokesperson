@@ -1,5 +1,4 @@
 <style type="text/css">
-    textarea { width: 100%; height: 100px;}
     .frm label {
         float: left;
         width: 150px;

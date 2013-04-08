@@ -127,45 +127,41 @@ if (isset($_POST['apply'])) {
                 <div class="inside">
                     <form method="post" action="">
                         <h2 style="margin: 10px 0 0px;">Instructions</h2>
-                        <p style="margin-top: 0;">
+                        <p style="margin: 0;">
                             Paste the 3 lines you got from <a target="_blank" href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">videostir.com</a> after transforming your clip into a floating clip in the textbox below.<br/>
                             Click "Next" to adjust the parameters that will appear and choose the pages/posts that will hold the clip from the list.
                         </p>
                         
-                        <div class="spacer-10">&nbsp;</div>
+                        <br/>
                         
-                        <label title="Description" for="name">Name</label>
-                        <div class="spacer-10">&nbsp;</div>
-                        <input id="name" name="name" value="<?php echo $videoName; ?>" />
+                        <label>Name<br/><input id="name" name="name" value="<?php echo $videoName; ?>" /></label>
                         
                         <div class="spacer-5">&nbsp;</div>
                         
-                        <label title="Description" for="embed">Embedding code</label>
-                        <div class="spacer-10">&nbsp;</div>
-                        <textarea style="width: 100%;" id="embed" name="embed"><?php echo stripslashes($embed); ?></textarea>
-                        
-                        <div class="spacer-5">&nbsp;</div>
+                        <label>Embedding code<br/><textarea style="width: 100%;" rows="4" id="embed" name="embed"><?php echo stripslashes($embed); ?></textarea></label>
                         
                         <p style="text-align: right;">
-                            <input onclick="window.location = '<?php echo get_bloginfo('url') . '/wp-admin/admin.php?page=videostir_options' ?>'" type="button" name="cancel" value="Cancel" />
-                            <input type="submit" name="apply" value="Next" />
+                            <button type="button" onclick="window.location='<?php echo get_bloginfo('url').'/wp-admin/admin.php?page=videostir_options' ?>'">Cancel</button>
+                            <button type="submit"><strong>Next</strong></button>
+                            <input type="hidden" name="apply" />
                         </p>
                     </form>
                 </div>
+                
             </div> 
 
+            <div id="formdiv" class="postbox">
+                <h3 style="cursor: default;">Tutorial &mdash; How to embed</h3>
+                <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/byWDi50sFGM?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
+            </div>
+
         </div>
 
-        <div style="width: 3%;
-             float: left;
-             ">&nbsp;</div>
-        <div style="width: 37%;
-             float: left;
-             ">
-
+        <div style="width: 3%; float: left;">&nbsp;</div>
+        <div style="width: 37%;float: left;">
             <?php include 'rigth-bar.php'; ?>
-
         </div>
+        
     </div>
 
     <br class="clear">
@@ -178,7 +174,7 @@ $videoRow = array(
     'position' => serialize('{"bottom": 0, "right": "350px"}'),
     'width'    => 440,
     'height'   => 247,
-    'url'      => 'd2f2e6e84773a5f0a76e5b545b04b66f',
+    'url'      => 'http://videostir.com/go/video/0ba20ab3a3daa3f5bcceb9c87ff4f886',
     'settings' => serialize(array(
         'auto-play' => true,
         'auto-play-limit' => 5,

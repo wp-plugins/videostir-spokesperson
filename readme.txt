@@ -45,6 +45,11 @@ Visit us at [VideoStir](http://videostir.com)
 
 == Changelog ==
 
+= (dev) =
+* VS clip replaced to new
+* Added video tutorial to "add new" page
+* HTML cleaning
+
 = 1.2.0 =
 * VS player updated to 2.1.0
 * Embed code format was changed to latest since VS.Player 2.0.0
