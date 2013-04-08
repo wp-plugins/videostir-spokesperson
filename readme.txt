@@ -146,3 +146,13 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 * New logo file
 * Google Analytics compain in links
 * Added Shy clip to right bar
+
+== Upgrade Notice ==
+
+= 1.3.0 =
+Clip URL is no longer required, only clip HASH.
+Use embedded code shown on site.
+
+= 1.2.0 =
+Clip URL is no longer required, only clip HASH.
+Use embedded code shown on site.
