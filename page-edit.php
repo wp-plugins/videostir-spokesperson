@@ -5,6 +5,8 @@ $info = '';
 
 if (isset($_POST['update'])) {
 
+    $errorMessages = array();
+    
     $arraypages = array();
     if (isset($_POST["pages"]) && is_array($_POST["pages"]) && count($_POST["pages"]) > 0) {
         foreach ($_POST["pages"] as $selpage) {
@@ -46,6 +48,10 @@ if (isset($_POST['update'])) {
             break;
     }
     
+    if (!ctype_alnum($_POST['url']) || strlen($_POST['url']) !== 32) {
+        $errorMessages[] = 'Clip ID is not valid. It should be alphanumeric value 32 symbols long that you can only get from VideoStir site.';
+    }
+    
     $playerParams = array();
     
     $playerParams['auto-play'] = ($_POST['auto-play'] == 'yes') ? true : false;
@@ -84,36 +90,41 @@ if (isset($_POST['update'])) {
         $playerParams['on-click-open-url-target'] = $_POST['on-click-open-url-target'];
     }
     
-    
+    if (!count($errorMessages)) {
+        
+        $sql = $wpdb->prepare('
+        UPDATE
+            `'.$this->table_name.'`
+        SET
+            `pages` = %s
+        ,   `position` = %s
+        ,   `width` = %d
+        ,   `height` = %d
+        ,   `url` = %s
+        ,   `settings` = %s
+        WHERE
+            `id` = %d
+        LIMIT 1
+        ', 
 
-    $sql = $wpdb->prepare('
-    UPDATE
-        `'.$this->table_name.'`
-    SET
-        `pages` = %s
-    ,   `position` = %s
-    ,   `width` = %d
-    ,   `height` = %d
-    ,   `url` = %s
-    ,   `settings` = %s
-    WHERE
-        `id` = %d
-    LIMIT 1
-    ', 
+            $pages
+        ,   serialize($playerPosition)
+        ,   $_POST['width']
+        ,   $_POST['height']
+        ,   $_POST['url']
+        ,   serialize($playerParams)
+        ,   $_GET['id']
+        );
 
-        $pages
-    ,   serialize($playerPosition)
-    ,   $_POST['width']
-    ,   $_POST['height']
-    ,   $_POST['url']
-    ,   serialize($playerParams)
-    ,   $_GET['id']
-    );
+        $wpdb->query($sql);
 
-    $wpdb->query($sql);
-
-    $info['type'] = 'updated';
-    $info['text'] = 'Floating clip parameters updated.';
+        $info['type'] = 'updated';
+        $info['text'] = 'Floating clip parameters updated.';
+        
+    } else {
+        $info['type'] = 'error';
+        $info['text'] = 'Errors found.<br/>'.implode('<br/>', $errorMessages);
+    }
 }
 
 if (isset($_POST['change-name'])) {
@@ -158,7 +169,7 @@ if (!empty($data)) {
 
     <?php if ($info != '') {
         ?>
-        <div style="margin-bottom: 15px;" class="<?php echo $info['type']; ?>">
+        <div style="margin-bottom: 15px;" class="messages <?php echo $info['type']; ?>">
             <div class="spacer-05">&nbsp;</div>
             <?php echo $info['text']; ?>
             <div class="spacer-05">&nbsp;</div>
@@ -174,8 +185,8 @@ if (!empty($data)) {
                     <form method="post" action="">
                         <div class="spacer-10">&nbsp;</div>
                         <label for="name">Name</label> 
-                        <input id="name" name="name" value="<?php echo $video['name']; ?>" />
-                        <p style="text-align: right;"><input type="submit" name="change-name" value="Update name" /></p>
+                        <input id="name" name="name" value="<?php echo $video['name']; ?>" style="width: 200px;" />
+                        <input type="submit" name="change-name" value="Update" />
                     </form>
                 </div>
             </div> 
@@ -374,7 +385,7 @@ if (!empty($data)) {
             </div>
             
             <div id="formdiv" class="postbox " >
-                <h3 style="cursor: default;">VideoStir embed code (read-only)</h3>
+                <h3 style="cursor: default;">VideoStir embed code (read-only, no need to copy)</h3>
                 <div class="inside">
                     <textarea style="width: 100%;" id="embed" readonly="readonly" name="embed"><?php echo $embedCode; ?></textarea>
                 </div>
