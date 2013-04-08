@@ -48,6 +48,15 @@ if (isset($_POST['update'])) {
             break;
     }
     
+    $width = (int) $_POST['width'];
+    if ($width < 50 || $width > 3000) {
+        $errorMessages[] = 'Clip width '.$width.' is out of range (50&ndash;3000).';
+    }
+    $height = (int) $_POST['height'];
+    if ($height < 50 || $height > 3000) {
+        $errorMessages[] = 'Clip height '.$height.' is out of range (50&ndash;3000).';
+    }
+    
     if (!ctype_alnum($_POST['url']) || strlen($_POST['url']) !== 32) {
         $errorMessages[] = 'Clip ID is not valid. It should be alphanumeric value 32 symbols long that you can only get from VideoStir site.';
     }
@@ -59,6 +68,10 @@ if (isset($_POST['update'])) {
     $playerParams['playback-delay'] = ($_POST['playback-delay']) ? (int) $_POST['playback-delay'] : 0;
 
     $playerParams['auto-play-limit'] = ($_POST['auto-play-limit']) ? (int) $_POST['auto-play-limit'] : 0;
+    
+    if ((int) $_POST['disable-player-threshold'] > 0) {
+        $playerParams['disable-player-threshold'] = (int) $_POST['disable-player-threshold'];
+    }
     
     if (!empty($_POST['on-finish'])) {
         switch ($_POST['on-finish']) {
@@ -292,6 +305,10 @@ if (!empty($data)) {
                         
                         <label for="auto-play-limit">Autoplay limit</label>
                         <input name="auto-play-limit" id="auto-play-limit" value="<?php echo $playerParams['auto-play-limit'] ?>" /><span class="help" title="Disable auto play after X times">?</span>
+                        <div class="spacer-05">&nbsp;</div>
+                        
+                        <label for="disable-player-threshold">Appearance limit</label>
+                        <input name="disable-player-threshold" id="disable-player-threshold" value="<?php echo $playerParams['disable-player-threshold'] ?>" /><span class="help" title="Do not play or load clip after X times">?</span>
                         <div class="spacer-05">&nbsp;</div>
                         
                         <label for="on-finish">When clip ends behavior</label>
