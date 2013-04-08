@@ -50,6 +50,7 @@ Visit us at [VideoStir](http://videostir.com)
 * Added video tutorial to "add new" page
 * HTML cleaning
 * All videos page with better table structure
+* Check 'add new' page for empty fields
 
 = 1.2.0 =
 * VS player updated to 2.1.0

@@ -4,7 +4,7 @@ global $wpdb;
 
 $info = '';
 
-$videoName = (isset($_POST['name'])) ? $_POST['name'] : '';
+$videoName = (isset($_POST['name'])) ? $_POST['name'] : 'VideoStir clip';
 $embed = (isset($_POST['embed'])) ? stripslashes($_POST['embed']) : '';
 
 if (isset($_POST['apply'])) {
@@ -12,7 +12,11 @@ if (isset($_POST['apply'])) {
     $errorMessages = array();
     $matches = array();
 
-    preg_match('/\<script\>VS\.Player\.show\((.+)\);\<\/script\>/s', $embed, $matches);
+    if (strlen($embed) < 16) {
+        $errorMessages[] = 'Code is empty.';
+    } else {
+        preg_match('/\<script\>VS\.Player\.show\((.+)\);\<\/script\>/s', $embed, $matches);
+    }
 
     $playerParams = array();
     if (count($matches)) {
@@ -112,7 +116,7 @@ if (isset($_POST['apply'])) {
     <h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" /> Add new video</h2>
 
     <?php if ($info != '') { ?>
-        <div style="margin-bottom: 15px;" class="<?php echo $info['type']; ?>">
+        <div style="margin-bottom: 15px; color: #c00;" class="<?php echo $info['type']; ?>">
             <div class="spacer-05">&nbsp;</div>
             <?php echo $info['text']; ?>
             <div class="spacer-05">&nbsp;</div>
@@ -125,7 +129,7 @@ if (isset($_POST['apply'])) {
             <div id="formdiv" class="postbox " >
 
                 <div class="inside">
-                    <form method="post" action="">
+                    <form method="post" action="" onsubmit="return videostirValidateNewVideo();">
                         <h2 style="margin: 10px 0 0px;">Instructions</h2>
                         <p style="margin: 0;">
                             Paste the 3 lines you got from <a target="_blank" href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">videostir.com</a> after transforming your clip into a floating clip in the textbox below.<br/>
@@ -166,7 +170,6 @@ if (isset($_POST['apply'])) {
 
     <br class="clear">
 </div>
-
 
 <?php
 
