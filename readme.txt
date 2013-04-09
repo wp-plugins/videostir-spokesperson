@@ -55,7 +55,7 @@ Visit us at [VideoStir](http://videostir.com)
 
 = What is a floating clip? =
 
-A floating clip is a video clip with a transparent background. When played over a web page, the site content shows the through the transparent part of the clip (see-through effect). Floating video clips provides viewers with a much more personal and integrated experience than conventional square video players do. 
+A floating clip is a video clip with a transparent background. When played over a web page, the site content shows through the transparent part of the clip (see-through effect). Floating video clips provides viewers with a much more personal and integrated experience than conventional square video players do. 
 VideoStir not only creates the floating clip, but also provides users with the means to project and view it over any website, even a public site, without having to make changes to the site. Easily add a video annotation to any existing site by way of the “floating clip link”.
 
 = Why do I need a floating clip? =
