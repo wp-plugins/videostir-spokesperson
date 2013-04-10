@@ -1,14 +1,14 @@
 === VideoStir Spokesperson ===
 Contributors: alexey_bass
 Donate link: http://videostir.com/
-Tags: video, spokesperson, embed, player, flash, transparent, greenscreen, chroma, clip, background, conversion, marketing, ad, diy, sales, cro, youtube, videostir
+Tags: video, spokesperson, embed, player, flash, transparent, greenscreen, chroma, clip, background, conversion, marketing, ad
 Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Embed and adjust your own made floating clip (web spokesperson) into your website pages and posts. You can DIY in 5 minutes based on a basic video.
+Embed and adjust your own made floating clip "web spokesperson" to your website. With VideoStir you can DIY in 5 minutes based on a basic video.
 
 == Description ==
 
@@ -101,6 +101,9 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 7. Simple Steps – upload,  tune,  enjoy.
 
 == Changelog ==
+
+= 1.4.0 =
+* Keep user settings on update
 
 = 1.3.0 =
 * VS clip replaced to new
