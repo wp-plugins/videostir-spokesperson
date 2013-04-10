@@ -8,7 +8,7 @@ Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Embed and adjust your own made floating clip (web spokesperson) into your website pages and posts. You can DIY in 5 minutes based on a basic video.
+Embed and adjust your own made floating clip "web spokesperson" to your website. With VideoStir you can DIY in 5 minutes based on a basic video.
 
 == Description ==
 
