@@ -3,7 +3,7 @@ global $wpdb;
 
 if (isset($_POST['yes'])) {
 
-    $sql = $wpdb->prepare('UPDATE `'.$this->table_name.'` SET `active` = %d WHERE `id` = %d LIMIT 1', $_GET['active'], $_GET['id']);
+    $sql = $wpdb->prepare('UPDATE `'.VideoStir::getTableName().'` SET `active` = %d WHERE `id` = %d LIMIT 1', $_GET['active'], $_GET['id']);
     $wpdb->query($sql);
 
     if ($_GET['active'] == 1) {

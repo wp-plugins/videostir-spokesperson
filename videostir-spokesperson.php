@@ -1,36 +1,67 @@
 <?php
 
+defined('ABSPATH') OR exit;
+
 /*
   Plugin Name: VideoStir Spokesperson
   Plugin URI: http://wordpress.org/extend/plugins/videostir-spokesperson/
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 1.3.0
+  Version: 1.4.0
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */
 
-class VideoStir {
+/**
+ * @see http://codex.wordpress.org/Function_Reference/register_activation_hook
+ * @see http://codex.wordpress.org/Function_Reference/register_deactivation_hook
+ * @see http://codex.wordpress.org/Function_Reference/register_uninstall_hook
+ */
+register_activation_hook(   __FILE__, array(&$this, 'on_activation'));
+register_deactivation_hook( __FILE__, array(&$this, 'on_deactivation'));
+register_uninstall_hook(    __FILE__, array(&$this, 'on_uninstall'));
 
-    var $prefix = 'videostir_';
-    var $table_name;
+add_action('wp_enqueue_scripts',      array(&$this, 'init_resources'));
+
+class VideoStir
+{
     var $icon;
     var $logo;
+    
+    /**
+     * Plugin version.
+     * @var sting
+     */
+    const VERSION = '1.4.0';
+    
+    /**
+     * WP option name where plugin's version is saved.
+     * @var sting
+     */
+    const WP_OPTION_NAME = 'videostir_plugin_version';
+    
+    /**
+     * Table name in DB.
+     * @var string
+     */
+    const TABLE_NAME = 'videostir_videos';
 
     function __construct()
     {
-        global $wpdb;
-
         $this->icon = get_bloginfo('url').'/wp-content/plugins/videostir-spokesperson/img/icon.png';
         $this->logo = get_bloginfo('url').'/wp-content/plugins/videostir-spokesperson/img/logo.png';
 
-        $this->table_name = $wpdb->prefix.$this->prefix.'videos';
-
-        register_activation_hook(__FILE__,   array(&$this, 'install'));
-        register_deactivation_hook(__FILE__, array(&$this, 'uninstall'));
-
         add_action('admin_menu', array($this, 'config_page'));
         add_action('wp_footer',  array($this, 'vs_wp_footer'));
-        
+    }
+    
+    public static function getTableName()
+    {
+        global $wpdb;
+        return $wpdb->prefix.self::TABLE_NAME;
+    }
+    
+    public static function init_resources()
+    {
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
@@ -41,7 +72,7 @@ class VideoStir {
     {
         global $wpdb, $wp_query;
 
-        $videos = $wpdb->get_results('SELECT * FROM `'.$this->table_name.'` WHERE `active` = 1;', ARRAY_A);
+        $videos = $wpdb->get_results('SELECT * FROM `'.self::getTableName().'` WHERE `active` = 1;', ARRAY_A);
 
         $page = $wp_query->get_queried_object();
         $pageid = $page->ID;
@@ -99,12 +130,24 @@ class VideoStir {
         return $js;
     }
 
-    function install()
+    /**
+     * @see http://wordpress.stackexchange.com/questions/25910/uninstall-activate-deactivate-a-plugin-typical-features-how-to/25979#25979
+     * @see http://codex.wordpress.org/Creating_Tables_with_Plugins
+     */
+    function on_activation()
     {
-        global $wpdb;
-
-        $query = '
-        CREATE TABLE IF NOT EXISTS `'.$this->table_name.'`
+        if (!current_user_can('activate_plugins')) {
+            return;
+        }
+        
+        $installedVersion = get_option(self::WP_OPTION_NAME);
+        
+        if ($installedVersion != self::VERSION) {
+            // custom actions for upgrades if required
+        }
+        
+        $sql = '
+        CREATE TABLE IF NOT EXISTS `'.self::getTableName().'`
         (
             `id` INT UNSIGNED NOT NULL AUTO_INCREMENT
         ,   `name` VARCHAR(64) COLLATE utf8_unicode_ci NOT NULL
@@ -122,15 +165,43 @@ class VideoStir {
         ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
         ';
 
-        $wpdb->query($query);
-    }
-
-    function uninstall()
-    {
+//        require_once(ABSPATH.'wp-admin/includes/upgrade.php');
+//        dbDelta($sql);
+        
         global $wpdb;
 
-        $sql = 'DROP TABLE `'.$this->table_name.'`';
         $wpdb->query($sql);
+        
+        if (empty($installedVersion)) {
+            add_option(self::WP_OPTION_NAME, self::VERSION);
+        } else {
+            update_option(self::WP_OPTION_NAME, self::VERSION);
+        }
+    }
+
+    function on_deactivation()
+    {
+        if (!current_user_can('activate_plugins')) {
+            return;
+        }
+    }
+    
+    function on_uninstall()
+    {
+        if (!current_user_can('activate_plugins')) {
+            return;
+        }
+        
+        if (__FILE__ != WP_UNINSTALL_PLUGIN) {
+            return;
+        }
+        
+        global $wpdb;
+
+        $sql = 'DROP TABLE `'.self::getTableName().'`';
+        $wpdb->query($sql);
+        
+        delete_option(self::WP_OPTION_NAME);
     }
 
     function config_page()
@@ -162,7 +233,6 @@ class VideoStir {
             }
         }
     }
-
 }
 
 new VideoStir();

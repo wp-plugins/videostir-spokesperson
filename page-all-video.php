@@ -1,7 +1,7 @@
 <?php
 global $wpdb;
 
-$data = $wpdb->get_results("SELECT * FROM `" . $this->table_name . "`;", ARRAY_A);
+$data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRAY_A);
 ?>
 
 <?php include 'css-script.php'; ?>

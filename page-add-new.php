@@ -52,7 +52,7 @@ if (isset($_POST['apply'])) {
     if (!count($errorMessages)) {
         
         $sql = $wpdb->prepare('
-        INSERT INTO `'.$this->table_name.'`
+        INSERT INTO `'.VideoStir::getTableName().'`
         (
             `name`
         ,   `pages`

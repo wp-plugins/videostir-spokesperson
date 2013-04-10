@@ -107,7 +107,7 @@ if (isset($_POST['update'])) {
         
         $sql = $wpdb->prepare('
         UPDATE
-            `'.$this->table_name.'`
+            `'.VideoStir::getTableName().'`
         SET
             `pages` = %s
         ,   `position` = %s
@@ -141,7 +141,7 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['change-name'])) {
-    $sql = $wpdb->prepare('UPDATE `'.$this->table_name.'` SET `name` = %s WHERE `id` = %d LIMIT 1', $_POST['name'], $_GET['id']);
+    $sql = $wpdb->prepare('UPDATE `'.VideoStir::getTableName().'` SET `name` = %s WHERE `id` = %d LIMIT 1', $_POST['name'], $_GET['id']);
     $wpdb->query($sql);
     
     $info['type'] = 'updated';
@@ -150,7 +150,7 @@ if (isset($_POST['change-name'])) {
 
 
 
-$sql  = $wpdb->prepare('SELECT * FROM `'.$this->table_name.'` WHERE `id` = %d LIMIT 1', $_GET['id']);
+$sql  = $wpdb->prepare('SELECT * FROM `'.VideoStir::getTableName().'` WHERE `id` = %d LIMIT 1', $_GET['id']);
 $data = $wpdb->get_results($sql, ARRAY_A);
 
 $excludepages = array();

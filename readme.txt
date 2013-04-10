@@ -103,7 +103,8 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 == Changelog ==
 
 = 1.4.0 =
-* Keep user settings on update
+* Keep user settings on plugin deactivation and update
+* Better plugin code
 
 = 1.3.0 =
 * VS clip replaced to new

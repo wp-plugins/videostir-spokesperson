@@ -5,7 +5,7 @@ if (isset($_POST['yes'])) {
 
     $sql = $wpdb->prepare('
     DELETE FROM
-        `'.$this->table_name.'`
+        `'.VideoStir::getTableName().'`
     WHERE
         `id` = %d
     LIMIT 1
