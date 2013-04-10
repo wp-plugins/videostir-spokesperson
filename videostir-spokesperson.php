@@ -6,7 +6,7 @@ defined('ABSPATH') OR exit;
   Plugin Name: VideoStir Spokesperson
   Plugin URI: http://wordpress.org/extend/plugins/videostir-spokesperson/
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 1.4.0
+  Version: 1.4.0-beta
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */
@@ -16,11 +16,11 @@ defined('ABSPATH') OR exit;
  * @see http://codex.wordpress.org/Function_Reference/register_deactivation_hook
  * @see http://codex.wordpress.org/Function_Reference/register_uninstall_hook
  */
-register_activation_hook(   __FILE__, array(&$this, 'on_activation'));
-register_deactivation_hook( __FILE__, array(&$this, 'on_deactivation'));
-register_uninstall_hook(    __FILE__, array(&$this, 'on_uninstall'));
+register_activation_hook(   __FILE__, array('VideoStir', 'on_activation'));
+register_deactivation_hook( __FILE__, array('VideoStir', 'on_deactivation'));
+register_uninstall_hook(    __FILE__, array('VideoStir', 'on_uninstall'));
 
-add_action('wp_enqueue_scripts',      array(&$this, 'init_resources'));
+add_action('wp_enqueue_scripts',      array('VideoStir', 'init_resources'));
 
 class VideoStir
 {
@@ -31,7 +31,7 @@ class VideoStir
      * Plugin version.
      * @var sting
      */
-    const VERSION = '1.4.0';
+    const VERSION = '1.4.0-beta';
     
     /**
      * WP option name where plugin's version is saved.
