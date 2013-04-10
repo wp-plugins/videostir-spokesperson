@@ -192,10 +192,6 @@ class VideoStir
             return;
         }
         
-        if (__FILE__ != WP_UNINSTALL_PLUGIN) {
-            return;
-        }
-        
         global $wpdb;
 
         $sql = 'DROP TABLE `'.self::getTableName().'`';
