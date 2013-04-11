@@ -22,7 +22,8 @@ You can watch a live demo on your website using our [examples page](http://video
 
 [youtube http://www.youtube.com/watch?v=hzy6lmnAezk]
 
-In a nutshell:
+In a nutshell
+
 1. Shoot a video - Shoot a short video based on our guidelines (one-colored wall etc.)
 1. Follow VideoStir's 3 simple steps - Upload, Tune, Enjoy - Within just a few minutes our VideoStir engine creates a background-less floating clip
 1. Embed your floating clip - Embed the clip in your webpage. It's easy using VideoStir's WordPress plugin.
