@@ -1,5 +1,5 @@
 === VideoStir Spokesperson ===
-Contributors: alexey_bass
+Contributors: alexey_bass, shy_frenkel
 Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, player, flash, transparent, greenscreen, chroma, clip, background, conversion, marketing, ad
 Requires at least: 3.0
