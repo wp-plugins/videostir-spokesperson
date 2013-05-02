@@ -103,6 +103,11 @@ if (isset($_POST['update'])) {
         $playerParams['on-click-open-url-target'] = $_POST['on-click-open-url-target'];
     }
     
+    
+    if (!empty($_POST['on-click-event'])) {
+        $playerParams['on-click-event'] = $_POST['on-click-event'];
+    }
+    
     if (!count($errorMessages)) {
         
         $sql = $wpdb->prepare('
@@ -203,203 +208,232 @@ if (!empty($data)) {
                     </form>
                 </div>
             </div> 
+            <form method="post" action="" onsubmit="return validateVideoStirEditForm();">
+                <div id="formdiv" class="postbox " >
+                    <h3 style="cursor: default;">Choose the pages/posts for the clip to run on</h3>
+                    <div class="inside frm">
+                            <div class="spacer-10">&nbsp;</div>
 
-            <div id="formdiv" class="postbox " >
-                <h3 style="cursor: default;">VideoStir player parameters</h3>
-                <div class="inside frm">
-                    <form method="post" action="" onsubmit="return validateVideoStirEditForm();">
-                        
-                        <strong>Position</strong>
-                        <div class="spacer-10">&nbsp;</div>
-                        <?php
-                        
-                        if (is_array($playerPosition)) {
-                            if (isset($playerPosition['top']) && isset($playerPosition['left'])) {
-                                $val1 = $playerPosition['top'];
-                                $val2 = $playerPosition['left'];
-                                $playerPosition = '"top-left"';
-                            } else if (isset($playerPosition['top']) && isset($playerPosition['right'])) {
-                                $val1 = $playerPosition['top'];
-                                $val2 = $playerPosition['right'];
-                                $playerPosition = '"top-right"';
-                            } else if (isset($playerPosition['bottom']) && isset($playerPosition['left'])) {
-                                $val1 = $playerPosition['bottom'];
-                                $val2 = $playerPosition['left'];
-                                $playerPosition = '"bottom-left"';
-                            } else if (isset($playerPosition['bottom']) && isset($playerPosition['right'])) {
-                                $val1 = $playerPosition['bottom'];
-                                $val2 = $playerPosition['right'];
-                                $playerPosition = '"bottom-right"';
-                            }
-                        } else if (is_string($playerPosition)) {
-                            switch ($playerPosition) {
-                                case '"bottom-right"':
-                                case '"bottom-left"':
-                                case '"top-left"':
-                                case '"top-right"':
-                                    $val1 = 0;
-                                    $val2 = 0;
-                                    break;
-                            }
-                        }
-                        
-                        ?>
-                        
-                        <select id="position" name="position">
-                            <option <?php if ($playerPosition == '"bottom-right"') echo 'selected="selected"'; ?> value="bottom-right">Bottom / Right</option>
-                            <option <?php if ($playerPosition == '"bottom-left"')  echo 'selected="selected"'; ?> value="bottom-left">Bottom / Left</option>
-                            <option <?php if ($playerPosition == '"top-left"')     echo 'selected="selected"'; ?> value="top-left">Top / Left</option>
-                            <option <?php if ($playerPosition == '"top-right"')    echo 'selected="selected"'; ?> value="top-right">Top / Right</option>
-                        </select>
-                        <input name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" /><span class="help" title="Player position on page. Number of pixels from selected corner. Example: Bottom/Right 100x200 - will place clip 100px from bottom and 200px from right">?</span>
-                        <div class="spacer-5">&nbsp;</div>
-                        
-                        
-                        
-                        <strong>Dimensions</strong>
-                        <div class="spacer-10">&nbsp;</div>
+                            <strong>Pages</strong>
+                            <div class="posts-container">
+                                <?php
+                                $apages = explode(',', $video['pages']);
+                                if (get_option('page_on_front') == 0) {
+                                    if (!in_array(0, $excludepages)) {
+                                        ?>
 
-                        <label for="width">Width</label>
-                        <input id="width" name="width" value="<?php echo $video['width'] ?>" /><span class="help" title="Player width in pixels">?</span>
-                        <div class="spacer-05">&nbsp;</div>
+                                        <label class="selpage">
+                                                                                    <input type="checkbox" name="pages[]" id="home" value="0" <?php echo (in_array('0', $apages)) ? 'checked="checked"' : ''; ?> /> 
+                                                                                    Home
+                                                                            </label>
 
-                        <label for="height">Height</label>
-                        <input name="height" id="height" value="<?php echo $video['height'] ?>" /><span class="help" title="Player height in pixels">?</span>
-                        <div class="spacer-5">&nbsp;</div>
-                        
-                        
-                        
-                        <label for="url">Clip ID</label>
-                        <input style="width: 50%;" id="url" name="url" value="<?php echo $video['url'] ?>" /><span class="help" title="Unique clip ID">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-
-                        
-                        
-                        <strong>Settings</strong>
-                        <div class="spacer-10">&nbsp;</div>
-
-                        <label for="auto-play">Automatic play</label>
-                        <select name="auto-play" id="auto-play">
-                            <option <?php if ($playerParams['auto-play'])  echo 'selected="selected"'; ?> value="yes">Yes</option>
-                            <option <?php if (!$playerParams['auto-play']) echo 'selected="selected"'; ?> value="no">No</option>
-                        </select><span class="help" title="Will start clip when player is ready">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <label for="freeze">Freeze playback at frame</label>
-                        <input name="freeze" id="freeze" value="<?php echo $playerParams['freeze'] ? $playerParams['freeze'] : '' ?>" /><span class="help" title="Freeze the clip at frame X">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <label for="on-click-open-url">"Click on me" URL</label>
-                        <input style="width: 70%;" id="on-click-open-url" name="on-click-open-url" value="<?php echo $playerParams['on-click-open-url'] ?>" /><span class="help" title="When viewer clicks on clip player will open this link">?</span>
-                        <br/>
-                        <label>&nbsp;</label>
-                        <select name="on-click-open-url-target" id="on-click-open-url-target">
-                            <option <?php if ($playerParams['on-click-open-url-target'] == 'blank')  echo 'selected="selected"'; ?> value="blank">New window</option>
-                            <option <?php if ($playerParams['on-click-open-url-target'] == 'self') echo 'selected="selected"'; ?> value="self">Same window</option>
-                        </select>
-                        <div class="spacer-10">&nbsp;</div>
-                        
-                        <label for="playback-delay">Playback delay</label>
-                        <input name="playback-delay" id="playback-delay" value="<?php echo $playerParams['playback-delay'] ?>" /><span class="help" title="Will start playing only when X seconds have passed after player loaded">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <label for="auto-play-limit">Autoplay limit</label>
-                        <input name="auto-play-limit" id="auto-play-limit" value="<?php echo $playerParams['auto-play-limit'] ?>" /><span class="help" title="Disable auto play after X times">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <label for="disable-player-threshold">Appearance limit</label>
-                        <input name="disable-player-threshold" id="disable-player-threshold" value="<?php echo $playerParams['disable-player-threshold'] ?>" /><span class="help" title="Do not play or load clip after X times">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <label for="on-finish">When clip ends behavior</label>
-                        <select name="on-finish" id="on-finish">
-                            <option <?php if ($playerParams['on-finish'] == '') echo 'selected="selected"'; ?> value="">Do nothing</option>
-                            <option <?php if ($playerParams['on-finish'] == 'play-button') echo 'selected="selected"'; ?> value="play-button">Show play button</option>
-                            <option <?php if ($playerParams['on-finish'] == 'remove') echo 'selected="selected"'; ?> value="remove">Remove player</option>
-                            <option <?php if ($playerParams['on-finish'] == 'blank') echo 'selected="selected"'; ?> value="blank">Show empty image</option>
-                        </select><span class="help" title="What should happen when clip playback finished">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <label for="rotation">Rotation</label>
-                        <input name="rotation" id="rotation" value="<?php echo $playerParams['rotation'] ? $playerParams['rotation'] : 0 ?>" /><span class="help" title="Rotates clip in player X degrees clockwise">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <label for="zoom">Zoom</label>
-                        <input name="zoom" id="zoom" value="<?php echo $playerParams['zoom'] ? $playerParams['zoom'] : 100 ?>" /><span class="help" title="Zoom IN and OUT clip in image, 100 is no zoom">?</span>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-
-                        
-                        <div class="spacer-05">&nbsp;</div>
-                        <div class="spacer-05">&nbsp;</div>
-                        
-                        <strong>Select a page where you want to show the video</strong>
-                        <div class="spacer-10">&nbsp;</div>
-
-                        <strong>Pages</strong>
-                        <div class="posts-container">
-                            <?php
-                            $apages = explode(',', $video['pages']);
-                            if (get_option('page_on_front') == 0) {
-                                if (!in_array(0, $excludepages)) {
-                                    ?>
-                                    
-                                    <label class="selpage">
-										<input type="checkbox" name="pages[]" id="home" value="0" <?php echo (in_array('0', $apages)) ? 'checked="checked"' : ''; ?> /> 
-										Home
-									</label>
-
-                                    <?php
+                                        <?php
+                                    }
                                 }
-                            }
-                            $pages = get_pages();
+                                $pages = get_pages();
 
-                            foreach ($pages as $page) {
-                                if (!in_array($page->ID, $excludepages) && $page->ID != 0) {
-                                    ?>
-	
-									<div class="spacer-05">&nbsp;</div>
-                                    <label class="selpage">
-										<input type="checkbox" name="pages[]" id="p-<?php echo $page->post_title; ?>" value="<?php echo $page->ID; ?>" <?php echo (in_array($page->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
-										<?php echo $page->post_title; ?>
-									</label>
-                                    
-                                    <?php
+                                foreach ($pages as $page) {
+                                    if (!in_array($page->ID, $excludepages) && $page->ID != 0) {
+                                        ?>
+
+                                                                            <div class="spacer-05">&nbsp;</div>
+                                        <label class="selpage">
+                                                                                    <input type="checkbox" name="pages[]" id="p-<?php echo $page->post_title; ?>" value="<?php echo $page->ID; ?>" <?php echo (in_array($page->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
+                                                                                    <?php echo $page->post_title; ?>
+                                                                            </label>
+
+                                        <?php
+                                    }
                                 }
-                            }
-                            ?>
-                        </div>
-                        <div class="spacer-10">&nbsp;</div>
+                                ?>
+                            </div>
+                            <div class="spacer-10">&nbsp;</div>
 
-                        <strong>Posts</strong>
-                        <div class="posts-container">
-                            <?php
-                            $apages = explode(',', $video['pages']);
-                            $posts = get_posts(array('numberposts' => -1));
+                            <strong>Posts</strong>
+                            <div class="posts-container">
+                                <?php
+                                $apages = explode(',', $video['pages']);
+                                $posts = get_posts(array('numberposts' => -1));
 
-                            foreach ($posts as $post) {
-                                if (!in_array($post->ID, $excludepages)) {
-                                    ?>
+                                foreach ($posts as $post) {
+                                    if (!in_array($post->ID, $excludepages)) {
+                                        ?>
 
-                                    <div class="spacer-05">&nbsp;</div>
-                                    <label class="selpage">
-										<input type="checkbox" name="pages[]" id="p-<?php echo $post->post_title; ?>" value="<?php echo $post->ID; ?>" <?php echo (in_array($post->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
-										<?php echo $post->post_title; ?>
-									</label>
+                                        <div class="spacer-05">&nbsp;</div>
+                                        <label class="selpage">
+                                                                                    <input type="checkbox" name="pages[]" id="p-<?php echo $post->post_title; ?>" value="<?php echo $post->ID; ?>" <?php echo (in_array($post->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
+                                                                                    <?php echo $post->post_title; ?>
+                                                                            </label>
 
-                                    <?php
+                                        <?php
+                                    }
                                 }
-                            }
-                            ?>
-                        </div>
-                        <div class="spacer-05">&nbsp;</div>
-
-                        <p style="text-align: right;">
-                            <input type="submit" name="update" value="Apply" />
-                        </p>
-                    </form>
+                                ?>
+                            </div>
+                    </div>
                 </div>
-            </div>
+                <div id="formdiv" class="postbox " >
+                    <h3 style="cursor: default;">Define player parameters</h3>
+                    <div class="inside frm">
+
+                            <p style="text-align: right; float : right;">
+                                <input type="submit" name="update" value="Apply" style="font-size : 200%; height : 40px; width : 80px;"/>
+                                <br/>
+                                <span>and you are done</span>
+                            </p>
+                            <strong>Position</strong>
+                            <div class="spacer-10">&nbsp;</div>
+                            <?php
+
+                            if (is_array($playerPosition)) {
+                                if (isset($playerPosition['top']) && isset($playerPosition['left'])) {
+                                    $val1 = $playerPosition['top'];
+                                    $val2 = $playerPosition['left'];
+                                    $playerPosition = '"top-left"';
+                                } else if (isset($playerPosition['top']) && isset($playerPosition['right'])) {
+                                    $val1 = $playerPosition['top'];
+                                    $val2 = $playerPosition['right'];
+                                    $playerPosition = '"top-right"';
+                                } else if (isset($playerPosition['bottom']) && isset($playerPosition['left'])) {
+                                    $val1 = $playerPosition['bottom'];
+                                    $val2 = $playerPosition['left'];
+                                    $playerPosition = '"bottom-left"';
+                                } else if (isset($playerPosition['bottom']) && isset($playerPosition['right'])) {
+                                    $val1 = $playerPosition['bottom'];
+                                    $val2 = $playerPosition['right'];
+                                    $playerPosition = '"bottom-right"';
+                                }
+                            } else if (is_string($playerPosition)) {
+                                switch ($playerPosition) {
+                                    case '"bottom-right"':
+                                    case '"bottom-left"':
+                                    case '"top-left"':
+                                    case '"top-right"':
+                                        $val1 = 0;
+                                        $val2 = 0;
+                                        break;
+                                }
+                            }
+
+                            ?>
+                            <select id="position" name="position">
+                                <option <?php if ($playerPosition == '"bottom-right"') echo 'selected="selected"'; ?> value="bottom-right">Bottom / Right</option>
+                                <option <?php if ($playerPosition == '"bottom-left"')  echo 'selected="selected"'; ?> value="bottom-left">Bottom / Left</option>
+                                <option <?php if ($playerPosition == '"top-left"')     echo 'selected="selected"'; ?> value="top-left">Top / Left</option>
+                                <option <?php if ($playerPosition == '"top-right"')    echo 'selected="selected"'; ?> value="top-right">Top / Right</option>
+                            </select>
+                            <input name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" /><span class="help" title="Player position on page. Number of pixels from selected corner. Example: Bottom/Right 100x200 - will place clip 100px from bottom and 200px from right">?</span>
+                            <div class="spacer-5">&nbsp;</div>
+
+
+
+                            <strong>Dimensions</strong>
+                            <div class="spacer-10">&nbsp;</div>
+
+                            <label for="width">Width</label>
+                            <input id="width" name="width" value="<?php echo $video['width'] ?>" /><span class="help" title="Player width in pixels">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <label for="height">Height</label>
+                            <input name="height" id="height" value="<?php echo $video['height'] ?>" /><span class="help" title="Player height in pixels">?</span>
+                            <div class="spacer-5">&nbsp;</div>
+
+
+
+                            <label for="url">Clip ID</label>
+                            <input style="width: 50%;" id="url" name="url" value="<?php echo $video['url'] ?>" /><span class="help" title="Unique clip ID">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+
+
+                            <strong>Settings</strong>
+                            <div class="spacer-10">&nbsp;</div>
+
+                            <label for="auto-play">Automatic play</label>
+                            <select name="auto-play" id="auto-play">
+                                <option <?php if ($playerParams['auto-play'])  echo 'selected="selected"'; ?> value="yes">Yes</option>
+                                <option <?php if (!$playerParams['auto-play']) echo 'selected="selected"'; ?> value="no">No</option>
+                            </select><span class="help" title="Will start clip when player is ready">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <label for="freeze">Freeze playback at frame</label>
+                            <input name="freeze" id="freeze" value="<?php echo $playerParams['freeze'] ? $playerParams['freeze'] : '' ?>" /><span class="help" title="Freeze the clip at frame X">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <label for="on-click-open-url">"Click on me" URL</label>
+                            <input style="width: 70%;" id="on-click-open-url" name="on-click-open-url" value="<?php echo $playerParams['on-click-open-url'] ?>" /><span class="help" title="When viewer clicks on clip player will open this link">?</span>
+                            <br/>
+                            <label>&nbsp;</label>
+                            <select name="on-click-open-url-target" id="on-click-open-url-target">
+                                <option <?php if ($playerParams['on-click-open-url-target'] == 'blank')  echo 'selected="selected"'; ?> value="blank">New window</option>
+                                <option <?php if ($playerParams['on-click-open-url-target'] == 'self') echo 'selected="selected"'; ?> value="self">Same window</option>
+                            </select>
+                            <div class="spacer-10">&nbsp;</div>
+
+                            <label for="playback-delay">Playback delay</label>
+                            <input name="playback-delay" id="playback-delay" value="<?php echo $playerParams['playback-delay'] ?>" /><span class="help" title="Will start playing only when X seconds have passed after player loaded">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <label for="auto-play-limit">Autoplay limit</label>
+                            <input name="auto-play-limit" id="auto-play-limit" value="<?php echo $playerParams['auto-play-limit'] ?>" /><span class="help" title="Disable auto play after X times">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <label for="disable-player-threshold">Appearance limit</label>
+                            <input name="disable-player-threshold" id="disable-player-threshold" value="<?php echo $playerParams['disable-player-threshold'] ?>" /><span class="help" title="Do not play or load clip after X times">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <label for="on-finish">When clip ends behavior</label>
+                            <select name="on-finish" id="on-finish">
+                                <option <?php if ($playerParams['on-finish'] == '') echo 'selected="selected"'; ?> value="">Do nothing</option>
+                                <option <?php if ($playerParams['on-finish'] == 'play-button') echo 'selected="selected"'; ?> value="play-button">Show play button</option>
+                                <option <?php if ($playerParams['on-finish'] == 'remove') echo 'selected="selected"'; ?> value="remove">Remove player</option>
+                                <option <?php if ($playerParams['on-finish'] == 'blank') echo 'selected="selected"'; ?> value="blank">Show empty image</option>
+                            </select><span class="help" title="What should happen when clip playback finished">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+                            <p style="text-align: right;  float : right;">
+                                <input type="submit" name="update" value="Apply" style="font-size : 200%; height : 40px; width : 80px;"/>
+                                <br/>
+                                <span>and you are done</span>
+                            </p>
+                            <label for="rotation">Rotation</label>
+                            <input name="rotation" id="rotation" value="<?php echo $playerParams['rotation'] ? $playerParams['rotation'] : 0 ?>" /><span class="help" title="Rotates clip in player X degrees clockwise">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <label for="zoom">Zoom</label>
+                            <input name="zoom" id="zoom" value="<?php echo $playerParams['zoom'] ? $playerParams['zoom'] : 100 ?>" /><span class="help" title="Zoom IN and OUT clip in image, 100 is no zoom">?</span>
+                            <div class="spacer-05">&nbsp;</div>
+
+
+
+                            <div class="spacer-05">&nbsp;</div>
+                            <div class="spacer-05">&nbsp;</div>
+
+                            
+                            <div class="spacer-05">&nbsp;</div>
+
+                            
+
+                    </div>
+                </div>
+                <div id="formdiv" class="postbox " >
+                    <h3 style="cursor: default;">Advanced parameters (optional for developers)</h3>
+                    <div class="inside">
+                            <label for="on-click-event">Run custom JavaScript on Click</label>
+                            <br/>
+                            <textarea rows="8" cols="90" id="on-click-event" name="on-click-event" ><?php echo empty($playerParams['on-click-event']) ? '' : stripcslashes($playerParams['on-click-event']) ?></textarea>
+                            
+                            <div class="spacer-10">&nbsp;</div>
+
+                            
+                            <p style="text-align: right;">
+                                <input type="submit" name="update" value="Apply" style="font-size : 200%; height : 40px; width : 80px;"/>
+                                <br/>
+                                <span>and you are done</span>
+                            </p>
+                        
+                    </div>
+                </div>
+            </form>
             
             <div id="formdiv" class="postbox " >
                 <h3 style="cursor: default;">VideoStir embed code (read-only, no need to copy)</h3>

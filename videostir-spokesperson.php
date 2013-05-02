@@ -65,7 +65,7 @@ class VideoStir
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
-        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.1.0/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.2.0/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
     }
 
     function vs_wp_footer()
@@ -123,8 +123,26 @@ class VideoStir
             $js.= ', '.$videoRow['width'];
             $js.= ', '.$videoRow['height'];
             $js.= ', "'.$videoRow['url'].'"';
-            $js.= ', '.json_encode(unserialize($videoRow['settings']));
-            $js.= ');</script>'.PHP_EOL;
+            
+            $customJs = false;
+            $settings = unserialize($videoRow['settings']);
+            if (isset($settings['on-click-event'])) {
+                $customJs = stripslashes($settings['on-click-event']);
+                $settings['on-click-event'] = true;
+            }
+            $js.= ', '.json_encode($settings);
+            
+            $js.= ');';
+            
+            if ($customJs !== false) {
+                $js.= PHP_EOL;
+                $js.= 'VS.jQuery(document).bind("onclick.vs-player", function() {';
+                $js.= 'VS.Player.Api.pause();';
+                $js.= $customJs;
+                $js.= '});';
+            }
+            
+            $js.= '</script>'.PHP_EOL;
         }
         
         return $js;
