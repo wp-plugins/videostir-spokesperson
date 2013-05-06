@@ -66,7 +66,7 @@ class VideoStir
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
-        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.2.0/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.3.0/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
     }
 
     function vs_wp_footer()
