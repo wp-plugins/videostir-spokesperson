@@ -21,6 +21,7 @@ register_deactivation_hook( __FILE__, array('VideoStir', 'on_deactivation'));
 register_uninstall_hook(    __FILE__, array('VideoStir', 'on_uninstall'));
 
 add_action('wp_enqueue_scripts',      array('VideoStir', 'init_resources'));
+add_action('admin_enqueue_scripts',   array('VideoStir', 'init_resources'));
 
 class VideoStir
 {
