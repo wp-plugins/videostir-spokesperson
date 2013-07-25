@@ -64,8 +64,8 @@
         }
         
         id = 'url'
-        if (parseInt(document.getElementById(id).value.length) <= 10) {
-            error += "- The URL field must contain \n caraters and length greater than 10. \n";
+        if (parseInt(document.getElementById(id).value.length) != 32) {
+            error += "- The Clip ID field must contain 32 characters. \nUse the clip ID that was created by the system.\nFor example: 75af040ae4daa2d4ff1fb353f9f1abcd";
         }
         
         id = 'rotation', min = 0, max = 360;
