@@ -4,7 +4,7 @@ Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, player, flash, transparent, greenscreen, chroma, clip, background, conversion, marketing, ad
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,14 @@ Here is a short guidelines video that shows you how to make a simple floating cl
 
 Here is a short video that demonstrates how to use this plugin
 [youtube http://www.youtube.com/watch?v=byWDi50sFGM]
+
+We will be happy to support you and even improve your clip if needed. Just drop us a line at info@videostir.com and we will take it from there.
+Shy Frenkel
+CEO - VideoStir LTD
+
+Additional note - There are 2 new experimental features that already available on VideoStir website
+ 1. Automatically replace/change your video background with an image of your choice: [use this link to try it out](http://videostir.com/video-on-image/?ref=wp)
+ 1. "Follow me" for a tour on any website. While your floating clip is running in the foreground the background webpage can be changed at any given point in the clip. You can take your visitors for a tour along your website or any other webpage or content. See (from your PC)[Shy Frenkel - VideoStir CEO talk about this feature](http://videostir.com/follow-me-demo.html?ref=wp)
 
 == Installation ==
 
@@ -102,7 +110,6 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 7. Simple Steps – upload,  tune,  enjoy.
 
 == Changelog ==
-
 = 1.5.4 =
 * Fixed error message when clip id is not set correctly
 
