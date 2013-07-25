@@ -12,11 +12,11 @@ Embed and adjust your own made floating clip "web spokesperson" to your website.
 
 == Description ==
 
-[VideoStir](http://videostir.com/?ref=wp) transforms your basic video into a "video spokesperson" that can run on top of any website. The floating clip can be created within 5 minutes using VideoStir DYI service (green background is not needed, any camera will do the trick). Use this plugin to improve engagement with your viewers and for increasing your sales.
+[VideoStir](http://videostir.com/?ref=wp) transforms your basic video into a "video spokesperson" that can run on top of any website. The floating clip **can be created within 5 minutes** using VideoStir DYI service (green background is not needed, any camera will do the trick). Use this plugin to improve engagement with your viewers and for increasing your sales.
 Take a few minutes to "Do It Yourself" and automatically make a free "walk on video". VideoStir automatically removes your video's background without the need for a green screen.  Just follow our basic [guidelines]( http://videostir.com/guidelines/?ref=wp) and you will see your floating clip running on top of your selected pages.
 With this plugin you can easily adjust and embed the transparent background video into your website’s pages/posts.  You can embed your clips using the plugin’s check/text  boxes, without needing to handle any HTML files.
 Once you have your video ready, you can use VideoStir’s WordPress plugin to embed the video into your website. You can control the clip’s size, location, behavior and much more.
-You can watch a live demo on your website using our [examples page](http://videostir.com/usages/?ref=wp)
+You can watch a **live demo** on your website using our [examples page](http://videostir.com/usages/?ref=wp)
 
 [Watch our demo!](http://videostir.com/demo/?ref=wp)
 
@@ -34,13 +34,16 @@ Here is a short guidelines video that shows you how to make a simple floating cl
 Here is a short video that demonstrates how to use this plugin
 [youtube http://www.youtube.com/watch?v=byWDi50sFGM]
 
-We will be happy to support you and even improve your clip if needed. Just drop us a line at info@videostir.com and we will take it from there.
+We will be happy to support you and **even improve your clip if needed.** Just drop us a line at info@videostir.com and we will take it from there.
+
 Shy Frenkel
+
 CEO - VideoStir LTD
 
-Additional note - There are 2 new experimental features that already available on VideoStir website
- 1. Automatically replace/change your video background with an image of your choice: [use this link to try it out](http://videostir.com/video-on-image/?ref=wp)
- 1. "Follow me" for a tour on any website. While your floating clip is running in the foreground the background webpage can be changed at any given point in the clip. You can take your visitors for a tour along your website or any other webpage or content. See (from your PC)[Shy Frenkel - VideoStir CEO talk about this feature](http://videostir.com/follow-me-demo.html?ref=wp)
+Additional note - There are 2 new experimental features that already available on VideoStir website:
+
+1. Automatically replace/change your video background with an image of your choice: [use this link to try it out](http://videostir.com/video-on-image/?ref=wp)
+2. "Follow me" for a tour on any website. While your floating clip is running in the foreground the background webpage can be changed at any given point in the clip. You can take your visitors for a tour along your website or any other webpage or content. See (from your PC)[Shy Frenkel - VideoStir CEO talk about this feature](http://videostir.com/follow-me-demo.html?ref=wp)
 
 == Installation ==
 
