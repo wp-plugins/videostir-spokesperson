@@ -22,7 +22,7 @@ if (isset($_POST['apply'])) {
     if (count($matches)) {
         $settings = $matches[1];
 
-        preg_match('/(".+-.+"|{.+})\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*"(\w+)"\s*,\s*({.+})/s', $settings, $matches);
+        preg_match('/(".+"|{.+})\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*"(\w+)"\s*,\s*({.+})/s', $settings, $matches);
 
         if (count($matches) != 6) {
             $errorMessages[] = 'Unknown format for "VS.Player".';

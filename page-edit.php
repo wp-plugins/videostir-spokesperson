@@ -46,6 +46,10 @@ if (isset($_POST['update'])) {
                 $playerPosition = array('bottom' => $val1 ? $val1 : 0, 'left' => $val2 ? $val2 : 0);
             }
             break;
+	case 'center':
+            $playerPosition = '"'.$_POST['position'].'"';
+	    // there is no option to set exact distance from center position
+            break;
     }
     
     $width = (int) $_POST['width'];
@@ -309,6 +313,7 @@ if (!empty($data)) {
                                     case '"bottom-left"':
                                     case '"top-left"':
                                     case '"top-right"':
+				    case '"center"':
                                         $val1 = 0;
                                         $val2 = 0;
                                         break;
@@ -321,6 +326,7 @@ if (!empty($data)) {
                                 <option <?php if ($playerPosition == '"bottom-left"')  echo 'selected="selected"'; ?> value="bottom-left">Bottom / Left</option>
                                 <option <?php if ($playerPosition == '"top-left"')     echo 'selected="selected"'; ?> value="top-left">Top / Left</option>
                                 <option <?php if ($playerPosition == '"top-right"')    echo 'selected="selected"'; ?> value="top-right">Top / Right</option>
+				<option <?php if ($playerPosition == '"center"') echo 'selected="selected"'; ?> value="center">Center</option>
                             </select>
                             <input name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" /><span class="help" title="Player position on page. Number of pixels from selected corner. Example: Bottom/Right 100x200 - will place clip 100px from bottom and 200px from right">?</span>
                             <div class="spacer-5">&nbsp;</div>
