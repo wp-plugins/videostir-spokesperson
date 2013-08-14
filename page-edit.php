@@ -328,7 +328,7 @@ if (!empty($data)) {
                                 <option <?php if ($playerPosition == '"top-right"')    echo 'selected="selected"'; ?> value="top-right">Top / Right</option>
 				<option <?php if ($playerPosition == '"center"') echo 'selected="selected"'; ?> value="center">Center</option>
                             </select>
-                            <input name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" /><span class="help" title="Player position on page. Number of pixels from selected corner. Example: Bottom/Right 100x200 - will place clip 100px from bottom and 200px from right">?</span>
+                            <input style="width: 12%;" name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input style="width: 12%;" name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" /><span class="help" title="Player position on page. Number of pixels from selected corner. Example: Bottom/Right 100x200 - will place clip 100px from bottom and 200px from right. Leave 0 (zero) values in case you want clip to appear in the selected corner.">?</span>
                             <div class="spacer-5">&nbsp;</div>
 
 
@@ -347,7 +347,7 @@ if (!empty($data)) {
 
 
                             <label for="url">Clip ID</label>
-                            <input style="width: 50%;" id="url" name="url" value="<?php echo $video['url'] ?>" /><span class="help" title="Unique clip ID">?</span>
+                            <input style="width: 50%;" id="url" name="url" value="<?php echo $video['url'] ?>" /><span class="help" title="Unique clip ID as given by VideoStir system after creating the floating clip. For example: 0ba20ab3a3daa3f5bcceb9c87ff4f777">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
 
@@ -359,21 +359,21 @@ if (!empty($data)) {
                             <select name="auto-play" id="auto-play">
                                 <option <?php if ($playerParams['auto-play'])  echo 'selected="selected"'; ?> value="yes">Yes</option>
                                 <option <?php if (!$playerParams['auto-play']) echo 'selected="selected"'; ?> value="no">No</option>
-                            </select><span class="help" title="Will start clip when player is ready">?</span>
+                            </select><span class="help" title="Yes - Will start clip automatically when player is ready. No - will display a big play button and will only play once visitor clicks on it.">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="freeze">Freeze playback at frame</label>
-                            <input name="freeze" id="freeze" value="<?php echo $playerParams['freeze'] ? $playerParams['freeze'] : '' ?>" /><span class="help" title="Freeze the clip at frame X">?</span>
+                            <input name="freeze" id="freeze" value="<?php echo $playerParams['freeze'] ? $playerParams['freeze'] : '' ?>" /><span class="help" title="Freezes the clip at frame X and show a big play button. Visitor can click on play button to get the clip running again.">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="on-click-open-url">"Click on me" URL</label>
-                            <input style="width: 70%;" id="on-click-open-url" name="on-click-open-url" value="<?php echo $playerParams['on-click-open-url'] ?>" /><span class="help" title="When viewer clicks on clip player will open this link">?</span>
+                            <input style="width: 70%;" id="on-click-open-url" name="on-click-open-url" value="<?php echo $playerParams['on-click-open-url'] ?>" /><span class="help" title="When viewer clicks on clip player will open this link.">?</span>
                             <br/>
                             <label>&nbsp;</label>
                             <select name="on-click-open-url-target" id="on-click-open-url-target">
                                 <option <?php if ($playerParams['on-click-open-url-target'] == 'blank')  echo 'selected="selected"'; ?> value="blank">New window</option>
                                 <option <?php if ($playerParams['on-click-open-url-target'] == 'self') echo 'selected="selected"'; ?> value="self">Same window</option>
-                            </select>
+                            </select><span class="help" title="Once using the previous parameter: Click on me URL. New Window - Will open a new window/tab with the defined internet address. Same Window - will redirect to defined internet address on the currnet page (overwrite existing page).">?</span>
                             <div class="spacer-10">&nbsp;</div>
 
                             <label for="playback-delay">Playback delay</label>
@@ -381,11 +381,11 @@ if (!empty($data)) {
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="auto-play-limit">Autoplay limit</label>
-                            <input name="auto-play-limit" id="auto-play-limit" value="<?php echo $playerParams['auto-play-limit'] ?>" /><span class="help" title="Disable auto play after X times">?</span>
+                            <input name="auto-play-limit" id="auto-play-limit" value="<?php echo $playerParams['auto-play-limit'] ?>" /><span class="help" title="Disable auto play after X times per visitor. Once visitor visits the page for more than X times he will only see a big play button that can be activated.">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="disable-player-threshold">Appearance limit</label>
-                            <input name="disable-player-threshold" id="disable-player-threshold" value="<?php echo $playerParams['disable-player-threshold'] ?>" /><span class="help" title="Do not play or load clip after X times">?</span>
+                            <input name="disable-player-threshold" id="disable-player-threshold" value="<?php echo $playerParams['disable-player-threshold'] ?>" /><span class="help" title="Will not play or even load the clip after X times a specific visitor visits the page.">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="on-finish">When clip ends behavior</label>
@@ -394,7 +394,7 @@ if (!empty($data)) {
                                 <option <?php if ($playerParams['on-finish'] == 'play-button') echo 'selected="selected"'; ?> value="play-button">Show play button</option>
                                 <option <?php if ($playerParams['on-finish'] == 'remove') echo 'selected="selected"'; ?> value="remove">Remove player</option>
                                 <option <?php if ($playerParams['on-finish'] == 'blank') echo 'selected="selected"'; ?> value="blank">Show empty image</option>
-                            </select><span class="help" title="What should happen when clip playback finished">?</span>
+                            </select><span class="help" title="What should happen when clip playback is finished. Show play button - will allow user to click on a big play button in order to replay. Remove player - will remove the player object.">?</span>
                             <div class="spacer-05">&nbsp;</div>
                             <p style="text-align: right;  float : right;">
                                 <input type="submit" name="update" value="Apply" style="font-size : 200%; height : 40px; width : 80px;"/>
@@ -406,7 +406,7 @@ if (!empty($data)) {
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="zoom">Zoom</label>
-                            <input name="zoom" id="zoom" value="<?php echo $playerParams['zoom'] ? $playerParams['zoom'] : 100 ?>" /><span class="help" title="Zoom IN and OUT clip in image, 100 is no zoom">?</span>
+                            <input name="zoom" id="zoom" value="<?php echo $playerParams['zoom'] ? $playerParams['zoom'] : 100 ?>" /><span class="help" title="Zoom clip (in or out). 100 means no zoom, 50 means half size. Use 120 for example to zoom in so that edges of the clip will disappear ni case they show door edges or other unwanted objects.">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
 
