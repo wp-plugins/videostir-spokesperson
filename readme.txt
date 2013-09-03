@@ -1,7 +1,7 @@
 === VideoStir Spokesperson ===
 Contributors: alexey_bass, shy_frenkel
 Donate link: http://videostir.com/
-Tags: video, spokesperson, embed, player, flash, transparent, greenscreen, chroma, clip, background, conversion, marketing, ad, change background
+Tags: video, spokesperson, embed, player, flash, transparent, greenscreen, chroma, clip, background, conversion, marketing, ad, webcasterwp, change background
 Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 1.5.7
