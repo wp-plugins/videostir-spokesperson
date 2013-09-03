@@ -6,7 +6,7 @@ defined('ABSPATH') OR exit;
   Plugin Name: VideoStir Spokesperson
   Plugin URI: http://wordpress.org/extend/plugins/videostir-spokesperson/
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 1.5.6
+  Version: 1.5.7
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */
@@ -32,7 +32,7 @@ class VideoStir
      * Plugin version.
      * @var sting
      */
-    const VERSION = '1.5.6';
+    const VERSION = '1.5.7';
     
     /**
      * WP option name where plugin's version is saved.
@@ -225,8 +225,10 @@ class VideoStir
         
         add_submenu_page('videostir_options', 'All Videos', 'All videos', 8, 'videostir_options', array(&$this, 'cf_all_video'));
         add_submenu_page('videostir_options', 'Add New Video', 'Add new', 8, 'videostir_options_sub', array(&$this, 'cf_actions'));
-    }
+        add_submenu_page('videostir_options', 'Coming features', 'Coming features', 8, 'videostir_coming_features', array(&$this, 'cf_coming_features'));
 
+	}
+	
     function cf_all_video()
     {
         include 'page-all-video.php';
@@ -248,6 +250,12 @@ class VideoStir
             }
         }
     }
+	
+    function cf_coming_features()
+    {
+	   include 'page-coming-features.php';
+	}
+	
 }
 
 new VideoStir();
