@@ -8,8 +8,8 @@ global $wpdb;
 	<div style="width: 3%;float: left;">&nbsp;</div>
  	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default; height:350px; margin-left:30px;"><b>Mike Deluca &mdash; Real Estate &mdash; </b><a target="_blank" href="http://buycondosouthbeach.com/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
-			<a style="float:left; margin-top:-310px;margin-left:30px;" href="http://buycondosouthbeach.com/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/mike-deluca.jpg" alt="VideoStir" /></a>
+			<h2 style="cursor: default; height:350px; margin-left:15px;"><b>Mike Deluca &mdash; Real Estate &mdash; </b><a target="_blank" href="http://buycondosouthbeach.com/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
+			<a style="float:left; margin-top:-310px;margin-left:15px;" href="http://buycondosouthbeach.com/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/mike-deluca.jpg" alt="VideoStir" width="400"/></a>
 			<div>&nbsp;</div>
 			<h3 class="testimonial" style="margin-top:-295px;">&laquo; Imagine delivering your message personally 
                 to any potential clients visiting your website. Now, you have the
@@ -20,10 +20,10 @@ global $wpdb;
 	</div>
 	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default; height:350px; margin-left:30px;"><b>Sean Smallwood &mdash; Family Law Attorney &mdash; </b><a target="_blank" href="http://affordablefamilylawyer.com" onclick="window.open(this.href); return false;"> Link to website</a></h2>
-			<a style="float:left; margin-top:-270px;margin-left:30px;" href="http://affordablefamilylawyer.com" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/testimonial-sean-smallwood.jpg" alt="VideoStir" /></a>
+			<h2 style="cursor: default; height:350px; margin-left:15px;"><b>Sean Smallwood &mdash; Family Law Attorney &mdash; </b><a target="_blank" href="http://affordablefamilylawyer.com" onclick="window.open(this.href); return false;"> Link to website</a></h2>
+			<a style="float:left; margin-top:-270px;margin-left:15px;" href="http://affordablefamilylawyer.com" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/testimonial-sean-smallwood.jpg" alt="VideoStir" width="400" /></a>
 			<div>&nbsp;</div>
-			<h3 class="testimonial" style="margin-top:-295px;">&laquo;My VideoStir clip offers my business website,
+			<h3 class="testimonial" style="margin-top:-275px;">&laquo;My VideoStir clip offers my business website,
                 a look and feel that my competitors pay thousands of dollars to 
                 have with other companies. It also allows prospective clients to
                 get a feel for who I am in a way that a photo or a Youtube video 
@@ -32,8 +32,8 @@ global $wpdb;
 	</div>
 	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default; height:370px; margin-left:30px;"><b>Michael &mdash; Maui, HI &mdash;</b><a target="_blank" href="http://www.prosperyourmind.com/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
-			<a style="float:left; margin-top:-330px;margin-left:30px;" href="http://www.prosperyourmind.com/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/prosperyourmind.jpg" alt="VideoStir" width="460" /></a>
+			<h2 style="cursor: default; height:370px; margin-left:15px;"><b>Michael &mdash; Maui, HI &mdash;</b><a target="_blank" href="http://www.prosperyourmind.com/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
+			<a style="float:left; margin-top:-330px;margin-left:15px;" href="http://www.prosperyourmind.com/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/prosperyourmind.jpg" alt="VideoStir" width="400" /></a>
 			<div>&nbsp;</div>
 			<h3 class="testimonial" style="margin-top:-320px;">&laquo;I have been extremely pleased with VideoStir. 
                 <strong>I'm already seeing results from my main website and Facebook 
@@ -45,8 +45,8 @@ global $wpdb;
 	</div>
 	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default; height:350px; margin-left:30px;"><b>Glen &mdash; CEO The Life Coaching College &mdash;</b><a target="_blank" href="http://www.thelifecoachingcollege.com.au/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
-			<a style="float:left; margin-top:-300px;margin-left:30px;" href="http://www.thelifecoachingcollege.com.au/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/glen.jpg" alt="VideoStir" width="460" /></a>
+			<h2 style="cursor: default; height:350px; margin-left:15px;"><b>Glen &mdash; CEO The Life Coaching College &mdash;</b><a target="_blank" href="http://www.thelifecoachingcollege.com.au/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
+			<a style="float:left; margin-top:-300px;margin-left:15px;" href="http://www.thelifecoachingcollege.com.au/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/glen.jpg" alt="VideoStir" width="400" /></a>
 			<div>&nbsp;</div>
 			<h3 class="testimonial" style="margin-top:-330px;">&laquo;I was looking for a way to layer video over 
                 the top of my website and introduce my character to my posse. I 
@@ -58,8 +58,8 @@ global $wpdb;
 	</div>
 	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default; height:420px; margin-left:30px;"><b>Daniel W Hawk &mdash; Sports Journalist &mdash; </b><a target="_blank" href="http://danielwhawk.com/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
-			<a style="float:left; margin-top:-310px;margin-left:30px;" href="http://danielwhawk.com/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/testimonial-daniel-w-hawk.jpg" alt="VideoStir" /></a>
+			<h2 style="cursor: default; height:420px; margin-left:15px;"><b>Daniel W Hawk &mdash; Sports Journalist &mdash; </b><a target="_blank" href="http://danielwhawk.com/" onclick="window.open(this.href); return false;"> Link to website</a></h2>
+			<a style="float:left; margin-top:-310px;margin-left:15px;" href="http://danielwhawk.com/" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/testimonial-daniel-w-hawk.jpg" alt="VideoStir" width="400"/></a>
 			<div>&nbsp;</div>
 			<h3 class="testimonial" style="margin-top:-390px;">&laquo;Building a website on your own is tough enough
                 but trying to get people to notice your site is another story in all
@@ -73,8 +73,8 @@ global $wpdb;
 	</div>
 	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default; height:500px; margin-left:30px;"><b>K.A.Butler &mdash; Director GoDirect2Barristers &mdash;</b><a target="_blank" href="http://www.GoDirect2Barristers.co.uk" onclick="window.open(this.href); return false;"> Link to website</a></h2>
-			<a style="float:left; margin-top:-400px;margin-left:30px;" href="http://www.GoDirect2Barristers.co.uk" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/godirect2barristers.jpg" alt="VideoStir" width="460" /></a>
+			<h2 style="cursor: default; height:500px; margin-left:15px;"><b>K.A.Butler &mdash; Director GoDirect2Barristers &mdash;</b><a target="_blank" href="http://www.GoDirect2Barristers.co.uk" onclick="window.open(this.href); return false;"> Link to website</a></h2>
+			<a style="float:left; margin-top:-400px;margin-left:15px;" href="http://www.GoDirect2Barristers.co.uk" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/godirect2barristers.jpg" alt="VideoStir" width="400" /></a>
 			<div>&nbsp;</div>
 			<h3 class="testimonial" style="margin-top:-470px;">&laquo;In launching our new Directory & Barrister Locator service to the UK public 
                 we saw an opportunity to use a "walk on video spokesperson" as a guide to explain the site navigation to first time visitors. 
@@ -89,10 +89,10 @@ global $wpdb;
 </div>
  <style>
  .testimonial {
-	 font-size: 16pt;
+	 font-size: 13pt;
 	 margin-top:-295px;
-	 margin-right:100px;
-	 max-width:490px;
+	 margin-right:10px;
+	 max-width:350px;
 	 max-height:700px;
 	 float:right;
 	 font-family: Georgia, serif;
