@@ -9,7 +9,7 @@ global $wpdb;
  	<div id="formdiv" class="postbox " >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>"Video Tour" around the internet - </b><a target="_blank" href="http://videostir.com/follow-me-demo.html?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> Live demo</a></h2>
-			<a href="http://videostir.com/follow-me-demo.html?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="/wp-content/plugins/videostir-spokesperson/img/online-presntation-tour.jpg" alt="VideoStir" /></a>
+			<a href="http://videostir.com/follow-me-demo.html?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/online-presntation-tour.jpg" alt="VideoStir" /></a>
 			<div>&nbsp;</div>
 			<h3 style="cursor: default;">In a nutshell</h3>
 			<h4 style="margin-bottom: 2px;">1. Your floating clip runs in the foreground overlay</h4>
@@ -25,7 +25,7 @@ global $wpdb;
  	<div id="formdiv" class="postbox " >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>Video On Image - already in Beta- </b><a target="_blank" href="http://videostir.com/video-on-image/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> start here</a></h2>
-			<a href="http://videostir.com/video-on-image/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="/wp-content/plugins/videostir-spokesperson/img/simple3x3-voi-tmp.jpg" alt="VideoStir" /></a>
+			<a href="http://videostir.com/video-on-image/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/simple3x3-voi-tmp.jpg" alt="VideoStir" /></a>
 			<div>&nbsp;</div>
 			<h3 style="cursor: default;">In a nutshell</h3>
 			<h4 style="margin-bottom: 2px;">1. Upload Video + Upload Image => get a Video on Image mix</h4>
