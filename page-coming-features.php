@@ -8,17 +8,17 @@ global $wpdb;
 	<div style="width: 3%;float: left;">&nbsp;</div>
  	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default;"><b>"Video Tour" around the internet - </b><a target="_blank" href="http://videostir.com/follow-me-demo.html?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> Live demo</a></h2>
-			<a href="http://videostir.com/follow-me-demo.html?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/online-presntation-tour.jpg" width="600" alt="VideoStir" /></a>
+			<h2 style="cursor: default;"><b>"Video Tour" around the internet - </b><a target="_blank" href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> Live demo</a></h2>
+			<a href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/online-presntation-tour.jpg" width="600" alt="VideoStir" /></a>
 			<div>&nbsp;</div>
 			<h3 style="cursor: default;">In a nutshell</h3>
 			<h4 style="margin-bottom: 2px;">1. Your floating clip runs in the foreground overlay</h4>
 			<p style="margin-top: 0px;">Same basic DIY floating clip that guides your viewers.</p>
 			<h4 style="margin-bottom: 2px;">2. The page in the background keeps changing from page to page while the video plays</h4>
-			<p style="margin-top: 0px;">You can choose to which pages to "jump" and when to jump there.</p>
+			<p style="margin-top: 0px;">You can choose to which pages to "jump" and when to jump there. You can also use plain ppt slides as your background.</p>
 			<h4 style="margin-bottom: 2px;">3. Once clip is done a chosen page appears.</h4>
 			<p style="margin-top: 0px;">You can take your viewers to a video guided tour around the internet or around your website pages.</p>
-			<h3>Here is a live example of Shy Frenkel VideoStir's CEO explaining the coming feature: <a target="_blank" href="http://videostir.com/follow-me-demo.html?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">http://videostir.com/follow-me-demo.html</a></h3>
+			<h3>Here is a live example of Shy Frenkel VideoStir's CEO guiding viewers on VideoStir website: <a target="_blank" href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">http://videostir.com/follow-me</a></h3>
 		</div>
 	</div>
 	<div style="width: 3%;float: left;">&nbsp;</div>
