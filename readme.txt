@@ -114,6 +114,9 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 7. Simple Steps – upload,  tune,  enjoy.
 
 == Changelog ==
+= 1.5.10 =
+* Affiliate program page
+
 = 1.5.9 =
 * Follow me feature point to a demo on VideoStir website
 
