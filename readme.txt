@@ -4,7 +4,7 @@ Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, player, flash, transparent, greenscreen, chroma, clip, background, conversion, marketing, ad, change background
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.5.10
+Stable tag: 1.5.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -114,6 +114,9 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 7. Simple Steps – upload,  tune,  enjoy.
 
 == Changelog ==
+= 1.5.11 =
+* Youtube id optional beta feature for appearing when users watch page from iphone/ipad
+
 = 1.5.10 =
 * Affiliate program page
 

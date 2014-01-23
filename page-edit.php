@@ -112,6 +112,10 @@ if (isset($_POST['update'])) {
         $playerParams['on-click-event'] = $_POST['on-click-event'];
     }
     
+    if (!empty($_POST['youtube'])) {
+        $playerParams['youtube'] = $_POST['youtube'];
+    }
+    
     if (!count($errorMessages)) {
         
         $sql = $wpdb->prepare('
@@ -409,6 +413,10 @@ if (!empty($data)) {
                             <input name="zoom" id="zoom" value="<?php echo $playerParams['zoom'] ? $playerParams['zoom'] : 100 ?>" /><span class="help" title="Zoom clip (in or out). 100 means no zoom, 50 means half size. Use 120 for example to zoom in so that edges of the clip will disappear ni case they show door edges or other unwanted objects.">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
+                            
+                            <label for="youtube">Youtube clip ID (beta)</label>
+                            <input style="width: 30%;" id="youtube" name="youtube" value="<?php echo $playerParams['youtube']? $playerParams['youtube'] : "" ?>" /><span class="help" title="Optional Youtube clip id, for a clip that will be shown instead of floating clip when watching from iphone/ipad. Example for a clip id is: hzy6lmnAezk">?</span>
+                            <div class="spacer-05">&nbsp;</div>
 
 
                             <div class="spacer-05">&nbsp;</div>

@@ -41,7 +41,7 @@
 
     function validateVideoStirEditForm()
     {
-        var error = '', id, min, max;
+        var error = '', id, min, max, id_size;
         
         id = 'width', min = 50, max = 3000;
         if (!validate_range_number(document.getElementById(id).value, min, max)) {
@@ -101,6 +101,11 @@
             if (!validate_range_number(document.getElementById(id).value, min, max)) {
                 error += "- The freeze field must contain a \n number between " + min + " and " + max + ". \n";
             }
+        }
+        id = 'youtube', id_size = 0;
+        id_size = parseInt(document.getElementById(id).value.length);
+        if (id_size != 11 && id_size > 0 ) {
+            error += "- A youtube clip id should have 11 characters in it. (for example : hzy6lmnAezk ). \nThis is an experimental optional feautre for showing one of your youtube clips instead of the floating clip\nin case user watched page from iphone/ipad.";
         }
         
         if (error != '') {
