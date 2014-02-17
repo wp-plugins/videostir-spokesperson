@@ -31,7 +31,21 @@ global $wpdb;
 			<h4 style="margin-bottom: 2px;">1. Upload Video + Upload Image => get a Video on Image mix</h4>
 			<p style="margin-top: 0px;">Same basic DIY floating clip with any image automatically mixes them both</p>
 			<h4 style="margin-bottom: 2px;">2. Download the result clip to your PC</h4>
-			<p style="margin-top: 0px;">Entirly automatically and takes less than 5 minutes - entirely free for now.</p>
+			<p style="margin-top: 0px;">Entirely automatically and takes less than 5 minutes - entirely free for now.</p>
+<a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">Let us know what you think</a>
+		</div>
+	</div>
+        <div style="width: 3%;float: left;">&nbsp;</div>
+ 	<div id="formdiv" class="postbox " >
+		<div class="inside">
+			<h2 style="cursor: default;"><b>Play List - already in Beta</b></h2>
+			<a href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/play-list.jpg" width="600" alt="VideoStir" /></a>
+			<div>&nbsp;</div>
+			<h3 style="cursor: default;">In a nutshell</h3>
+			<h4 style="margin-bottom: 2px;">1. Make a few floating clips</h4>
+			<h4 style="margin-bottom: 2px;">2. Load all of them to one page</h4>
+                        <h4 style="margin-bottom: 2px;">2. Define in what order & logic do you want them to play</h4>
+			<p style="margin-top: 0px;">One after the other? Different one per visit? randomly? and more</p>
 <a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">Let us know what you think</a>
 		</div>
 	</div>
