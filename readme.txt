@@ -8,7 +8,7 @@ Stable tag: 1.5.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Become your website's presenter. Personally engage with your visitors in less than 5 minutes using VideoStir plugin. Improve conversion rate & sales!
+Become your website's presenter. Personally engage with your visitors in less than 5 minutes using VideoStir plugin. Improve conversion rate!
 
 == Description ==
 
