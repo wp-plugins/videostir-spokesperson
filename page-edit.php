@@ -434,7 +434,7 @@ if (!empty($data)) {
                     <div class="inside">
                             <label for="on-click-event">Run custom JavaScript on Click</label>
                             <br/>
-                            <textarea rows="8" cols="90" id="on-click-event" name="on-click-event" ><?php echo empty($playerParams['on-click-event']) ? '' : stripcslashes($playerParams['on-click-event']) ?></textarea>
+                            <textarea rows="8" cols="78" id="on-click-event" name="on-click-event" ><?php echo empty($playerParams['on-click-event']) ? '' : stripcslashes($playerParams['on-click-event']) ?></textarea>
                             
                             <div class="spacer-10">&nbsp;</div>
 
@@ -452,7 +452,7 @@ if (!empty($data)) {
             <div id="formdiv" class="postbox " >
                 <h3 style="cursor: default;">VideoStir embed code (read-only, no need to copy)</h3>
                 <div class="inside">
-                    <textarea style="width: 100%;" id="embed" readonly="readonly" name="embed"><?php echo $embedCode; ?></textarea>
+                    <textarea style="width: 100%; height: 70px;" id="embed" readonly="readonly" name="embed"><?php echo $embedCode; ?></textarea>
                 </div>
             </div> 
             
