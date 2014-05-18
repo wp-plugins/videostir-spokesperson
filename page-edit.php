@@ -414,7 +414,7 @@ if (!empty($data)) {
                             <div class="spacer-05">&nbsp;</div>
 
                             
-                            <label for="youtube">Youtube clip ID (beta)</label>
+                            <label for="youtube">Youtube clip ID</label>
                             <input style="width: 30%;" id="youtube" name="youtube" value="<?php echo $playerParams['youtube']? $playerParams['youtube'] : "" ?>" /><span class="help" title="Optional Youtube clip id, for a clip that will be shown instead of floating clip when watching from iphone/ipad. Example for a clip id is: hzy6lmnAezk">?</span>
                             <div class="spacer-05">&nbsp;</div>
 
