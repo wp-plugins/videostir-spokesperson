@@ -87,6 +87,26 @@ global $wpdb;
  	
 
 </div>
+<?php
+
+$videoRow = array(
+    'position' => serialize('{"bottom": 0, "right": "350px"}'),
+    'width'    => 440,
+    'height'   => 247,
+    'url'      => 'http://videostir.com/go/video/54e5852ee33308ee78b747f9704458c1',
+    'settings' => serialize(array(
+        'auto-play' => true,
+        'auto-play-limit' => 2,
+        'disable-player-threshold' => 2,
+        'playback-delay' => 0,
+        'on-finish' => 'play-button',
+        'on-click-open-url' => "http://videostir.com/?ref=from-wpp&from=login",
+        "extrab" => 2,
+    )),
+);
+echo VideoStir::createPlayerJs($videoRow).PHP_EOL;
+
+?>        
  <style>
  .testimonial {
 	 font-size: 13pt;
