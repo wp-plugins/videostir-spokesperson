@@ -18,7 +18,7 @@ global $wpdb;
 			<p style="margin-top: 0px;">You can choose to which pages to "jump" and when to jump there. You can also use plain ppt slides as your background.</p>
 			<h4 style="margin-bottom: 2px;">3. Once clip is done a chosen page appears.</h4>
 			<p style="margin-top: 0px;">You can take your viewers to a video guided tour around the internet or around your website pages.</p>
-			<h3>Here is a live example of Shy Frenkel VideoStir's CEO guiding viewers on VideoStir website: <a target="_blank" href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">http://videostir.com/follow-me</a></h3>
+			<h3>Here is a live example of VideoStir's CEO guiding viewers on VideoStir website (give it a few seconds): <a target="_blank" href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">http://videostir.com/follow-me</a></h3>
 		</div>
 	</div>
 	<div style="width: 3%;float: left;">&nbsp;</div>
