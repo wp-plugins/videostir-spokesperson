@@ -141,7 +141,7 @@ if (isset($_POST['apply'])) {
                         
                         <div class="spacer-5">&nbsp;</div>
                         
-                        <label>Embedding code<br/><textarea style="width: 100%;" rows="4" id="embed" name="embed"><?php echo stripslashes($embed); ?></textarea></label>
+                        <label>3 lines of embedding code<br/><textarea style="width: 100%;" rows="4" id="embed" name="embed"><?php echo stripslashes($embed); ?></textarea></label>
                         
                         <p style="text-align: right;">
                             <button type="button" onclick="window.location='<?php echo get_bloginfo('url').'/wp-admin/admin.php?page=videostir_options' ?>'">Cancel</button>
