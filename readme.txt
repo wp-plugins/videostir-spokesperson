@@ -4,7 +4,7 @@ Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, ad, change background
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 1.5.21
+Stable tag: 1.5.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,9 @@ Here is a short guidelines video that shows you how to make a simple floating cl
 
 Here is a short video that demonstrates how to use this plugin
 [youtube http://www.youtube.com/watch?v=byWDi50sFGM]
+
+Here is a short video that shows some of our customer's websites
+[youtube http://www.youtube.com/watch?v=BT5yeguI7so]
 
 We will be happy to support you and **even improve your clip if needed**.
 Just drop us a line at info@videostir.com and we will take it from there.
@@ -114,6 +117,10 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 7. Simple Steps – upload,  tune,  enjoy.
 
 == Changelog ==
+
+= 1.5.22 =
+* Add note for additional settings 
+
 = 1.5.21 =
 * Added customers example videos youtube clip to side bar 
 
