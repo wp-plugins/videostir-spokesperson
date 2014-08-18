@@ -226,8 +226,8 @@ class VideoStir
         add_submenu_page('videostir_options', 'All Videos', 'All videos', 8, 'videostir_options', array(&$this, 'cf_all_video'));
         add_submenu_page('videostir_options', 'Add New Video', 'Add new', 8, 'videostir_options_sub', array(&$this, 'cf_actions'));
         add_submenu_page('videostir_options', 'Coming features', 'Coming features', 8, 'videostir_coming_features', array(&$this, 'cf_coming_features'));
-		add_submenu_page('videostir_options', 'Testimonials', 'Testimonials', 8, 'videostir_customers_testimonials', array(&$this, 'cf_testimonials'));
-
+	add_submenu_page('videostir_options', 'Testimonials', 'Testimonials', 8, 'videostir_customers_testimonials', array(&$this, 'cf_testimonials'));
+        add_submenu_page('videostir_options', 'Affiliate program', 'Affiliate program', 8, 'videostir_affiliate_program', array(&$this, 'cf_affiliates'));  
 	}
 	
     function cf_all_video()
@@ -257,9 +257,13 @@ class VideoStir
 	   include 'page-coming-features.php';
 	}
 	
-	function cf_testimonials()
+    function cf_testimonials()
     {
 	   include 'page-testimonials.php';
+	}
+    function cf_affiliates()
+    {
+	   include 'page-affiliates.php';
 	}
 	
 }
