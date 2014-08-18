@@ -96,9 +96,10 @@ $videoRow = array(
     'url'      => 'http://videostir.com/go/video/54e5852ee33308ee78b747f9704458c1',
     'settings' => serialize(array(
         'auto-play' => true,
-        'auto-play-limit' => 2,
-        'disable-player-threshold' => 2,
+        'auto-play-limit' => 200,
+        'disable-player-threshold' => 200,
         'playback-delay' => 0,
+        'quiet' => true,
         'on-finish' => 'play-button',
         'on-click-open-url' => "http://videostir.com/?ref=from-wpp&from=login",
         "extrab" => 2,
