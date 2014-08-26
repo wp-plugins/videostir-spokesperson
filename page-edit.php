@@ -68,6 +68,7 @@ if (isset($_POST['update'])) {
     $playerParams = array();
     
     $playerParams['auto-play'] = ($_POST['auto-play'] == 'yes') ? true : false;
+    $playerParams['quiet'] = ($_POST['quiet'] == 'yes') ? true : false;
     
     $playerParams['playback-delay'] = ($_POST['playback-delay']) ? (int) $_POST['playback-delay'] : 0;
 
@@ -379,7 +380,12 @@ if (!empty($data)) {
                                 <option <?php if ($playerParams['on-click-open-url-target'] == 'self') echo 'selected="selected"'; ?> value="self">Same window</option>
                             </select><span class="help" title="Once using the previous parameter: Click on me URL. New Window - Will open a new window/tab with the defined internet address. Same Window - will redirect to defined internet address on the currnet page (overwrite existing page).">?</span>
                             <div class="spacer-10">&nbsp;</div>
-
+                            <label for="quiet">Run in silent mode first</label>
+                            <select name="quiet" id="quiet">
+                                <option <?php if ($playerParams['quiet'])  echo 'selected="selected"'; ?> value="yes">Yes</option>
+                                <option <?php if (!$playerParams['quiet']) echo 'selected="selected"'; ?> value="no">No</option>
+                            </select><span class="help" title="Yes - Will start clip in mute/quiet mode until viewer clicks on a big play button, which will start over clip with audio. No - Will start clip with audio based on other settings you define">?</span>
+                            <div class="spacer-05">&nbsp;</div>
                             <label for="playback-delay">Playback delay</label>
                             <input name="playback-delay" id="playback-delay" value="<?php echo $playerParams['playback-delay'] ?>" /><span class="help" title="Will start playing only when X seconds have passed after player loaded">?</span>
                             <div class="spacer-05">&nbsp;</div>
