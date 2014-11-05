@@ -286,7 +286,7 @@ if (!empty($data)) {
                     <div class="inside frm">
 
                             <p style="text-align: right; float : right;">
-                                <input type="submit" name="update" value="Apply" style="font-size : 200%; height : 40px; width : 80px;"/>
+                                <input type="submit" name="update" value="Apply" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
                                 <br/>
                                 <span>and you are done</span>
                             </p>
@@ -407,7 +407,7 @@ if (!empty($data)) {
                             </select>
                             <div class="spacer-05">&nbsp;</div>
                             <p style="text-align: right;  float : right;">
-                                <input type="submit" name="update" value="Apply" style="font-size : 200%; height : 40px; width : 80px;"/>
+                                <input type="submit" name="update" value="Apply" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
                                 <br/>
                                 <span>and you are done</span>
                             </p>
@@ -438,7 +438,7 @@ if (!empty($data)) {
 
                             
                             <p style="text-align: right;">
-                                <input type="submit" name="update" value="Apply" style="font-size : 200%; height : 40px; width : 80px;"/>
+                                <input type="submit" name="update" value="Apply" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
                                 <br/>
                                 <span>and you are done</span>
                             </p>
