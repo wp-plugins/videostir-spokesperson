@@ -4,22 +4,26 @@ global $wpdb;
 <?php include 'css-script.php'; ?>
 
 <div class="wrap">
-	<h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" /> Affiliate program </h2>
+	<h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" /> Affiliate plan </h2>
 	<div style="width: 3%;float: left;">&nbsp;</div>
  	<div id="formdiv" class="postbox " >
 		<div class="inside">
-			<h2 style="cursor: default;"><b>Join our affiliate program - earn money right away. </b><a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">(Contact us)</a></h2>
+			<h2 style="cursor: default;"><b>Join VideoStir's Affiliate Plan - earn money right away. </b><a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">(Contact us)</a></h2>
 			<div>&nbsp;</div>
 			<a href="http://videostir.com/affiliates/join-program?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/728x90.gif"  alt="VideoStir" /></a>
 			<div>&nbsp;</div>
 			<h3 style="cursor: default;">In a nutshell</h3>
-			<h4 style="margin-bottom: 2px;">1. Register as an affiliate</h4>
-			<p style="margin-top: 0px;">Let us know who you are and we will activate your affiliate account. You will get your own affiliate link and additional info.</p>
-			<h4 style="margin-bottom: 2px;">2. Tell the world about us</h4>
-			<p style="margin-top: 0px;">Use your affiliate link on your website / blog / facebook / linkedin / emails etc. Tell your friends to use your links where they see fit.</p>
-			<h4 style="margin-bottom: 2px;">3. Collect your commission and monitor your leads.</h4>
-			<p style="margin-top: 0px;">Monitor your leads online. See how many registered / uploaded / paid for their clip at any second. Watch your commission grow and collect your payments (simple Paypal transfer from us to you).</p>
-			<h3>You can tell us a bit about yourself using this <a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;"> link</a> or start the process on our website with this <a target="_blank" style="font-size:18px" href="http://videostir.com/affiliates/join-program?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> link </a> </h3>
+			<h4 style="margin-bottom: 2px;">1. <a  href='#' onclick="window.open('http://videostir.com/auth/login')">Login</a> to your VideoStir account. If you do not have an account
+                <a  href='#' onclick="window.open('http://videostir.com/auth/register/')">register now! </a></h4>
+			<!--<p style="margin-top: 0px;">Let us know who you are and we will activate your affiliate account. You will get your own affiliate link and additional info.</p>-->
+			<h4 style="margin-bottom: 2px;">2. Once logged in click on the "Join Now" button and tell us a bit about yourself and how you intend to promote VideoStir.</h4>
+			<p style="margin-top: 0px;margin-left:20px;">- How do you plan to tell the world about us (by using your website / blog / Facebook / LinkedIn, email, etc)?</p>
+			<p style="margin-top: 0px;margin-left:20px;">- Estimate the amount of relevant customers you can reach in a month. What type of customers are they?</p>
+			<p style="margin-top: 0px;margin-left:50px;"><b><a href="#" onclick="window.open('http://videostir.com/affiliates/join-program');">Join Us</a></b></p>
+			<h4 style="margin-bottom: 2px;">3. Read our affiliate plan terms and conditions.</h4>
+			<p style="margin-top: 0px;"></p>
+			<h4>You can tell us a bit about yourself using this <a href="#" style="font-size:14px" onclick="UserVoice.showPopupWidget(); return false;"> link</a></h4>
+			<h4>For business inquiries  contact - noa [@] videostir.com </h4>		
 		</div>
 	</div>
 	
