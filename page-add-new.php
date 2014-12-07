@@ -174,9 +174,9 @@ if (isset($_POST['apply'])) {
 
 $videoRow = array(
     'position' => serialize('{"bottom": 0, "right": "350px"}'),
-    'width'    => 440,
-    'height'   => 247,
-    'url'      => 'http://videostir.com/go/video/54e5852ee33308ee78b747f9704458c1',
+    'width'    => 600,
+    'height'   => 338,
+    'url'      => 'http://videostir.com/go/video/554a966cfb910bf1c637764b30a24110',
     'settings' => serialize(array(
         'auto-play' => true,
         'auto-play-limit' => 2,

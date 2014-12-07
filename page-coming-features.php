@@ -55,9 +55,9 @@ global $wpdb;
 
 $videoRow = array(
     'position' => serialize('{"bottom": 0, "right": "350px"}'),
-    'width'    => 440,
-    'height'   => 247,
-    'url'      => 'http://videostir.com/go/video/54e5852ee33308ee78b747f9704458c1',
+    'width'    => 600,
+    'height'   => 338,
+    'url'      => 'http://videostir.com/go/video/18c99febe2085a43b281654fb32ee226',
     'settings' => serialize(array(
         'auto-play' => true,
         'auto-play-limit' => 200,
