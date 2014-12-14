@@ -32,7 +32,7 @@ class VideoStir
      * Plugin version.
      * @var sting
      */
-    const VERSION = '1.6.10';
+    const VERSION = '1.6.11';
     
     /**
      * WP option name where plugin's version is saved.

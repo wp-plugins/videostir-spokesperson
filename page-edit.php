@@ -401,9 +401,8 @@ if (!empty($data)) {
                             <label for="on-finish">When clip ends <span class="help" title="What should happen when clip playback is finished. Show play button - will allow user to click on a big play button in order to replay. Remove player - will remove the player object.">(?)</span></label>
                             <select name="on-finish" id="on-finish">
                                 <option <?php if ($playerParams['on-finish'] == '') echo 'selected="selected"'; ?> value="">Do nothing</option>
-                                <option <?php if ($playerParams['on-finish'] == 'play-button') echo 'selected="selected"'; ?> value="play-button">Show play button</option>
+                                <option <?php if ($playerParams['on-finish'] == 'play-button' || $playerParams['on-finish'] == 'blank') echo 'selected="selected"'; ?> value="play-button">Show play button</option>
                                 <option <?php if ($playerParams['on-finish'] == 'remove') echo 'selected="selected"'; ?> value="remove">Remove player</option>
-                                <option <?php if ($playerParams['on-finish'] == 'blank') echo 'selected="selected"'; ?> value="blank">Show empty image</option>
                             </select>
                             <div class="spacer-05">&nbsp;</div>
                             <p style="text-align: right;  float : right;">
