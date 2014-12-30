@@ -60,7 +60,23 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
                             ?>
                             <tr>
                                 <td style="border-bottom-width: 0;"><?php echo $video['id'] ?></td>
-                                <td style="border-bottom-width: 0;" colspan="2"><?php echo $video['name'] ?></td>
+                                <td style="border-bottom-width: 0;"><?php echo $video['name'] ?></td>
+								<td>
+									<?php
+										$ids = (strlen($video['pages'])) ? explode(',', $video['pages']) : array();
+										if (count($ids)) {
+											foreach ($ids as $id) {
+												if (intval($id) === 0) {
+													echo '(Page) Home<br/>';
+												} else {
+													$p = get_post($id);
+													echo '('.ucfirst($p->post_type).') ';
+													echo $p->post_title.'<br/>';
+												}
+											}
+										}
+									?>
+								</td>
                                 <td style="border-bottom-width: 0;">
                                     <?php echo '<a href="' . get_bloginfo('url') . '/wp-admin/admin.php?page=videostir_options_sub&action=edit&id=' . $video['id'] . '">edit</a>'; ?> 
                                     - 
@@ -76,7 +92,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
                                 </td>
                             </tr>
                             <?php
-                            
+                            /*
                             $ids = (strlen($video['pages'])) ? explode(',', $video['pages']) : array();
                             
                             if (count($ids)) {
@@ -95,6 +111,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
                                 echo '</td>';
                                 echo '</tr>';
                             }
+							*/
                         }
                     } else {
                         ?>
