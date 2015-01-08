@@ -36,6 +36,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
                 <thead>
                     <tr>
                         <th style="width: 20px;">ID</th>
+						<th>Video hash</th>
                         <th>Video name</th>
                         <th>Pages / Post</th>
                         <th style="width: 120px;">Actions</th>
@@ -46,6 +47,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
                 <tfoot>
                     <tr>
                         <th style="width: 20px;">ID</th>
+						<th>Video hash</th>
                         <th>Video name</th>
                         <th>Pages / Post</th>
                         <th style="width: 120px;">Actions</th>
@@ -60,6 +62,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
                             ?>
                             <tr>
                                 <td style="border-bottom-width: 0;"><?php echo $video['id'] ?></td>
+								<td style="border-bottom-width: 0;"><?php echo $video['url'] ?></td>
                                 <td style="border-bottom-width: 0;"><?php echo $video['name'] ?></td>
 								<td>
 									<?php

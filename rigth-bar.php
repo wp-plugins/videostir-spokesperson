@@ -30,10 +30,13 @@
 
 <div id="formdiv" class="postbox " >
     <div class="inside">
-		<a href="#" onclick="window.open('http://videostir.com/go/step-register?utm=wp-start-here')" class="presentation_btn"></a>
+	
+		<!--<iframe src="http://videostir.com/demo/test-on-outside" width="420" height="120" style="background-color:lightgray" align="center"></iframe>-->
+	
+		<a href="#" onclick="window.open('http://videostir.com/go/step-register?utm=wp-start-here')" class="presentation_btn"></a><br>
         <!--<h3 style="cursor: default;">Demo</h3>-->
 		
-        <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/hzy6lmnAezk?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
+        <iframe title="YouTube video player" style="padding-top:10px" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/hzy6lmnAezk?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
 		
         <div>&nbsp;</div>
 
