@@ -1,41 +1,10 @@
-<style>
-.presentation_btn{
-	background:transparent url(<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/presentation_btn.png) 0 0 no-repeat;
-    display: block;
-    height: 56px;
-    margin: 6px 0 0 150px;
-    position: relative;
-    width: 192px;
-	float:left;
-}
-.presentation_btn:hover{
-	background:transparent url(<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/presentation_btn.png) 0 -60px no-repeat;
-}
-.presentation_btn img{
-    position: absolute;
-    right: -28px;
-    top: -3px;
-}
-.presentation_btns span{
-    color: #444444;
-    display: block;
-    float: left;
-    font-size: 9pt;
-    margin: 26px 5px 0 4px;
-}
-</style>
-
-
-
 
 <div id="formdiv" class="postbox " >
     <div class="inside">
-	
-		<!--<iframe src="http://videostir.com/demo/test-on-outside" width="420" height="120" style="background-color:lightgray" align="center"></iframe>-->
-	
-		<a href="#" onclick="window.open('http://videostir.com/go/step-register?utm=wp-start-here')" class="presentation_btn"></a><br>
-        <!--<h3 style="cursor: default;">Demo</h3>-->
-		
+
+
+        <iframe src="http://videostir.com/demo/test-on-outside" width="370" height="100" style="background-color: #4f76c5" align="center"></iframe>
+        <iframe src="http://videostir.com/demo/start-on-outside" width="370" height="100" style="padding:5px;" align="center"></iframe>
         <iframe title="YouTube video player" style="padding-top:10px" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/hzy6lmnAezk?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
 		
         <div>&nbsp;</div>

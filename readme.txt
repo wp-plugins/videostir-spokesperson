@@ -4,7 +4,7 @@ Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, ad, change background
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 1.6.14
+Stable tag: 1.6.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ You can watch a **live demo** on your website using our [examples page](http://v
 
 [Watch our demo!](http://videostir.com/demo/?ref=wp)
 
-[youtube http://www.youtube.com/watch?v=hzy6lmnAezk]
+[youtube http://www.youtube.com/watch?v=BjL-8vIp9-s]
 
 In a nutshell
 
@@ -117,6 +117,9 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 7. Simple Steps – upload,  tune,  enjoy.
 
 == Changelog ==
+= 1.6.15 =
+* right bar test-on-site field and new start here button
+
 = 1.6.14 =
 * video table hash field
 
