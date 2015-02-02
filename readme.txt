@@ -4,13 +4,15 @@ Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, ad, change background
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 1.6.15
+Stable tag: 1.6.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Become your website's presenter. Personally engage with your visitors in less than 5 minutes using VideoStir plugin. Improve conversion rate!
 
 == Description ==
+
+[youtube http://www.youtube.com/watch?v=BjL-8vIp9-s]
 
 [VideoStir](http://videostir.com/?ref=wp) transforms your basic video into an interactive "video spokesperson" that can run on top of any website. The floating clip **can be created within 5 minutes** using VideoStir DIY service (green background is not needed, any camera will do the trick). Use this plugin to improve engagement with your viewers and for increasing your sales.
 Take a few minutes to "Do It Yourself" and automatically make a free "walk on video". VideoStir automatically removes your video's background without the need for a green screen.  Just follow our basic [guidelines]( http://videostir.com/guidelines/?ref=wp) and you will see your floating clip running on top of your selected pages.
@@ -19,8 +21,6 @@ Once you have your video ready, you can use VideoStir’s WordPress plugin to em
 You can watch a **live demo** on your website using our [examples page](http://videostir.com/usages/?ref=wp)
 
 [Watch our demo!](http://videostir.com/demo/?ref=wp)
-
-[youtube http://www.youtube.com/watch?v=BjL-8vIp9-s]
 
 In a nutshell
 
@@ -117,6 +117,9 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 7. Simple Steps – upload,  tune,  enjoy.
 
 == Changelog ==
+= 1.6.16 =
+* test-on-site field redesign, new demo video
+
 = 1.6.15 =
 * right bar test-on-site field and new start here button
 

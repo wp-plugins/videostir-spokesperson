@@ -3,9 +3,9 @@
     <div class="inside">
 
 
-        <iframe src="http://videostir.com/demo/test-on-outside" width="370" height="100" style="background-color: #4f76c5" align="center"></iframe>
-        <iframe src="http://videostir.com/demo/start-on-outside" width="370" height="100" style="padding:5px;" align="center"></iframe>
-        <iframe title="YouTube video player" style="padding-top:10px" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/hzy6lmnAezk?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
+        <iframe src="https://videostir.com/demo/test-on-outside" width="370" height="110" style="padding:0px;margin:0px;" align="center"></iframe>
+        <iframe src="https://videostir.com/demo/start-on-outside" width="370" height="100" style="padding:5px;" align="center"></iframe>
+        <iframe title="YouTube video player" style="padding-top:10px" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/BjL-8vIp9-s?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
 		
         <div>&nbsp;</div>
 
