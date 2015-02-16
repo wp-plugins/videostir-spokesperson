@@ -126,7 +126,7 @@
             return false;
         }
         
-        if (code.length < 16) {
+        if (code.length < 16 ) {
             alert(
                 'Wait, you should first quickly prepare you VideoStir floating clip.'
                 + '\n\nPaste the 3 lines you got from videostir.com after transforming your video into a floating clip in the text box below.'
@@ -134,7 +134,22 @@
             );
             return false;
         }
-        
+        if (code.indexOf('vsembed.js')!=-1 )
+		{
+			alert('Please go back to your video page on VideoStir website and use the old embed code structure for your clip.\n'
+				+'Just click on the button saying "Old embed code" in the "Enjoy" step and copy the lines from there.'
+				+'\nWe will be happy to support you - just drop us a line to info@videostir.com');
+			return false;
+		}
+		
+		if (code.indexOf('VS.Player.Show')===-1)
+		{
+			alert(
+                'Wait, you should first quickly prepare you VideoStir floating clip.'
+                + '\n\nPaste the 3 lines you got from videostir.com after transforming your video into a floating clip in the text box below.'
+                + '\nClick "Next" to adjust the parameters that will appear and choose the pages/posts that will hold the clip from the list.'
+            );
+		}
         return true;
     }
 

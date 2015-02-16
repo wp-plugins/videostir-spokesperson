@@ -27,7 +27,8 @@ if (isset($_POST['apply'])) {
         if (count($matches) != 6) {
             $errorMessages[] = 'Unknown format for "VS.Player".';
         }
-
+		
+		
         $playerParams['position'] = $matches[1];
         if ($playerParams['position'][0] != '"') {
             $playerParams['position'] = json_decode($playerParams['position'], true);
