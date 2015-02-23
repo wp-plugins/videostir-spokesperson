@@ -118,7 +118,7 @@ The [VideoStir Engine]( http://videostir.com/engine/?ref=wp) is an exclusive pat
 
 == Changelog ==
 = 1.7.0 =
-* new embed code structure validation
+* new player version
 
 = 1.6.17 =
 * new embed code structure validation
