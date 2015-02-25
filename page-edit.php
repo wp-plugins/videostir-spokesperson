@@ -93,7 +93,8 @@ if (isset($_POST['update'])) {
     }
     
     if ((int) $_POST['zoom'] != 100) {
-        $playerParams['zoom'] = round((int) $_POST['zoom'] / 100, 1);
+      //  $playerParams['zoom'] = round((int) $_POST['zoom'] / 100, 1);
+        $playerParams['zoom'] = round((int) $_POST['zoom'],1);
     }
     
     if ((int) $_POST['freeze'] > 0) {
@@ -179,7 +180,7 @@ if (!empty($data)) {
     $playerPosition = unserialize($data[0]['position']);
     $playerParams = unserialize($data[0]['settings']);
     if (isset($playerParams['zoom'])) {
-        $playerParams['zoom'] = round($playerParams['zoom'] * 100, 0);
+       // $playerParams['zoom'] = round($playerParams['zoom'] * 100, 0);
     }
 } else {
     $playerPosition = '"bottom-right"';
@@ -413,6 +414,7 @@ if (!empty($data)) {
                             <label for="rotation">Rotation <span class="help" title="Rotates clip in player X degrees clockwise">(?)</span></label>
                             <input name="rotation" id="rotation" value="<?php echo $playerParams['rotation'] ? $playerParams['rotation'] : 0 ?>" />
                             <div class="spacer-05">&nbsp;</div>
+
 
                             <label for="zoom">Zoom <span class="help" title="Zoom clip (in or out). 100 means no zoom, 50 means half size. Use 120 for example to zoom in so that edges of the clip will disappear ni case they show door edges or other unwanted objects.">(?)</span></label>
                             <input name="zoom" id="zoom" value="<?php echo $playerParams['zoom'] ? $playerParams['zoom'] : 100 ?>" />
