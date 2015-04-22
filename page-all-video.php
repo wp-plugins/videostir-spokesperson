@@ -8,8 +8,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
 
 <div class="wrap">
 
-    <h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" />All videos <a href="admin.php?page=videostir_options_sub" class="add-new-h2">Add new</a></h2>
-
+    <h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" />All videos <input onclick="window.location = 'admin.php?page=videostir_options_sub'" type="button" class="nbutton" name="no" value="ADD NEW" /> </h2>
     <?php if (isset($_GET['info'])) { ?>
         <div style="margin-bottom: 15px;" class="updated">
             <div class="spacer-05">&nbsp;</div>

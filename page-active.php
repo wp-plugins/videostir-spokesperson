@@ -39,7 +39,7 @@ if (isset($_POST['yes'])) {
                     <form method="post" action="">
                         <div class="spacer-10">&nbsp;</div>
                         <label title="Description" for="name">Are you sure?</label>
-                        <input type="submit" name="yes" value="Yes" /> <input onclick="window.location = '<?php echo get_bloginfo('url') . '/wp-admin/admin.php?page=videostir_options' ?>'" type="button" name="no" value="No" />
+                        <input type="submit" class="nbutton" name="yes" value="YES" /> <input onclick="window.location = '<?php echo get_bloginfo('url') . '/wp-admin/admin.php?page=videostir_options' ?>'" type="button" class="nbutton" name="no" value="NO" />
                     </form>
                 </div>
             </div>

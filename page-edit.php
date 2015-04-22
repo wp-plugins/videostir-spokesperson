@@ -214,7 +214,7 @@ if (!empty($data)) {
                         <div class="spacer-10">&nbsp;</div>
                         <label for="name">Name</label> 
                         <input id="name" name="name" value="<?php echo $video['name']; ?>" style="width: 200px;" />
-                        <input type="submit" name="change-name" value="Update" />
+                        <input type="submit" name="change-name" class="nbutton" value="UPDATE" />
                     </form>
                 </div>
             </div> 
@@ -287,7 +287,7 @@ if (!empty($data)) {
                     <div class="inside frm">
 
                             <p style="text-align: right; float : right;">
-                                <input type="submit" name="update" value="Apply" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
+                                <input type="submit" name="update" class="nbutton" value="APPLY" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
                                 <br/>
                                 <span>and you are done</span>
                             </p>
@@ -369,7 +369,7 @@ if (!empty($data)) {
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="freeze">Freeze play at frame <span class="help" title="Freezes the clip at frame X and show a big play button. Visitor can click on play button to get the clip running again.">(?)</span></label>
-                            <input name="freeze" id="freeze" value="<?php echo $playerParams['freeze'] ? $playerParams['freeze'] : '' ?>" />
+                            <input name="fre-eze" id="freeze" value="<?php echo $playerParams['freeze'] ? $playerParams['freeze'] : '' ?>" />
                             <div class="spacer-05">&nbsp;</div>
 
                             <label for="on-click-open-url">"Click on me" URL <span class="help" title="When viewer clicks on clip player will open this link.">(?)</span></label>
@@ -407,7 +407,7 @@ if (!empty($data)) {
                             </select>
                             <div class="spacer-05">&nbsp;</div>
                             <p style="text-align: right;  float : right;">
-                                <input type="submit" name="update" value="Apply" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
+                                <input type="submit" name="update" class="nbutton" value="APPLY" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
                                 <br/>
                                 <span>and you are done</span>
                             </p>
@@ -439,7 +439,7 @@ if (!empty($data)) {
 
                             
                             <p style="text-align: right;">
-                                <input type="submit" name="update" value="Apply" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
+                                <input type="submit" name="update" class="nbutton" value="APPLY" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
                                 <br/>
                                 <span>and you are done</span>
                             </p>

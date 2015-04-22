@@ -16,6 +16,17 @@
     .help {cursor: help; position: relative; left: 3px;}
 
     .posts-container { max-height: 300px; overflow-x: hidden; overflow-y: auto; padding-left: 10px; width: 480px; border: 1px solid #aaa; }
+    .nbutton {
+        background-color: #39c54a;
+        -webkit-border-radius: 2px;
+        border: 1px solid #39c54a;
+        color:#FFFFFF;
+        cursor: pointer;
+    }
+    .nbutton:hover{
+        background-color: #FFFFFF;
+        color:#39c54a;
+    }
 </style>
 
 <script type="text/javascript">
