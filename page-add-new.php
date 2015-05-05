@@ -17,7 +17,18 @@ if (isset($_POST['apply'])) {
     } else {
         preg_match('/\<script\>\s*VS\.Player\.show\((.+)\);\s*\<\/script\>/s', $embed, $matches);
     }
+    $embedHash=false;
+    if (!count($matches) ) // if it's not regular embed code
+    {
+        $pos=strstr($embed,'vsembed.js');
+        if ($pos)
+        {
+            $embedHash = substr($embed,strlen($embed)-41,32);
 
+        }
+    }
+    //var_dump($matches);
+    //exit();
     $playerParams = array();
     if (count($matches)) {
         $settings = $matches[1];
@@ -49,7 +60,30 @@ if (isset($_POST['apply'])) {
             $errorMessages[] = 'Error parsing special parameters.';
         }
     }
-    
+    else if ($embedHash)
+    {
+
+        $params = array();
+        $position = array();
+        $position['bottom']='0';
+        $position['right']='350';
+        $playerParams['position'] = $position;
+        $playerParams['width'] = '448';
+        $playerParams['height'] = '252';
+        $playerParams['url'] = $embedHash;
+
+        if (!ctype_alnum($playerParams['url']) || strlen($playerParams['url']) !== 32) {
+            $errorMessages[] = 'Clip ID is not valid.';
+        }
+
+        $params['auto-play']='true';
+        $params['auto-play-limit']='10';
+        $params['playback-delay']='0';
+        $params['on-finish']='play-button';
+        $params['on-click-open-url']='';
+        $params['extrab']='2';
+        $playerParams['settings'] = $params;
+    }
     if (!count($errorMessages)) {
         
         $sql = $wpdb->prepare('
@@ -132,7 +166,7 @@ if (isset($_POST['apply'])) {
                     <form method="post" action="" onsubmit="return videostirValidateNewVideo();">
                         <h2 style="margin: 10px 0 0px;">Instructions</h2>
                         <p style="margin: 0;">
-                            Paste the 3 lines you got from <a target="_blank" href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">videostir.com</a> after transforming your clip into a floating clip in the textbox below.<br/>
+                            Paste the embed line you got from <a target="_blank" href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">videostir.com</a> after transforming your clip into a floating clip in the textbox below.<br/>
                             Click "Next" to adjust the parameters that will appear and choose the pages/posts that will hold the clip from the list.
                         </p>
                         
@@ -142,10 +176,10 @@ if (isset($_POST['apply'])) {
                         
                         <div class="spacer-5">&nbsp;</div>
                         
-                        <label>3 lines of embedding code<br/><textarea style="width: 100%;" rows="4" id="embed" name="embed"><?php echo stripslashes($embed); ?></textarea></label>
+                        <label>Paste embed code here:<br/><textarea style="width: 100%;" rows="4" id="embed" name="embed"><?php echo stripslashes($embed); ?></textarea></label>
                         
                         <p style="text-align: right;">
-                            <button type="button" class="nbutton" onclick="window.open('http://videostir.com/video/download/1')">HELP</button>
+<!--                            <button type="button" class="nbutton" onclick="window.open('http://videostir.com/video/download/1')">HELP</button>-->
                             <button type="button" class="nbutton" onclick="window.location='<?php echo get_bloginfo('url').'/wp-admin/admin.php?page=videostir_options' ?>'">CANCEL</button>
                             <button type="submit" class="nbutton" ><strong>NEXT</strong></button>
                             <input type="hidden" name="apply" />

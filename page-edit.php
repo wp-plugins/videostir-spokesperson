@@ -214,7 +214,7 @@ if (!empty($data)) {
                         <div class="spacer-10">&nbsp;</div>
                         <label for="name">Name</label> 
                         <input id="name" name="name" value="<?php echo $video['name']; ?>" style="width: 200px;" />
-                        <input type="submit" name="change-name" class="nbutton" value="UPDATE" />
+                        <input type="submit" name="change-name" class="nbutton" value="SAVE NAME" />
                     </form>
                 </div>
             </div> 
