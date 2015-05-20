@@ -23,7 +23,7 @@ global $wpdb;
 			<h4 style="margin-bottom: 2px;">3. Read our affiliate plan terms and conditions.</h4>
 			<p style="margin-top: 0px;"></p>
 			<h4>You can tell us a bit about yourself using this <a href="#" style="font-size:14px" onclick="UserVoice.showPopupWidget(); return false;"> link</a></h4>
-			<h4>For business inquiries  contact - noa [@] videostir.com </h4>		
+			<h4>For business inquiries  contact - gabriel [@] videostir.com </h4>		
 		</div>
 	</div>
 	
