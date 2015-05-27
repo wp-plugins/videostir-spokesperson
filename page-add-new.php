@@ -160,7 +160,7 @@ if (isset($_POST['apply'])) {
     <div id="poststuff" class="metabox-holder">
         <div style="width: 60%;float: left;">
 
-            <div id="formdiv" class="postbox " >
+            <div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);" >
 
                 <div class="inside">
                     <form method="post" action="" onsubmit="return videostirValidateNewVideo();">
@@ -189,7 +189,7 @@ if (isset($_POST['apply'])) {
                 
             </div> 
 
-            <div id="formdiv" class="postbox">
+            <div id="formdiv" class="postbox" style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);">
                 <h3 style="cursor: default;">Tutorial &mdash; How to use this plugin</h3>
                 <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/byWDi50sFGM?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
             </div>

@@ -6,7 +6,7 @@ global $wpdb;
 <div class="wrap">
 	<h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" /> Affiliate plan </h2>
 	<div style="width: 3%;float: left;">&nbsp;</div>
- 	<div id="formdiv" class="postbox " >
+ 	<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>Join VideoStir's Affiliate Plan - earn money right away. </b><a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">(Contact us)</a></h2>
 			<div>&nbsp;</div>

@@ -30,7 +30,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
     <?php } ?>
 
     <div id="poststuff" class="metabox-holder">
-        <div style="width: 60%;float: left;">
+        <div style="width: 58%;float: left;border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
             <table class="wp-list-table widefat fixed posts" cellspacing="0">
                 <thead>
                     <tr>

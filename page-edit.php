@@ -204,10 +204,10 @@ if (!empty($data)) {
         </div>
     <?php } ?>
 
-    <div id="poststuff" class="metabox-holder">
+    <div id="poststuff" class="metabox-holder" >
         <div style="width: 60%;float: left;">
 
-            <div id="formdiv" class="postbox " >
+            <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
                 <h3 style="cursor: default;">VideoStir clip</h3>
                 <div class="inside">
                     <form method="post" action="">
@@ -219,7 +219,7 @@ if (!empty($data)) {
                 </div>
             </div> 
             <form method="post" action="" onsubmit="return validateVideoStirEditForm();">
-                <div id="formdiv" class="postbox " >
+                <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
                     <h3 style="cursor: default;">Choose the pages/posts for the clip to run on</h3>
                     <div class="inside frm">
                             <div class="spacer-10">&nbsp;</div>
@@ -282,7 +282,7 @@ if (!empty($data)) {
                             </div>
                     </div>
                 </div>
-                <div id="formdiv" class="postbox " >
+                <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
                     <h3 style="cursor: default;">Define player parameters</h3>
                     <div class="inside frm">
 
@@ -428,7 +428,7 @@ if (!empty($data)) {
                             <div class="spacer-05">&nbsp;</div>
                     </div>
                 </div>
-                <div id="formdiv" class="postbox " >
+                <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
                     <h3 style="cursor: default;">Advanced parameters (optional for developers)</h3>
                     <div class="inside">
                             <label for="on-click-event">Run custom JavaScript on Click</label>
@@ -448,7 +448,7 @@ if (!empty($data)) {
                 </div>
             </form>
             
-            <div id="formdiv" class="postbox " >
+            <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
                 <h3 style="cursor: default;">VideoStir embed code (read-only, no need to copy)</h3>
                 <div class="inside">
                     <textarea style="width: 100%; height: 70px;" id="embed" readonly="readonly" name="embed"><?php echo $embedCode; ?></textarea>

@@ -1,5 +1,5 @@
 
-<div id="formdiv" class="postbox " >
+<div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);" >
     <div class="inside">
 
 
@@ -26,14 +26,14 @@
 
 
 
-<div id="formdiv" class="postbox " >
+<div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);" >
     <div class="inside">
         <h3 style="cursor: default;">Filming guidelines</h3>
         <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/GoVyfxMpHhk?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
     </div>
 </div>
 
-<div id="formdiv" class="postbox " >
+<div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);">
     <div class="inside">
         <h3 style="cursor: default;">Our customers floating clips</h3>
         <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/BT5yeguI7so?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>

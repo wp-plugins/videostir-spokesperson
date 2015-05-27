@@ -6,7 +6,7 @@ global $wpdb;
 <div class="wrap">
 	<h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" /> Coming features -  <a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">Let us know what you think</a> </h2>
 	<div style="width: 3%;float: left;">&nbsp;</div>
- 	<div id="formdiv" class="postbox " >
+ 	<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>"Video Tour" around the internet - </b><a target="_blank" href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> Live demo</a></h2>
 			<a href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/online-presntation-tour.jpg" width="600" alt="VideoStir" /></a>
@@ -22,7 +22,7 @@ global $wpdb;
 		</div>
 	</div>
 	<div style="width: 3%;float: left;">&nbsp;</div>
- 	<div id="formdiv" class="postbox " >
+ 	<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>Video On Image - already in Beta- </b><a target="_blank" href="http://videostir.com/video-on-image/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> start here</a></h2>
 			<a href="http://videostir.com/video-on-image/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/simple3x3-voi-tmp.jpg" width="600" alt="VideoStir" /></a>
@@ -36,7 +36,7 @@ global $wpdb;
 		</div>
 	</div>
         <div style="width: 3%;float: left;">&nbsp;</div>
- 	<div id="formdiv" class="postbox " >
+ 	<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>Play List - already in Beta</b></h2>
 			<a href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/play-list.jpg" width="600" alt="VideoStir" /></a>
