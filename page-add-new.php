@@ -160,18 +160,22 @@ if (isset($_POST['apply'])) {
     <div id="poststuff" class="metabox-holder">
         <div style="width: 60%;float: left;">
 
+            <div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);padding: 20px" >
+                <h2 style="margin: 10px 0 0px;">INSTRUCTIONS</h2>
+                <ol>
+                    <li>In the textbox below, paste the Embed Line you got from <a href="http://videostir.com">videostir.com</a> after transforming your video into a floating clip.</li>
+                    <li>Click “Next”.</li>
+                    <li>You can now give your clip a name, adjust its customization parameters to suit your preferences, and choose in which pages/posts your clip will appear.</li>
+                    <li>Click “Apply”.</li>
+                </ol>
+            </div>
+
             <div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);" >
 
                 <div class="inside">
                     <form method="post" action="" onsubmit="return videostirValidateNewVideo();">
-                        <h2 style="margin: 10px 0 0px;">Instructions</h2>
-                        <p style="margin: 0;">
-                            Paste the embed line you got from <a target="_blank" href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin">videostir.com</a> after transforming your clip into a floating clip in the textbox below.<br/>
-                            Click "Next" to adjust the parameters that will appear and choose the pages/posts that will hold the clip from the list.
-                        </p>
-                        
+                        <h2 style="margin: 10px 0 0px;">ADD A NEW CLIP TO YOUR WORDPRESS SITE</h2>
                         <br/>
-                        
                         <label>Name<br/><input id="name" name="name" value="<?php echo $videoName; ?>" /></label>
                         
                         <div class="spacer-5">&nbsp;</div>
