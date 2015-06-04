@@ -163,7 +163,7 @@ if (isset($_POST['apply'])) {
             <div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);padding: 20px" >
                 <h2 style="margin: 10px 0 0px;">INSTRUCTIONS</h2>
                 <ol>
-                    <li>In the textbox below, paste the Embed Line you got from <a href="http://videostir.com">videostir.com</a> after transforming your video into a floating clip.</li>
+                    <li>In the textbox below, paste the Embed Line you got from <a href="http://videostir.com/page=wp-instructions">videostir.com</a> after transforming your video into a floating clip.</li>
                     <li>Click “Next”.</li>
                     <li>You can now give your clip a name, adjust its customization parameters to suit your preferences, and choose in which pages/posts your clip will appear.</li>
                     <li>Click “Apply”.</li>
