@@ -14,7 +14,7 @@ global $wpdb;
 			<div>&nbsp;</div>
 			<h3 style="cursor: default;">In a nutshell</h3>
 			<h4 style="margin-bottom: 2px;">1. <a  href='#' onclick="window.open('http://videostir.com/auth/login')">Login</a> to your VideoStir account. If you do not have an account
-                <a  href='#' onclick="window.open('http://videostir.com/auth/register/')">register now! </a></h4>
+                <a  href='#' onclick="window.open('http://videostir.com/auth/register/?page=wp-aff')">register now! </a></h4>
 			<!--<p style="margin-top: 0px;">Let us know who you are and we will activate your affiliate account. You will get your own affiliate link and additional info.</p>-->
 			<h4 style="margin-bottom: 2px;">2. Once logged in click on the "Join Now" button and tell us a bit about yourself and how you intend to promote VideoStir.</h4>
 			<p style="margin-top: 0px;margin-left:20px;">- How do you plan to tell the world about us (by using your website / blog / Facebook / LinkedIn, email, etc)?</p>
