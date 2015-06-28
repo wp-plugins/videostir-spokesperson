@@ -6,7 +6,7 @@ $info = '';
 if (isset($_POST['update'])) {
 
     $errorMessages = array();
-    
+
     $arraypages = array();
     if (isset($_POST["pages"]) && is_array($_POST["pages"]) && count($_POST["pages"]) > 0) {
         foreach ($_POST["pages"] as $selpage) {
@@ -15,6 +15,7 @@ if (isset($_POST['update'])) {
     }
 
     $pages = implode(',', $arraypages);
+  //  var_dump($pages);
     
     $val1 = (int) $_POST['val1'];
     $val2 = (int) $_POST['val2'];
@@ -120,6 +121,17 @@ if (isset($_POST['update'])) {
     
     if (!count($errorMessages)) {
         
+           $checkSql = $wpdb->prepare('describe `'.VideoStir::getTableName().'` `pages`','');
+          $data = $wpdb->get_results($checkSql, ARRAY_A);
+
+          //var_dump($data[0]['Type']);  
+          if ($data[0]['Type']!='text')
+          {
+            $alterSql = $wpdb->prepare('ALTER TABLE `'.VideoStir::getTableName().'` MODIFY pages TEXT','');
+            $wpdb->query($alterSql);       
+          }
+        
+
         $sql = $wpdb->prepare('
         UPDATE
             `'.VideoStir::getTableName().'`
@@ -143,6 +155,10 @@ if (isset($_POST['update'])) {
         ,   serialize($playerParams)
         ,   $_GET['id']
         );
+
+//var_dump($sql);
+
+
 
         $wpdb->query($sql);
 
@@ -224,7 +240,7 @@ if (!empty($data)) {
                     <div class="inside frm">
                             <div class="spacer-10">&nbsp;</div>
 
-                            <strong>Pages</strong>
+                            <strong>Pages</strong> <span> check all</span><input type="checkbox" id='check_all' onclick="changePages(this,'pages');">
                             <div class="posts-container">
                                 <?php
                                 $apages = explode(',', $video['pages']);
@@ -233,7 +249,7 @@ if (!empty($data)) {
                                         ?>
 
                                         <label class="selpage">
-                                                                                    <input type="checkbox" name="pages[]" id="home" value="0" <?php echo (in_array('0', $apages)) ? 'checked="checked"' : ''; ?> /> 
+                                                                                    <input type="checkbox" class="pages" name="pages[]" id="home" value="0" <?php echo (in_array('0', $apages)) ? 'checked="checked"' : ''; ?> /> 
                                                                                     Home
                                                                             </label>
 
@@ -248,7 +264,7 @@ if (!empty($data)) {
 
                                                                             <div class="spacer-05">&nbsp;</div>
                                         <label class="selpage">
-                                                                                    <input type="checkbox" name="pages[]" id="p-<?php echo $page->post_title; ?>" value="<?php echo $page->ID; ?>" <?php echo (in_array($page->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
+                                                                                    <input type="checkbox" class="pages" name="pages[]" id="p-<?php echo $page->post_title; ?>" value="<?php echo $page->ID; ?>" <?php echo (in_array($page->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
                                                                                     <?php echo $page->post_title; ?>
                                                                             </label>
 
@@ -259,7 +275,7 @@ if (!empty($data)) {
                             </div>
                             <div class="spacer-10">&nbsp;</div>
 
-                            <strong>Posts</strong>
+                            <strong>Posts</strong><span>  check all</span><input type="checkbox" id='check_all' onclick="changePages(this,'posts');">
                             <div class="posts-container">
                                 <?php
                                 $apages = explode(',', $video['pages']);
@@ -271,7 +287,7 @@ if (!empty($data)) {
 
                                         <div class="spacer-05">&nbsp;</div>
                                         <label class="selpage">
-                                                                                    <input type="checkbox" name="pages[]" id="p-<?php echo $post->post_title; ?>" value="<?php echo $post->ID; ?>" <?php echo (in_array($post->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
+                                                                                    <input type="checkbox" class="posts" name="pages[]" id="p-<?php echo $post->post_title; ?>" value="<?php echo $post->ID; ?>" <?php echo (in_array($post->ID, $apages)) ? 'checked="checked"' : ''; ?>  />
                                                                                     <?php echo $post->post_title; ?>
                                                                             </label>
 
@@ -467,3 +483,15 @@ if (!empty($data)) {
 
     <br class="clear">
 </div>
+<script type="text/javascript">
+    function changePages(source,clName)
+    {
+       
+        
+        checkboxes = document.getElementsByClassName(clName);
+        console.log(checkboxes);
+        for(var i=0, n=checkboxes.length;i<n;i++) {
+        checkboxes[i].checked = source.checked;
+  }
+    }
+</script>
