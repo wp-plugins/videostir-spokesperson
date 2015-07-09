@@ -240,7 +240,7 @@ if (!empty($data)) {
                     <div class="inside frm">
                             <div class="spacer-10">&nbsp;</div>
 
-                            <strong>Pages</strong> <span> check all</span><input type="checkbox" id='check_all' onclick="changePages(this,'pages');">
+                            <strong>Pages</strong><input type="checkbox" id='check_all' style = "margin-left:30px" onclick="changePages(this,'pages');"><span> select / unselect all pages </span>
                             <div class="posts-container">
                                 <?php
                                 $apages = explode(',', $video['pages']);
@@ -275,7 +275,7 @@ if (!empty($data)) {
                             </div>
                             <div class="spacer-10">&nbsp;</div>
 
-                            <strong>Posts</strong><span>  check all</span><input type="checkbox" id='check_all' onclick="changePages(this,'posts');">
+                            <strong>Posts</strong><input style='margin-left:30px' type="checkbox" id='check_all' onclick="changePages(this,'posts');"><span> select / unselect all posts </span>
                             <div class="posts-container">
                                 <?php
                                 $apages = explode(',', $video['pages']);
