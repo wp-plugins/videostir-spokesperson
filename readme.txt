@@ -3,12 +3,13 @@ Contributors: alexey_bass, shy_frenkel
 Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, ad, change background
 Requires at least: 3.0
-Tested up to: 4.2.2
-Stable tag: 1.8.7
+Tested up to: 4.2.4
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Become your website's presenter. Personally engage with your visitors in less than 5 minutes using VideoStir plugin. Improve conversion rate!
+Add an interactive call-to-action clip to your site. Engage with your visitors in less than 5 minutes. Add buttons/text/email forms and see results.
+
 
 == Description ==
 
@@ -16,10 +17,12 @@ Become your website's presenter. Personally engage with your visitors in less th
 
 The [VideoStir](http://videostir.com/?page=wp-gov) plugin lets you add borderless, transparent background videoclips to your Wordpress website. Theese clips, generated automatically by removing the background from your videos, float over the rest of the content of your page/post. You can use the Videostir plugin to become your own "video spokesperson", to create the most effective Video Calls to Action ever, or in many, many more ways [(see some examples)](http://videostir.com#sp1/?ref=wp). Use your personal touch to talk directly to your customers or to invite them to do whatever you need them to - without sacrificing real estate on your pages/posts to embed a big video player. 
 
+You can also select a pre-made clip from our [clip market](http://videostir.com/clips-stock/try-a-free-clip?page=wp-market-org). We have a few for any purpose. You can add buttons / text / emails forms on your clips and make them interactive. 
+[youtube http://www.youtube.com/watch?v=K5_4TEEW8_E]
 
 Interactivity
 
-Your floating clips are fully customizable, and interactive. You can decide how the clip will behave, and what will happen if someone clicks on it - for more information, see here.
+Your floating clips are fully customizable, and interactive. You can decide how the clip will behave, and what will happen if someone clicks on it - for more information, see [here](http://videostir.com/features/?page=wp-gov).
 
 How it works
 
@@ -38,7 +41,7 @@ In a nutshell
 [See for yourself in our demo!](http://videostir.com/demo/?page=wp-org)
 
 Here is a short video tutorial that shows how to use this plugin
-[youtube http://www.youtube.com/watch?v=byWDi50sFGM]
+[youtube http://www.youtube.com/watch?v=_jmNZoMLFlc]
 
 We will be happy to support you and **even improve your clip if needed**.
 Just drop us a line at info@videostir.com and we will take it from there.
@@ -118,6 +121,12 @@ The [VideoStir Engine]( http://videostir.com/engine/?page=wp-org-eng) is an excl
 
 
 == Changelog ==
+= 2.0 =
+* Clip settings can now be customized from Videostir's live dashboard. 
+* User can choose pre-made videos from Videostir's clip market
+* Call to action features were added such as: buttons, email forms, text on clip
+* Support for latest wordpress version
+
 = 1.8.7 =
 * small design fixes
 

@@ -6,7 +6,7 @@ defined('ABSPATH') OR exit;
   Plugin Name: VideoStir Spokesperson
   Plugin URI: http://wordpress.org/extend/plugins/videostir-spokesperson/
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 1.8.7
+  Version: 2.0
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */
@@ -22,6 +22,8 @@ register_uninstall_hook(    __FILE__, array('VideoStir', 'on_uninstall'));
 
 add_action('wp_enqueue_scripts',      array('VideoStir', 'init_resources'));
 add_action('admin_enqueue_scripts',   array('VideoStir', 'init_resources'));
+//add_action('wp_print_styles', 'add_my_stylesheet');
+
 
 class VideoStir
 {
@@ -32,7 +34,7 @@ class VideoStir
      * Plugin version.
      * @var sting
      */
-    const VERSION = '1.8.7';
+    const VERSION = '2.0';
     
     /**
      * WP option name where plugin's version is saved.
@@ -53,6 +55,9 @@ class VideoStir
 
         add_action('admin_menu', array($this, 'config_page'));
         add_action('wp_footer',  array($this, 'vs_wp_footer'));
+
+         
+
     }
     
     public static function getTableName()
@@ -66,8 +71,18 @@ class VideoStir
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
-        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.15.7/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.17.10/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.data', plugins_url('/js/2.17.10/vs.player.embed.js', __FILE__), array('videostir-spokesperson.player'));
     }
+
+    public static function add_my_stylesheet() {
+            $myStyleUrl = WP_PLUGIN_URL . '/videostir-spokesperson.plugin/style.css';
+            $myStyleFile = WP_PLUGIN_DIR . '/videostir-spokesperson/style.css';
+            if ( file_exists($myStyleFile) ) {
+                wp_register_style('myStyleSheets', $myStyleUrl);
+                wp_enqueue_style( 'myStyleSheets');
+            }
+        }
 
     function vs_wp_footer()
     {
@@ -118,32 +133,41 @@ class VideoStir
     {
         $js = '';
         
+        
         if (!empty($videoRow)) {
-            $js.= '<script>VS.Player.show(';
-            $js.= (is_array(unserialize($videoRow['position']))) ? json_encode(unserialize($videoRow['position'])) : unserialize($videoRow['position']);
-            $js.= ', '.$videoRow['width'];
-            $js.= ', '.$videoRow['height'];
-            $js.= ', "'.$videoRow['url'].'"';
-            
-            $customJs = false;
-            $settings = unserialize($videoRow['settings']);
-            if (isset($settings['on-click-event'])) {
-                $customJs = stripslashes($settings['on-click-event']);
-                $settings['on-click-event'] = true;
+            if ($videoRow['position'])
+            {
+                $js.= '<script>VS.Player.show(';
+                $js.= (is_array(unserialize($videoRow['position']))) ? json_encode(unserialize($videoRow['position'])) : unserialize($videoRow['position']);
+                $js.= ', '.$videoRow['width'];
+                $js.= ', '.$videoRow['height'];
+                $js.= ', "'.$videoRow['url'].'"';
+                
+                $customJs = false;
+                $settings = unserialize($videoRow['settings']);
+                if (isset($settings['on-click-event'])) {
+                    $customJs = stripslashes($settings['on-click-event']);
+                    $settings['on-click-event'] = true;
+                }
+                $js.= ', '.json_encode($settings);
+                
+                $js.= ');';
+                $js=str_replace(',"quiet":false','',$js);
+                if ($customJs !== false) {
+                    $js.= PHP_EOL;
+                    $js.= 'VS.jQuery(document).bind("onclick.vs-player", function() {';
+                    $js.= 'VS.Player.Api.pause();';
+                    $js.= $customJs;
+                    $js.= '});';
+                }
+                
+                $js.= '</script>'.PHP_EOL;    
             }
-            $js.= ', '.json_encode($settings);
-            
-            $js.= ');';
-            $js=str_replace(',"quiet":false','',$js);
-            if ($customJs !== false) {
-                $js.= PHP_EOL;
-                $js.= 'VS.jQuery(document).bind("onclick.vs-player", function() {';
-                $js.= 'VS.Player.Api.pause();';
-                $js.= $customJs;
-                $js.= '});';
+            else
+            {
+                $js.='<script>getVsParams("'.$videoRow['url'].'")</script>'.PHP_EOL;
             }
             
-            $js.= '</script>'.PHP_EOL;
         }
         
         return $js;
@@ -178,6 +202,7 @@ class VideoStir
         ,   `height` INT UNSIGNED NOT NULL
         ,   `url` VARCHAR(255) COLLATE utf8_unicode_ci NOT NULL
         ,   `settings` TEXT COLLATE utf8_unicode_ci NOT NULL
+
         
         ,   PRIMARY KEY (`id`)
         )

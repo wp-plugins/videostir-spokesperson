@@ -12,7 +12,7 @@
 
         <h3 style="cursor: default;">In a nutshell</h3>
 
-        <h4 style="margin-bottom: 2px;">1. Record a video.</h4>
+        <h4 style="margin-bottom: 2px;">1. Record a video (or use one from our <a target="_blank" href="http://videostir.com/clips-stock/try-a-free-clip?page=wp-market-side">clip market</a>).</h4>
         <p style="margin-top: 0px;">Just shoot a short video based on <a href="http://videostir.com/guidelines?page=wp-side-guidline">our guidelines</a> (one-colored wall etc.)</p>
 
         <h4 style="margin-bottom: 2px;">2. Transform your video into a floating clip in 3 simple steps.</h4>

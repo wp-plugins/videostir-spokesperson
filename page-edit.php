@@ -2,7 +2,7 @@
 global $wpdb;
 
 $info = '';
-
+ 
 if (isset($_POST['update'])) {
 
     $errorMessages = array();
@@ -16,109 +16,121 @@ if (isset($_POST['update'])) {
 
     $pages = implode(',', $arraypages);
   //  var_dump($pages);
-    
-    $val1 = (int) $_POST['val1'];
-    $val2 = (int) $_POST['val2'];
-    switch ($_POST['position']) {
-        case 'top-left':
-            $playerPosition = '"'.$_POST['position'].'"';
-            if ($val1 || $val2) {
-                $playerPosition = array('top' => $val1 ? $val1 : 0, 'left' => $val2 ? $val2 : 0);
-            }
-            break;
-            
-        case 'top-right':
-            $playerPosition = '"'.$_POST['position'].'"';
-            if ($val1 || $val2) {
-                $playerPosition = array('top' => $val1 ? $val1 : 0, 'right' => $val2 ? $val2 : 0);
-            }
-            break;
-            
-        case 'bottom-right':
-            $playerPosition = '"'.$_POST['position'].'"';
-            if ($val1 || $val2) {
-                $playerPosition = array('bottom' => $val1 ? $val1 : 0, 'right' => $val2 ? $val2 : 0);
-            }
-            break;
-            
-        case 'bottom-left':
-            $playerPosition = '"'.$_POST['position'].'"';
-            if ($val1 || $val2) {
-                $playerPosition = array('bottom' => $val1 ? $val1 : 0, 'left' => $val2 ? $val2 : 0);
-            }
-            break;
-	case 'center':
-            $playerPosition = '"'.$_POST['position'].'"';
-	    // there is no option to set exact distance from center position
-            break;
-    }
-    
-    $width = (int) $_POST['width'];
-    if ($width < 50 || $width > 3000) {
-        $errorMessages[] = 'Clip width '.$width.' is out of range (50&ndash;3000).';
-    }
-    $height = (int) $_POST['height'];
-    if ($height < 50 || $height > 3000) {
-        $errorMessages[] = 'Clip height '.$height.' is out of range (50&ndash;3000).';
-    }
-    
-    if (!ctype_alnum($_POST['url']) || strlen($_POST['url']) !== 32) {
-        $errorMessages[] = 'Clip ID is not valid. It should be alphanumeric value 32 symbols long that you can only get from VideoStir site.';
-    }
-    
-    $playerParams = array();
-    
-    $playerParams['auto-play'] = ($_POST['auto-play'] == 'yes') ? true : false;
-    $playerParams['quiet'] = ($_POST['quiet'] == 'yes') ? true : false;
-    
-    $playerParams['playback-delay'] = ($_POST['playback-delay']) ? (int) $_POST['playback-delay'] : 0;
 
-    $playerParams['auto-play-limit'] = ($_POST['auto-play-limit']) ? (int) $_POST['auto-play-limit'] : 0;
-    
-    if ((int) $_POST['disable-player-threshold'] > 0) {
-        $playerParams['disable-player-threshold'] = (int) $_POST['disable-player-threshold'];
-    }
-    
-    if (!empty($_POST['on-finish'])) {
-        switch ($_POST['on-finish']) {
-            case 'play-button':
-            case 'remove':
-            case 'blank':
-                $playerParams['on-finish'] = $_POST['on-finish'];
+    if ($_POST['position'])
+    {
+
+
+        $val1 = (int) $_POST['val1'];
+        $val2 = (int) $_POST['val2'];
+        switch ($_POST['position']) {
+            case 'top-left':
+                $playerPosition = '"'.$_POST['position'].'"';
+                if ($val1 || $val2) {
+                    $playerPosition = array('top' => $val1 ? $val1 : 0, 'left' => $val2 ? $val2 : 0);
+                }
+                break;
+                
+            case 'top-right':
+                $playerPosition = '"'.$_POST['position'].'"';
+                if ($val1 || $val2) {
+                    $playerPosition = array('top' => $val1 ? $val1 : 0, 'right' => $val2 ? $val2 : 0);
+                }
+                break;
+                
+            case 'bottom-right':
+                $playerPosition = '"'.$_POST['position'].'"';
+                if ($val1 || $val2) {
+                    $playerPosition = array('bottom' => $val1 ? $val1 : 0, 'right' => $val2 ? $val2 : 0);
+                }
+                break;
+                
+            case 'bottom-left':
+                $playerPosition = '"'.$_POST['position'].'"';
+                if ($val1 || $val2) {
+                    $playerPosition = array('bottom' => $val1 ? $val1 : 0, 'left' => $val2 ? $val2 : 0);
+                }
+                break;
+    	case 'center':
+                $playerPosition = '"'.$_POST['position'].'"';
+    	    // there is no option to set exact distance from center position
                 break;
         }
+        
+        $width = (int) $_POST['width'];
+        if ($width < 50 || $width > 3000) {
+            $errorMessages[] = 'Clip width '.$width.' is out of range (50&ndash;3000).';
+        }
+        $height = (int) $_POST['height'];
+        if ($height < 50 || $height > 3000) {
+            $errorMessages[] = 'Clip height '.$height.' is out of range (50&ndash;3000).';
+        }
+        
+        if (!ctype_alnum($_POST['url']) || strlen($_POST['url']) !== 32) {
+            $errorMessages[] = 'Clip ID is not valid. It should be alphanumeric value 32 symbols long that you can only get from VideoStir site.';
+        }
+        
+        $playerParams = array();
+        
+        $playerParams['auto-play'] = ($_POST['auto-play'] == 'yes') ? true : false;
+        $playerParams['quiet'] = ($_POST['quiet'] == 'yes') ? true : false;
+        
+        $playerParams['playback-delay'] = ($_POST['playback-delay']) ? (int) $_POST['playback-delay'] : 0;
+
+        $playerParams['auto-play-limit'] = ($_POST['auto-play-limit']) ? (int) $_POST['auto-play-limit'] : 0;
+        
+        if ((int) $_POST['disable-player-threshold'] > 0) {
+            $playerParams['disable-player-threshold'] = (int) $_POST['disable-player-threshold'];
+        }
+        
+        if (!empty($_POST['on-finish'])) {
+            switch ($_POST['on-finish']) {
+                case 'play-button':
+                case 'remove':
+                case 'blank':
+                    $playerParams['on-finish'] = $_POST['on-finish'];
+                    break;
+            }
+        }
+        
+        if ((int) $_POST['rotation']) {
+            $playerParams['rotation'] = (int) $_POST['rotation'];
+        }
+        
+        if ((int) $_POST['zoom'] != 100) {
+          //  $playerParams['zoom'] = round((int) $_POST['zoom'] / 100, 1);
+            $playerParams['zoom'] = round((int) $_POST['zoom'],1);
+        }
+        
+        if ((int) $_POST['freeze'] > 0) {
+            $playerParams['freeze'] = (int) $_POST['freeze'];
+        }
+        
+        if (!empty($_POST['on-click-open-url']) && strpos($_POST['on-click-open-url'], 'http') === false) {
+            $_POST['on-click-open-url'] = 'http://'.$_POST['on-click-open-url'];
+        }
+        if (filter_var($_POST['on-click-open-url'], FILTER_VALIDATE_URL) !== false && in_array($_POST['on-click-open-url-target'], array('blank', 'self'))) {
+            $playerParams['on-click-open-url'] = $_POST['on-click-open-url'];
+            $playerParams['on-click-open-url-target'] = $_POST['on-click-open-url-target'];
+        }
+        
+        
+        if (!empty($_POST['on-click-event'])) {
+            $playerParams['on-click-event'] = $_POST['on-click-event'];
+        }
+        
+        if (!empty($_POST['youtube'])) {
+            $playerParams['youtube'] = $_POST['youtube'];
+        }
+
+        $playerPosition = serialize($playerPosition);
+        $playerParams = serialize($playerParams);
     }
-    
-    if ((int) $_POST['rotation']) {
-        $playerParams['rotation'] = (int) $_POST['rotation'];
+    else
+    {
+        $playerPosition = "";
+        $playerParams = "";
     }
-    
-    if ((int) $_POST['zoom'] != 100) {
-      //  $playerParams['zoom'] = round((int) $_POST['zoom'] / 100, 1);
-        $playerParams['zoom'] = round((int) $_POST['zoom'],1);
-    }
-    
-    if ((int) $_POST['freeze'] > 0) {
-        $playerParams['freeze'] = (int) $_POST['freeze'];
-    }
-    
-    if (!empty($_POST['on-click-open-url']) && strpos($_POST['on-click-open-url'], 'http') === false) {
-        $_POST['on-click-open-url'] = 'http://'.$_POST['on-click-open-url'];
-    }
-    if (filter_var($_POST['on-click-open-url'], FILTER_VALIDATE_URL) !== false && in_array($_POST['on-click-open-url-target'], array('blank', 'self'))) {
-        $playerParams['on-click-open-url'] = $_POST['on-click-open-url'];
-        $playerParams['on-click-open-url-target'] = $_POST['on-click-open-url-target'];
-    }
-    
-    
-    if (!empty($_POST['on-click-event'])) {
-        $playerParams['on-click-event'] = $_POST['on-click-event'];
-    }
-    
-    if (!empty($_POST['youtube'])) {
-        $playerParams['youtube'] = $_POST['youtube'];
-    }
-    
     if (!count($errorMessages)) {
         
            $checkSql = $wpdb->prepare('describe `'.VideoStir::getTableName().'` `pages`','');
@@ -148,11 +160,11 @@ if (isset($_POST['update'])) {
         ', 
 
             $pages
-        ,   serialize($playerPosition)
+        ,   $playerPosition
         ,   $_POST['width']
         ,   $_POST['height']
         ,   $_POST['url']
-        ,   serialize($playerParams)
+        ,   $playerParams
         ,   $_GET['id']
         );
 
@@ -230,18 +242,40 @@ if (!empty($data)) {
                         <div class="spacer-10">&nbsp;</div>
                         <label for="name">Name</label> 
                         <input id="name" name="name" value="<?php echo $video['name']; ?>" style="width: 200px;" />
-                        <input type="submit" name="change-name" class="nbutton" value="SAVE NAME" />
+                        <input type="submit" name="change-name" class="nbutton" style="font-size:13px;" value="SAVE NAME" />
                     </form>
                 </div>
             </div> 
+            
+             <?php if (!$playerParams):?>                
+                <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
+                   
+                    <div class="inside">
+                        <button onclick="goToEmbed('<?php echo $video['url']?>')" name="setup" class="nbutton" value="" style=" margin-top:5px;font-weight:bold;height : 30px;">SETUP YOUR FLOATING CLIP SETTINGS</button>                   
+                    </div>
+                </div>     
+            <?php endif ?> 
             <form method="post" action="" onsubmit="return validateVideoStirEditForm();">
                 <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
+                    <?php if (!$playerParams):?>
+                        <div style="margin:10px;display:none;">
+                            <label for="url">Clip ID <span class="help" title="Unique clip ID as given by VideoStir system after creating the floating clip. For example: 0ba20ab3a3daa3f5bcceb9c87ff4f777">(?)</span></label>
+                            <input style="width: 50%;" id="url" readonly name="url" value="<?php echo $video['url'] ?>" />
+                            <div class="spacer-05">&nbsp;</div>
+
+                            <p style="text-align: right;  float : right;">
+                                <input type="submit" name="update" class="nbutton" value="APPLY" style="font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
+                            </p>
+                        </div>
+                    <?php endif ?> 
                     <h3 style="cursor: default;">Choose the pages/posts for the clip to run on</h3>
+
                     <div class="inside frm">
                             <div class="spacer-10">&nbsp;</div>
 
                             <strong>Pages</strong><input type="checkbox" id='check_all' style = "margin-left:30px" onclick="changePages(this,'pages');"><span> select / unselect all pages </span>
-                            <div class="posts-container">
+
+                            <div class="posts-container" style="margin-top:5px;">
                                 <?php
                                 $apages = explode(',', $video['pages']);
                                 if (get_option('page_on_front') == 0) {
@@ -276,7 +310,8 @@ if (!empty($data)) {
                             <div class="spacer-10">&nbsp;</div>
 
                             <strong>Posts</strong><input style='margin-left:30px' type="checkbox" id='check_all' onclick="changePages(this,'posts');"><span> select / unselect all posts </span>
-                            <div class="posts-container">
+                            <br>
+                            <div class="posts-container" style="margin-top:5px;">
                                 <?php
                                 $apages = explode(',', $video['pages']);
                                 $posts = get_posts(array('numberposts' => -1));
@@ -296,9 +331,14 @@ if (!empty($data)) {
                                 }
                                 ?>
                             </div>
+                            <!-- <p style="text-align: right;  float : right;"> -->
+                                <input type="submit" name="update" class="nbutton" value="APPLY" style="float:right; margin-top: -30px;font-size : 100%; font-weight:bold;height : 30px; width : 80px;"/>
+                            <!-- </p>   -->
                     </div>
                 </div>
+  <?php if ($playerParams):?>                
                 <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
+
                     <h3 style="cursor: default;">Define player parameters</h3>
                     <div class="inside frm">
 
@@ -343,12 +383,14 @@ if (!empty($data)) {
                             }
 
                             ?>
+        
+
                             <select id="position" name="position">
                                 <option <?php if ($playerPosition == '"bottom-right"') echo 'selected="selected"'; ?> value="bottom-right">Bottom / Right</option>
                                 <option <?php if ($playerPosition == '"bottom-left"')  echo 'selected="selected"'; ?> value="bottom-left">Bottom / Left</option>
                                 <option <?php if ($playerPosition == '"top-left"')     echo 'selected="selected"'; ?> value="top-left">Top / Left</option>
                                 <option <?php if ($playerPosition == '"top-right"')    echo 'selected="selected"'; ?> value="top-right">Top / Right</option>
-				<option <?php if ($playerPosition == '"center"') echo 'selected="selected"'; ?> value="center">Center</option>
+		                  		<option <?php if ($playerPosition == '"center"') echo 'selected="selected"'; ?> value="center">Center</option>
                             </select>
                             <input style="width: 12%;" name="val1" id="val1" value="<?php echo $val1 ? $val1 : '0' ?>" /> x <input style="width: 12%;" name="val2" id="val2" value="<?php echo $val2 ? $val2 : '0'?>" />
                             <div class="spacer-5">&nbsp;</div>
@@ -462,15 +504,18 @@ if (!empty($data)) {
                         
                     </div>
                 </div>
+<?php endif ?>
+
             </form>
-            
+<?php if ($playerParams):?>            
             <div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
                 <h3 style="cursor: default;">VideoStir embed code (read-only, no need to copy)</h3>
                 <div class="inside">
                     <textarea style="width: 100%; height: 70px;" id="embed" readonly="readonly" name="embed"><?php echo $embedCode; ?></textarea>
                 </div>
             </div> 
-            
+<?php endif ?>
+          
         </div>
 
         <div style="width: 5%; float: left;">&nbsp;</div>
@@ -493,5 +538,9 @@ if (!empty($data)) {
         for(var i=0, n=checkboxes.length;i<n;i++) {
         checkboxes[i].checked = source.checked;
   }
+    }
+    function goToEmbed(hash)
+    {
+        window.open("http://videostir.com/embed-one-line/?shash="+hash);
     }
 </script>

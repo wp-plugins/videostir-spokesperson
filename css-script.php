@@ -22,10 +22,27 @@
         border: 1px solid #39c54a;
         color:#FFFFFF;
         cursor: pointer;
+         -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.6);
+        box-shadow: 0 1px 3px rgba(0,0,0,.6);
     }
+
+    
     .nbutton:hover{
         background-color: #FFFFFF;
         color:#39c54a;
+    }
+
+    .nbutton-blue {
+        background-color: #0093c7;
+        -webkit-border-radius: 2px;
+        border: 1px solid #0093c7;
+        color:#FFFFFF;
+        cursor: pointer;
+
+    }
+    .nbutton-blue:hover{
+        background-color: #FFFFFF;
+        color:#0093c7;
     }
 </style>
 
@@ -139,8 +156,8 @@
         
         if (code.length < 16 ) {
             alert(
-                'Wait, you should first quickly prepare you VideoStir floating clip.'
-                + '\n\nPaste the 3 lines you got from videostir.com after transforming your video into a floating clip in the text box below.'
+                'Wait, you should first quickly prepare you VideoStir floating clip or select one from our clip market. '
+                + '\n\nPaste the 1 line you got from videostir.com after transforming your video into a floating clip in the text box below.'
                 + '\nClick "Next" to adjust the parameters that will appear and choose the pages/posts that will hold the clip from the list.'
             );
             return false;
@@ -156,8 +173,8 @@
 		if (code.indexOf('VS.Player.show')===-1)
 		{
 			alert(
-                'Wait, you should first quickly prepare you VideoStir floating clip.'
-                + '\n\nPaste the 3 lines you got from videostir.com after transforming your video into a floating clip in the text box below.'
+                'Wait, you should first quickly prepare you VideoStir floating clip or select one from our clip market. '
+                + '\n\nPaste the 1 line you got from videostir.com after transforming your video into a floating clip in the text box below.'
                 + '\nClick "Next" to adjust the parameters that will appear and choose the pages/posts that will hold the clip from the list.'
             );
             return false;

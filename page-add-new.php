@@ -86,6 +86,41 @@ if (isset($_POST['apply'])) {
     }
     if (!count($errorMessages)) {
         
+        // $sql = $wpdb->prepare('
+        // INSERT INTO `'.VideoStir::getTableName().'`
+        // (
+        //     `name`
+        // ,   `pages`
+        // ,   `active`
+        
+        // ,   `position`
+        // ,   `width`
+        // ,   `height`
+        // ,   `url`
+        // ,   `settings`
+        // ) VALUES (
+        //     %s
+        // ,   %s
+        // ,   %d
+        
+        // ,   %s
+        // ,   %d
+        // ,   %d
+        // ,   %s
+        // ,   %s
+        // )', 
+                
+        //     $videoName
+        // ,   ''
+        // ,   1
+                
+        // ,   serialize($playerParams['position'])
+        // ,   $playerParams['width']
+        // ,   $playerParams['height']
+        // ,   $playerParams['url']
+        // ,   serialize($playerParams['settings'])
+        // );
+
         $sql = $wpdb->prepare('
         INSERT INTO `'.VideoStir::getTableName().'`
         (
@@ -114,11 +149,11 @@ if (isset($_POST['apply'])) {
         ,   ''
         ,   1
                 
-        ,   serialize($playerParams['position'])
+        ,   ''
         ,   $playerParams['width']
         ,   $playerParams['height']
         ,   $playerParams['url']
-        ,   serialize($playerParams['settings'])
+        ,   ''
         );
 
         $wpdb->query($sql);
@@ -163,7 +198,7 @@ if (isset($_POST['apply'])) {
             <div id="formdiv" class="postbox " style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);padding: 20px" >
                 <h2 style="margin: 10px 0 0px;">INSTRUCTIONS</h2>
                 <ol>
-                    <li>In the textbox below, paste the Embed Line you got from <a href="http://videostir.com/?page=wp-instructions">videostir.com</a> after transforming your video into a floating clip.</li>
+                    <li>In the textbox below, paste the Embed Line you got from <a href="http://videostir.com/?page=wp-instructions">videostir.com</a> after transforming your video into a floating clip (or use one from our <a target="_blank" href="http://videostir.com/clips-stock/try-a-free-clip?page=wp-market">clip market</a>).</li>
                     <li>Click “Next”.</li>
                     <li>You can now give your clip a name, adjust its customization parameters to suit your preferences, and choose in which pages/posts your clip will appear.</li>
                     <li>Click “Apply”.</li>
@@ -184,7 +219,7 @@ if (isset($_POST['apply'])) {
                         
                         <p style="text-align: right;">
 <!--                            <button type="button" class="nbutton" onclick="window.open('http://videostir.com/video/download/1')">HELP</button>-->
-                            <button type="button" class="nbutton" onclick="window.location='<?php echo get_bloginfo('url').'/wp-admin/admin.php?page=videostir_options' ?>'">CANCEL</button>
+                            <button type="button" class="nbutton effect3"  onclick="window.location='<?php echo get_bloginfo('url').'/wp-admin/admin.php?page=videostir_options' ?>'">CANCEL</button>
                             <button type="submit" class="nbutton" ><strong>NEXT</strong></button>
                             <input type="hidden" name="apply" />
                         </p>
@@ -195,7 +230,7 @@ if (isset($_POST['apply'])) {
 
             <div id="formdiv" class="postbox" style=" box-shadow: 0 5px 15px rgba(0,0,0,0.15);border: 1px solid rgba(0,0,0,0.25);">
                 <h3 style="cursor: default;">Tutorial &mdash; How to use this plugin</h3>
-                <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/byWDi50sFGM?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
+                <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/_jmNZoMLFlc?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
             </div>
 
         </div>
