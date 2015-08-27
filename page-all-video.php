@@ -134,7 +134,7 @@ $data = $wpdb->get_results('SELECT * FROM `'.VideoStir::getTableName().'`', ARRA
             
             <div id="formdiv" class="postbox">
                 <h3 style="cursor: default;">Tutorial &mdash; How to use this plugin</h3>
-                <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="300" src="http://www.youtube.com/embed/_jmNZoMLFlc?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
+                <iframe title="YouTube video player" class="youtube-player" type="text/html" width="100%" height="550" src="http://www.youtube.com/embed/_jmNZoMLFlc?theme=light&color=white&showinfo=0&controls=1&wmode=transparent&rel=0" frameborder="0" allowFullScreen></iframe>
             </div>
             
             <?php endif; ?>

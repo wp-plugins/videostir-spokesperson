@@ -6,7 +6,7 @@ defined('ABSPATH') OR exit;
   Plugin Name: VideoStir Spokesperson
   Plugin URI: http://wordpress.org/extend/plugins/videostir-spokesperson/
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 2.0
+  Version: 2.0.2
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */
@@ -34,7 +34,7 @@ class VideoStir
      * Plugin version.
      * @var sting
      */
-    const VERSION = '2.0';
+    const VERSION = '2.0.2';
     
     /**
      * WP option name where plugin's version is saved.
@@ -71,8 +71,8 @@ class VideoStir
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
-        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.17.10/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
-        wp_enqueue_script('videostir-spokesperson.data', plugins_url('/js/2.17.10/vs.player.embed.js', __FILE__), array('videostir-spokesperson.player'));
+        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.17.12/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.data', plugins_url('/js/2.17.12/vs.player.embed.js', __FILE__), array('videostir-spokesperson.player'));
     }
 
     public static function add_my_stylesheet() {

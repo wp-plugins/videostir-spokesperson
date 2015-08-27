@@ -1,57 +1,70 @@
-﻿=== VideoStir Spokesperson ===
+=== VideoStir Spokesperson ===
 Contributors: alexey_bass, shy_frenkel
 Donate link: http://videostir.com/
-Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, ad, change background
+Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, HTML5, change background
 Requires at least: 3.0
 Tested up to: 4.2.4
-Stable tag: 2.0
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add an interactive call-to-action clip to your site. Engage with your visitors in less than 5 minutes. Add buttons/text/email forms and see results.
-
-
+Add interactive videos of a new kind to your site, to engage/convert your traffic in 2 minutes - Video Calls to action with buttons, forms and emails.
 == Description ==
-
+The [VideoStir](http://videostir.com/?page=wp-org) plugin lets you add to your WordPress website **a special kind of borderless videos** that float over your pages/posts.
 [youtube http://www.youtube.com/watch?v=BjL-8vIp9-s]
 
-The [VideoStir](http://videostir.com/?page=wp-gov) plugin lets you add borderless, transparent background videoclips to your Wordpress website. Theese clips, generated automatically by removing the background from your videos, float over the rest of the content of your page/post. You can use the Videostir plugin to become your own "video spokesperson", to create the most effective Video Calls to Action ever, or in many, many more ways [(see some examples)](http://videostir.com#sp1/?ref=wp). Use your personal touch to talk directly to your customers or to invite them to do whatever you need them to - without sacrificing real estate on your pages/posts to embed a big video player. 
+These videos, generated automatically by removing the background from the original footage,  are entirely customizable and interactive: you can create the most effective Video Calls to Action ever, or use your personal touch to talk directly to your customers. It's your choice - either make a video using your smartphone or use one of our customizable pre-made clips. All of this without sacrificing real estate on your pages/posts to embed a big video player, or having to change your theme's layout to accommodate something new.
 
-You can also select a pre-made clip from our [clip market](http://videostir.com/clips-stock/try-a-free-clip?page=wp-market-org). We have a few for any purpose. You can add buttons / text / emails forms on your clips and make them interactive. 
+You can always select a pre-made clip that fits your needs from our (free) Clip Library, and then add or customize its buttons / text / email forms. **The email/subscription/mailing list features have proven to increase the number of subscribers considerably** - and all the work is done automatically by the clip!
+
 [youtube http://www.youtube.com/watch?v=K5_4TEEW8_E]
 
-Interactivity
+= PLUGIN FEATURES =
+* Embed as many floating clips as you want, controlling their behaviour and interactivity from the plugin's Dashboard
+* Assign each floating clip to whatever page(s)/post(s) you want;
+* Get free support in 1 click
+* It's free! 
 
-Your floating clips are fully customizable, and interactive. You can decide how the clip will behave, and what will happen if someone clicks on it - for more information, see [here](http://videostir.com/features/?page=wp-gov).
+= FLOATING CLIPS FEATURES =
+= General =
+* Choose size
+* Choose position on page
+* Choose "On Click" destination URL/Javascript
+* Choose Autoplay on/off
+* Choose AutoMute on/off
+* ... SO MUCH MORE
 
-How it works
+= Advanced interactive features =
+* Add/customize Text buttons (for example: add items to cart/grab a coupon/we have a special deal…)
+* **Add/customize email forms** (to increase your mailing list subscribers!)
+* Add/customize timeline for buttons/forms
+* Set custom "On Click" destination URL/Javascript for buttons
+* ... SO MUCH MORE!
 
-VideoStir transforms your videos into interactive, transparent background videoclips that you can run on top of your pages/posts. The process is automatic and takes [3 steps which take on average 5 minutes](http://www.youtube.com/watch?v=5nl1WRZwgH0). You can use any camera to record the video you want to transform into a floating videoclip - including, of course, your smartphone's camera - and all you need to do is shoot it in front of a uniform color background (a white wall, a blue sky - any color will do) following our basic [guidelines]( http://videostir.com/guidelines/?ref=wp). That's it! Upload your video, witness the engine's magic happening and then use your newly generated videoclip on any page/post of your Wordpress site. 
+= DIY floating clips =
+* You can make your own unique floating clips in 3 steps - add your personal touch to your website!
+* Just record yourself in front of a uniform color (guidelines [here](http://videostir.com/guidelines/?page=wp-gov-guide) ) with your smartphone and upload your video
+* The VideoStir Engine will automatically transform your video into an interactive floating clip in 2 minutes
+* Customize your clip - all the functions above are available!
+* Entire process takes 5 minutes
+* Please note: - No green screen needed - No professional equipment needed
 
-Please note:
-- No green screen needed
-- No professional equipment needed
+= Pre-made floating clips =
+* Many converting, effective pre-made clips available in the [Clip Library](http://videostir.com/clips-stock/try-a-free-clip/?page=wp-gov-lib) (and it keeps growing!)
+* Proven results
+* Choose your clip from many different categories
+* Customize your clip - all the functions above are available!
+* Entire process takes a few seconds
 
-In a nutshell
-
-1. Record a video - just make sure to follow our guidelines for best results (one-colored wall etc.)
-2. Go through 3 simple steps (Upload, Tune, Enjoy) - In a few minutes our VideoStir engine will have created a background-less floating clip for you
-3. Embed your floating clip into your Wordpress site - Just assign your videoclip(s) to the pages/posts of your choice using the plugin.
-
-[See for yourself in our demo!](http://videostir.com/demo/?page=wp-org)
-
-Here is a short video tutorial that shows how to use this plugin
 [youtube http://www.youtube.com/watch?v=_jmNZoMLFlc]
 
-We will be happy to support you and **even improve your clip if needed**.
-Just drop us a line at info@videostir.com and we will take it from there.
+We will be happy to support you and even improve your clip if needed. Just drop us a line at info@videostir.com and we will take it from there.
 
 Shy Frenkel
 
 CEO - VideoStir LTD
 
-P.s. We are working on an experimental feature, "Follow me".
-"Follow me" takes your website visitors on a tour on your website. While your floating clip is running in the foreground, the webpage in the background is changed following a timeline that suits what is said in the clip. See it action (from your PC): [Shy Frenkel - VideoStir CEO talk about this feature](http://videostir.com/follow-me-demo.html?page=wp-org-follow).
+P.s. You can find many more useful tools for your WP site on [VideoStir](http://videostir.com/?page=wp-org) - computer vision automated processes freely available to you, such as [Video on Video](http://videostir.com/video-on-video?page=wp-org-vov) or [Video on Image](http://videostir.com/video-on-image?page=wp-org-voi) (which allow you to substitute the background of your videos with another video, or an image), or [Image on Image](http://videostir.com/replace-image-background?page=wp-org-ioi) (same, but with images) and more...
 
 == Installation ==
 
@@ -121,6 +134,13 @@ The [VideoStir Engine]( http://videostir.com/engine/?page=wp-org-eng) is an excl
 
 
 == Changelog ==
+= 2.0.2 =
+* Change in youtube tutorials height on plugin
+* New plugin description
+
+= 2.0.1 =
+* new player version
+
 = 2.0 =
 * Clip settings can now be customized from Videostir's live dashboard. 
 * User can choose pre-made videos from Videostir's clip market
