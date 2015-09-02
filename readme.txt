@@ -4,7 +4,7 @@ Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, HTML5, change background
 Requires at least: 3.0
 Tested up to: 4.2.4
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,10 @@ The [VideoStir Engine]( http://videostir.com/engine/?page=wp-org-eng) is an excl
 
 
 == Changelog ==
+= 2.0.3 =
+* Changes in comming features
+* for Video on Video service
+
 = 2.0.2 =
 * Change in youtube tutorials height on plugin
 * New plugin description

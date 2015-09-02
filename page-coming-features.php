@@ -6,7 +6,7 @@ global $wpdb;
 <div class="wrap">
 	<h2><img class="logo" src="<?php echo $this->logo; ?>" alt="VideoStir" /> Coming features -  <a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">Let us know what you think</a> </h2>
 	<div style="width: 3%;float: left;">&nbsp;</div>
- 	<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
+ 	<div id="formdiv" class="postbox " style="display:none;border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>"Video Tour" around the internet - </b><a target="_blank" href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> Live demo</a></h2>
 			<a href="http://videostir.com/tour/go/?hash=cfde0aa1c3fd0b82b1028ca6bdf241ae&tid=777&utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/online-presntation-tour.jpg" width="600" alt="VideoStir" /></a>
@@ -24,19 +24,35 @@ global $wpdb;
 	<div style="width: 3%;float: left;">&nbsp;</div>
  	<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
 		<div class="inside">
-			<h2 style="cursor: default;"><b>Video On Image - already in Beta- </b><a target="_blank" href="http://videostir.com/video-on-image/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin"> start here</a></h2>
-			<a href="http://videostir.com/video-on-image/?page=wp-features" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/simple3x3-voi-tmp.jpg" width="600" alt="VideoStir" /></a>
+			<h2 style="cursor: default;"><b>Video On Image - </b><a target="_blank" href="http://videostir.com/video-on-image/?page=wp-more-features-voi"> start here</a></h2>
+			<a href="http://videostir.com/video-on-image/?page=wp-more-features-voi" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/simple3x3-voi-tmp.jpg" width="600" alt="VideoStir" /></a>
 			<div>&nbsp;</div>
 			<h3 style="cursor: default;">In a nutshell</h3>
 			<h4 style="margin-bottom: 2px;">1. Upload Video + Upload Image => get a Video on Image mix</h4>
 			<p style="margin-top: 0px;">Same basic DIY floating clip with any image automatically mixes them both</p>
 			<h4 style="margin-bottom: 2px;">2. Download the result clip to your PC</h4>
+			<p style="margin-top: 0px;">Entirely automatically and takes less than 5 minutes.</p>
+<a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">Let us know what you think</a>
+		</div>
+	</div>		
+		<div style="width: 3%;float: left;">&nbsp;</div>
+
+		<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
+		<div class="inside">
+			<h2 style="cursor: default;"><b>Video On Video - </b><a target="_blank" href="http://videostir.com/video-on-video/?page=wp-more-features-vov"> start here</a></h2>
+			<a href="http://videostir.com/video-on-video/?page=wp-more-features-vov" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/simple3x3-voi-tmp.jpg" width="600" alt="VideoStir" /></a>
+			<div>&nbsp;</div>
+			<h3 style="cursor: default;">In a nutshell</h3>
+			<h4 style="margin-bottom: 2px;">1. Upload Foreground Video  + Upload Background Video => get a Video on Video mix</h4>
+			<p style="margin-top: 0px;">Same basic DIY floating clip with any video automatically mixes them both</p>
+			<h4 style="margin-bottom: 2px;">2. Download the result clip to your PC</h4>
 			<p style="margin-top: 0px;">Entirely automatically and takes less than 5 minutes - entirely free for now.</p>
 <a href="#" style="font-size:18px" onclick="UserVoice.showPopupWidget(); return false;">Let us know what you think</a>
 		</div>
+
 	</div>
         <div style="width: 3%;float: left;">&nbsp;</div>
- 	<div id="formdiv" class="postbox " style="border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
+ 	<div id="formdiv" class="postbox " style="display:none;border: 1px solid rgba(0,0,0,0.25); box-shadow: 0 5px 15px rgba(0,0,0,0.15);" >
 		<div class="inside">
 			<h2 style="cursor: default;"><b>Play List - already in Beta</b></h2>
 			<a href="http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin" onclick="window.open(this.href); return false;" ><img src="<?php bloginfo('url'); ?>/wp-content/plugins/videostir-spokesperson/img/play-list.jpg" width="600" alt="VideoStir" /></a>
@@ -61,7 +77,7 @@ $videoRow = array(
     'settings' => serialize(array(
         'auto-play' => true,
         'auto-play-limit' => 200,
-        'disable-player-threshold' => 200,
+        'disable-player-threshold' => 2,
         'playback-delay' => 0,
         'quiet' => true,
         'on-finish' => 'play-button',
