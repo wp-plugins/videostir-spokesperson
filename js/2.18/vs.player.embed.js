@@ -1,7 +1,14 @@
 /* worppress embed js*/
-/* ver: 2.0 */
+
+var wpVersion = "2.1";
+var wpVersionDate = "20.09.15"
+var docReady = true;
 
 
+function printVersion()
+{
+    console.log("wp-ws-embed version is:"+wpVersion+" from:"+wpVersionDate);
+}
 
 function loadStyle(url)
 {
@@ -131,10 +138,10 @@ function prepareSettingsForHtml5(videoData)
         }
     return properties;    
 }
-function checkBrowserForHtml5(videoData)
+
+var browserDetect = function()
 {
-    var result = false;
-    var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+     var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 
     var isEdge = navigator.userAgent.indexOf('Edge') >= 0;
 
@@ -147,21 +154,44 @@ function checkBrowserForHtml5(videoData)
 
     var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
     // At least Safari 3+: "[object HTMLElementConstructor]"
-    var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+    var isChrome = !!window.chrome && !isOpera && !isSafari;              // Chrome 1+
     var isIE = /*@cc_on!@*/false || !!document.documentMode; // At least IE6
-    
-    if ((isChrome || isFirefox || isVivaldi) && videoData.settings['h5_enabled'] && !isEdge) result = true;
+
+    var readyForHtml5 = function ()
+    {
+        return ((isChrome || isFirefox || isVivaldi) && !isEdge)
+    }
+
+    var debugMode = function()
+    {
+        console.log('safari:'+isSafari);
+        console.log('chrome:'+isChrome);
+        console.log('ff:'+isFirefox);
+        console.log('IE:'+isIE);
+        console.log('vivaldi:'+isVivaldi);
+        console.log('ready for html5:'+readyForHtml5());
+    }
+    return {readyForHtml5:readyForHtml5, debugMode:debugMode}
+}
+
+function checkBrowserForHtml5(videoData)
+{
+     var result = false;
+
+     var bd = new browserDetect();
+
+    if (bd.readyForHtml5() && videoData.settings['h5_enabled']) result = true;
+
+    if (videoData.settings['debug_mode']) bd.debugMode();
     return result;
 }
 
 function getVsParams(embedHash)
 {
 
-	//url="http://localhost:8084/get-videostir/get-params/"
-	url="http://videostir.com/get-videostir/get-params/";
-
-    //styleUrl = "https://c391671.ssl.cf1.rackcdn.com/embed/1/vsembed.css";
-    //loadStyle(styleUrl);
+    printVersion();
+	var url="http://videostir.com/get-videostir/get-params/";
+    //var url="http://localhost:8084/get-videostir/get-params/";
 
 	VS.jQuery.ajax({
 				type: 'get'
@@ -183,6 +213,7 @@ function getVsParams(embedHash)
                 }
                 else
                 {
+                    
                     properties = prepareSettingsForFlash(videoData);
                     VS.Player.show(properties.position, properties.settings['width'], properties.settings['height'], properties.vhash, properties.params);
 

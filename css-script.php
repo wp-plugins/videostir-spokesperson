@@ -169,6 +169,14 @@
 //				+'\nWe will be happy to support you - just drop us a line to info@videostir.com');
 			return true;
 		}
+
+        if (code.indexOf('videostir.start')!=-1 )
+        {
+//          alert('Please go back to your video page on VideoStir website and use the old embed code structure for your clip.\n'
+//              +'Just click on the button saying "Old embed code" in the "Enjoy" step and copy the lines from there.'
+//              +'\nWe will be happy to support you - just drop us a line to info@videostir.com');
+            return true;
+        }
 		
 		if (code.indexOf('VS.Player.show')===-1)
 		{

@@ -7,6 +7,32 @@ $info = '';
 $videoName = (isset($_POST['name'])) ? $_POST['name'] : 'VideoStir clip';
 $embed = (isset($_POST['embed'])) ? stripslashes($_POST['embed']) : '';
 
+function generateParamsForEmbedLine($hash,&$errorMessages)
+{
+    $allData = array();
+    $params = array();
+    $position = array();
+    $position['bottom']='0';
+    $position['right']='350';
+    $allData['position'] = $position;
+    $allData['width'] = '448';
+    $allData['height'] = '252';
+    $allData['url'] = $hash;
+
+    if (!ctype_alnum($allData['url']) || strlen($allData['url']) !== 32) {
+        $errorMessages[] = 'Clip ID is not valid.';
+    }
+
+    $params['auto-play']='true';
+    $params['auto-play-limit']='10';
+    $params['playback-delay']='0';
+    $params['on-finish']='play-button';
+    $params['on-click-open-url']='';
+    $params['extrab']='2';
+    $allData['settings'] = $params;
+    return $allData;
+}
+
 if (isset($_POST['apply'])) {
     
     $errorMessages = array();
@@ -18,6 +44,7 @@ if (isset($_POST['apply'])) {
         preg_match('/\<script\>\s*VS\.Player\.show\((.+)\);\s*\<\/script\>/s', $embed, $matches);
     }
     $embedHash=false;
+    $newEmbedHash = false;
     if (!count($matches) ) // if it's not regular embed code
     {
         $pos=strstr($embed,'vsembed.js');
@@ -27,6 +54,17 @@ if (isset($_POST['apply'])) {
 
         }
     }
+
+    if (!count($matches) ) // if it's not regular embed code
+    {
+        $pos=strstr($embed,'videostir.start');
+        if ($pos)
+        {
+            $pos = strrpos($embed,'videoHash=');            
+            $newEmbedHash = substr($embed,$pos+11,32);
+        }
+    }
+
     //var_dump($matches);
     //exit();
     $playerParams = array();
@@ -62,64 +100,37 @@ if (isset($_POST['apply'])) {
     }
     else if ($embedHash)
     {
+        // $params = array();
+        // $position = array();
+        // $position['bottom']='0';
+        // $position['right']='350';
+        // $playerParams['position'] = $position;
+        // $playerParams['width'] = '448';
+        // $playerParams['height'] = '252';
+        // $playerParams['url'] = $embedHash;
 
-        $params = array();
-        $position = array();
-        $position['bottom']='0';
-        $position['right']='350';
-        $playerParams['position'] = $position;
-        $playerParams['width'] = '448';
-        $playerParams['height'] = '252';
-        $playerParams['url'] = $embedHash;
+        // if (!ctype_alnum($playerParams['url']) || strlen($playerParams['url']) !== 32) {
+        //     $errorMessages[] = 'Clip ID is not valid.';
+        // }
 
-        if (!ctype_alnum($playerParams['url']) || strlen($playerParams['url']) !== 32) {
-            $errorMessages[] = 'Clip ID is not valid.';
-        }
+        // $params['auto-play']='true';
+        // $params['auto-play-limit']='10';
+        // $params['playback-delay']='0';
+        // $params['on-finish']='play-button';
+        // $params['on-click-open-url']='';
+        // $params['extrab']='2';
+        // $playerParams['settings'] = $params;
 
-        $params['auto-play']='true';
-        $params['auto-play-limit']='10';
-        $params['playback-delay']='0';
-        $params['on-finish']='play-button';
-        $params['on-click-open-url']='';
-        $params['extrab']='2';
-        $playerParams['settings'] = $params;
+        $playerParams = generateParamsForEmbedLine($embedHash,$errorMessages);
+    }
+    else if ($newEmbedHash)
+    {
+        $playerParams = generateParamsForEmbedLine($newEmbedHash,$errorMessages);
+        //var_dump($playerParams);
     }
     if (!count($errorMessages)) {
         
-        // $sql = $wpdb->prepare('
-        // INSERT INTO `'.VideoStir::getTableName().'`
-        // (
-        //     `name`
-        // ,   `pages`
-        // ,   `active`
         
-        // ,   `position`
-        // ,   `width`
-        // ,   `height`
-        // ,   `url`
-        // ,   `settings`
-        // ) VALUES (
-        //     %s
-        // ,   %s
-        // ,   %d
-        
-        // ,   %s
-        // ,   %d
-        // ,   %d
-        // ,   %s
-        // ,   %s
-        // )', 
-                
-        //     $videoName
-        // ,   ''
-        // ,   1
-                
-        // ,   serialize($playerParams['position'])
-        // ,   $playerParams['width']
-        // ,   $playerParams['height']
-        // ,   $playerParams['url']
-        // ,   serialize($playerParams['settings'])
-        // );
 
         $sql = $wpdb->prepare('
         INSERT INTO `'.VideoStir::getTableName().'`

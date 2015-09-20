@@ -3,8 +3,8 @@ Contributors: alexey_bass, shy_frenkel
 Donate link: http://videostir.com/
 Tags: video, spokesperson, embed, webcasterwp, flash, transparent, greenscreen, chroma, webcaster wp, model2web, conversion, marketing, HTML5, change background
 Requires at least: 3.0
-Tested up to: 4.2.4
-Stable tag: 2.0.3
+Tested up to: 4.3
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,15 @@ The [VideoStir Engine]( http://videostir.com/engine/?page=wp-org-eng) is an excl
 
 
 == Changelog ==
+= 2.1.1 =
+* HTML5 Player Safari fix
+
+= 2.1 =
+* HTML5 Player support for Chrome and Firefox browsers when enabled
+
+= 2.0.4 =
+* Adding support for new html5 embed code
+
 = 2.0.3 =
 * Changes in comming features
 * for Video on Video service
