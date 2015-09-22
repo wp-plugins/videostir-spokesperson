@@ -1,7 +1,7 @@
 /* worppress embed js*/
 
-var wpVersion = "2.1";
-var wpVersionDate = "20.09.15"
+var wpVersion = "2.2";
+var wpVersionDate = "22.09.15"
 var docReady = true;
 
 
@@ -141,25 +141,41 @@ function prepareSettingsForHtml5(videoData)
 
 var browserDetect = function()
 {
-     var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    // var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    //
+    //var isEdge = navigator.userAgent.indexOf('Edge') >= 0;
+    //
+    //var isVivaldi = navigator.userAgent.toLowerCase().indexOf('vivaldi') > -1;
+    //
+    //// Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+    ////var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+    //
+    //var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    //
+    //var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+    //// At least Safari 3+: "[object HTMLElementConstructor]"
+    //var isChrome = !!window.chrome && !isOpera && !isSafari;              // Chrome 1+
+    //var isIE = /*@cc_on!@*/false || !!document.documentMode; // At least IE6
 
-    var isEdge = navigator.userAgent.indexOf('Edge') >= 0;
+    var isOpera = is.opera();
+
+    //var isEdge = navigator.userAgent.indexOf('Edge') >= 0;
 
     var isVivaldi = navigator.userAgent.toLowerCase().indexOf('vivaldi') > -1;
 
     // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
     //var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
 
-    var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    var isFirefox = is.firefox();
 
-    var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+    var isSafari = is.safari()
     // At least Safari 3+: "[object HTMLElementConstructor]"
-    var isChrome = !!window.chrome && !isOpera && !isSafari;              // Chrome 1+
-    var isIE = /*@cc_on!@*/false || !!document.documentMode; // At least IE6
+    var isChrome = is.chrome();              // Chrome 1+
+    var isIE = is.ie();
 
     var readyForHtml5 = function ()
     {
-        return ((isChrome || isFirefox || isVivaldi) && !isEdge)
+        return ((isChrome || isFirefox || isVivaldi))
     }
 
     var debugMode = function()
