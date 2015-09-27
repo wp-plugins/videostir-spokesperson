@@ -6,7 +6,7 @@ defined('ABSPATH') OR exit;
   Plugin Name: VideoStir Spokesperson
   Plugin URI: http://wordpress.org/extend/plugins/videostir-spokesperson/
   Description: With this plugin you can easily adjust and embed VideoStir clip into your website pages and posts.
-  Version: 2.1.2
+  Version: 2.1.3
   Author: VideoStir team
   Author URI: http://videostir.com/?utm_source=wp-plugin&utm_medium=plugin&utm_campaign=wp-plugin
  */
@@ -34,7 +34,7 @@ class VideoStir
      * Plugin version.
      * @var sting
      */
-    const VERSION = '2.1.2';
+    const VERSION = '2.1.3';
     
     /**
      * WP option name where plugin's version is saved.
@@ -71,10 +71,10 @@ class VideoStir
         wp_enqueue_script('jquery');
         wp_enqueue_script('swfobject');
         wp_enqueue_script('videostir-spokesperson.plugin', plugins_url('/js/videostir.wp.plugin.js', __FILE__), array('jquery', 'swfobject'));
-        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.18/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
-        wp_enqueue_script('videostir-spokesperson.h5.lib', plugins_url('/js/2.18/html5.videostir.full.lib.js', __FILE__), array('videostir-spokesperson.player'));
-        wp_enqueue_script('videostir-spokesperson.h5.player', plugins_url('/js/2.18/html5.videostir.cross.min.js', __FILE__), array('videostir-spokesperson.h5.lib'));
-        wp_enqueue_script('videostir-spokesperson.data', plugins_url('/js/2.18/vs.player.embed.js', __FILE__), array('videostir-spokesperson.h5.player'));
+        wp_enqueue_script('videostir-spokesperson.player', plugins_url('/js/2.19/vs.player.min.js', __FILE__), array('videostir-spokesperson.plugin'));
+        wp_enqueue_script('videostir-spokesperson.h5.lib', plugins_url('/js/2.19/html5.videostir.full.lib.js', __FILE__), array('videostir-spokesperson.player'));
+        wp_enqueue_script('videostir-spokesperson.h5.player', plugins_url('/js/2.19/html5.videostir.cross.min.js', __FILE__), array('videostir-spokesperson.h5.lib'));
+        wp_enqueue_script('videostir-spokesperson.data', plugins_url('/js/2.19/vs.player.embed.js', __FILE__), array('videostir-spokesperson.h5.player'));
     }
 
     public static function add_my_stylesheet() {
