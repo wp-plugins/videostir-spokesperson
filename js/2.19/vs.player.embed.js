@@ -1,7 +1,7 @@
 /* worppress embed js*/
 
-var wpVersion = "2.3";
-var wpVersionDate = "27.09.15"
+var wpVersion = "2.4";
+var wpVersionDate = "30.10.15"
 var docReady = true;
 
 
@@ -227,7 +227,13 @@ function getVsParams(embedHash)
                 if (checkBrowserForHtml5(videoData))
                 {
                    properties = prepareSettingsForHtml5(videoData);
-                   videostir_html5.showVideoEmbed(properties);     
+
+                   var delay = videoData.settings.params['playback-delay']*1000 || 0;
+                    setTimeout(function() {                     
+                        videostir_html5.showVideoEmbed(properties);
+                    }, delay);
+
+                  // videostir_html5.showVideoEmbed(properties);     
                 }
                 else
                 {

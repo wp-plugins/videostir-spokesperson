@@ -1,7 +1,7 @@
 /* worppress embed js*/
 
-var wpVersion = "2.2";
-var wpVersionDate = "22.09.15"
+var wpVersion = "2.3";
+var wpVersionDate = "27.09.15"
 var docReady = true;
 
 
