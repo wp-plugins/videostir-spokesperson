@@ -1,7 +1,7 @@
 /* worppress embed js*/
 
-var wpVersion = "2.4";
-var wpVersionDate = "30.10.15"
+var wpVersion = "2.5";
+var wpVersionDate = "08.10.15"
 var docReady = true;
 
 
@@ -130,7 +130,8 @@ function prepareSettingsForHtml5(videoData)
             label: params['label'],
             target: 'prod',
             debugMode: settings['debug_mode'],
-            stats: settings['stats']
+            stats: settings['stats'],
+            rotation: params['rotation']
 
         };
 
