@@ -1,6 +1,6 @@
 /* worppress embed js*/
 
-var wpVersion = "2.6";
+var wpVersion = "2.6.1";
 var wpVersionDate = "21.10.15"
 var docReady = true;
 
@@ -99,6 +99,7 @@ function prepareSettingsForHtml5(videoData)
     var videoWidth = settings['h5_width']? settings['h5_width']:400;
     var videoHeight = settings['h5_height']? settings['h5_height']: 224;
 
+    var clickOpen = params['on-click-open-url']? params['on-click-open-url'] : false;
 
      var properties = {
             //
@@ -121,7 +122,7 @@ function prepareSettingsForHtml5(videoData)
             delay : 2,
             getUserData: true,
             freeze: params['freeze'],
-            onclickopenurl: params['on-click-open-url'],
+            onclickopenurl: clickOpen,
             alphaRulesLink: vhash+'-mask.txt',
             onlyCross: true,
             posterImage: 'https://vs-html5.s3.amazonaws.com/newPoster.png',
